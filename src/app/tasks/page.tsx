@@ -7,8 +7,6 @@ export default function Tasks() {
 
 	if(!session) throw new AuthRequiredError
 
-	console.log("Hello")
-
   return (
     <div>tasks</div>
   )
