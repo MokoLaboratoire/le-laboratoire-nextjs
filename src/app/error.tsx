@@ -10,6 +10,6 @@ export default function error({
     reset: () => void
 }) {
   return (
-    <div>error</div>
+    <div>{error.message}</div>
   )
 }
