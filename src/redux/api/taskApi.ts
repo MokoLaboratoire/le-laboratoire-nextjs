@@ -1,25 +1,22 @@
-import apiSlice from '../slices/apiSlice';
-import { default as ApiConstants } from '@/constants/apiConstants.json';
-import { TaskInterface } from '@/interfaces/TaskInterface';
+import apiSlice from '../slices/apiSlice'
+import { default as ApiConstants } from '@/constants/apiConstants.json'
+import { TaskInterface } from '@/interfaces/TaskInterface'
 
 const taskApi = apiSlice.injectEndpoints({
-  endpoints: build => ({
+  endpoints: (build) => ({
     getTasks: build.query<TaskInterface[], void>({
       query: () => ApiConstants.TASK,
-      providesTags: ['Task']
+      providesTags: ['Task'],
     }),
     addNewTask: build.mutation<TaskInterface, TaskInterface>({
       query: (task) => ({
         url: ApiConstants.TASK,
         method: 'POST',
-        body: task
+        body: task,
       }),
-      invalidatesTags: ['Task']
-    })
-  })
-});
+      invalidatesTags: ['Task'],
+    }),
+  }),
+})
 
-export const {
-    useGetTasksQuery,
-    useAddNewTaskMutation
-} = taskApi;
+export const { useGetTasksQuery, useAddNewTaskMutation } = taskApi

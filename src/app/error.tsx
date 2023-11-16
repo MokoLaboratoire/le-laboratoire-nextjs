@@ -3,13 +3,11 @@
 import React from 'react'
 
 export default function error({
-    error,
-    reset
+  error,
+  reset,
 }: {
-    error: Error,
-    reset: () => void
+  error: Error
+  reset: () => void
 }) {
-  return (
-    <div>{error.message}</div>
-  )
+  return <div>{error.message}</div>
 }
