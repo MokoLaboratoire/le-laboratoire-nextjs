@@ -1,5 +1,5 @@
 export interface TaskInterface {
-    id: number;
+    id?: number;
     title: string;
     date_of_creation: Date;
     description: string;

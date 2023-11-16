@@ -7,10 +7,19 @@ const taskApi = apiSlice.injectEndpoints({
     getTasks: build.query<TaskInterface[], void>({
       query: () => ApiConstants.TASK,
       providesTags: ['Task']
+    }),
+    addNewTask: build.mutation<TaskInterface, TaskInterface>({
+      query: (task) => ({
+        url: ApiConstants.TASK,
+        method: 'POST',
+        body: task
+      }),
+      invalidatesTags: ['Task']
     })
   })
 });
 
 export const {
-    useGetTasksQuery
+    useGetTasksQuery,
+    useAddNewTaskMutation
 } = taskApi;
