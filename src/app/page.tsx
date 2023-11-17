@@ -4,7 +4,7 @@ import React, { Suspense, useRef, useState } from 'react'
 import { Mesh } from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls } from "@react-three/drei";
-import { Ground, PersianCarpet } from '@/assets/gltf';
+import { Ground, PersianCarpet, RoseRouge, TrestleLeft } from '@/assets/gltf';
 
 function Box(props: any) {
 
@@ -41,6 +41,8 @@ export default function Home() {
         <Suspense>
           <Ground />
           <PersianCarpet />
+          <RoseRouge />
+          <TrestleLeft />
         </Suspense>
       </Canvas>
     </div>
