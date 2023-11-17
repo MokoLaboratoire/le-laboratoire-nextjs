@@ -1,18 +1,17 @@
 'use client'
 
 import React, { useRef, useState } from 'react'
+import { Mesh } from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
 
 function Box(props: any) {
 
-  const meshRef = useRef()
+  const meshRef = useRef<Mesh>(null!)
 
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
-
-  useFrame((state, delta) => {
-    if(meshRef && meshRef.current) (meshRef.current.rotation.x += delta)
-  })
+  
+  useFrame((state, delta) => (meshRef.current.rotation.x += delta))
 
   return (
     <mesh
