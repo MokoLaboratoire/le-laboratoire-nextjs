@@ -20,7 +20,7 @@
     ],
     "baseUrl": "src/",
     "paths": {
-      "@/asstes/*": ["assets/*"],
+      "@/assets/*": ["assets/*"],
       "@/components/*": ["components/*"],
       "@/constants/*": ["constants/*"],
       "@/hooks/*": ["hooks/*"],
