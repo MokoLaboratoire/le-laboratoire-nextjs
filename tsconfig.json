@@ -21,6 +21,7 @@
     "baseUrl": "src/",
     "paths": {
       "@/asstes/*": ["assets/*"],
+      "@/components/*": ["components/*"],
       "@/constants/*": ["constants/*"],
       "@/hooks/*": ["hooks/*"],
       "@/interfaces/*": ["interfaces/*"],
