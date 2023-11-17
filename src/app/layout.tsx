@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import ReduxProvider from '@/redux/ReduxProvider'
 
 import './globals.css'
+import { Footer, Header } from '../components'
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
+        <Header />
         <ReduxProvider>{children}</ReduxProvider>
+        <Footer />
       </body>
     </html>
   )
