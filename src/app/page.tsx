@@ -22,7 +22,10 @@ function Box(props: any) {
       scale={active ? 1.5 : 1}
       onClick={(event) => setActive(!active)}
       onPointerOver={(event) => setHover(true)}
-      onPointerOut={(event) => setHover(false)}>
+      onPointerOut={(event) => setHover(false)}
+      castShadow
+      receiveShadow
+    >
       <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
     </mesh>
@@ -32,12 +35,23 @@ function Box(props: any) {
 export default function Home() {
   return (
     <div className="h-screen">
-      <Canvas>
+      <Canvas shadows>
         <OrbitControls />
-        <ambientLight />
-        <pointLight position={[10, 10, 10]} />
+        <ambientLight castShadow />
+        <directionalLight
+          position={[10, 10, 0]}
+          castShadow
+          shadow-mapSize={[4096, 4096]}
+          shadow-camera-far={100}
+          shadow-camera-left={-100}
+          shadow-camera-right={100}
+          shadow-camera-top={100}
+          shadow-camera-bottom={-100}
+          shadow-bias={-0.000001}
+        />
         <Box position={[-1.2, 0, 0]} />
         <Box position={[1.2, 0, 0]} />
+        
         <Suspense>
           <Ground />
           <PersianCarpet />
