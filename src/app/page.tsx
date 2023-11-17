@@ -1,8 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react'
-
-import { useGetTasksQuery } from '@/redux/api/taskApi'
+import React from 'react'
 
 export default function Home() {
   return (
