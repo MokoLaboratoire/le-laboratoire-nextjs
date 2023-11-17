@@ -29,7 +29,7 @@ function Box(props: any) {
 
 export default function Home() {
   return (
-    <div className="App w-full h-full">
+    <div className="h-screen">
       <Canvas>
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
