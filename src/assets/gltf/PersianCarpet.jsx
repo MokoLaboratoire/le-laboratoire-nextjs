@@ -9,7 +9,8 @@ export function PersianCarpet(props) {
         geometry={nodes.persian_carpet.geometry}
         material={materials.PersianCarpet}
         position={[14.266, 0, -0.5]}
-        rotation={[Math.PI, 0, Math.PI]} scale={1.2}
+        rotation={[Math.PI, 0, Math.PI]}
+        scale={1.2}
         castShadow
         receiveShadow
       />

@@ -1,18 +1,18 @@
 'use client'
 
 import React, { Suspense, useRef, useState } from 'react'
-import { Mesh } from 'three'
+import * as THREE from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls } from "@react-three/drei";
-import { Ground, PersianCarpet, RoseRouge, TrestleLeft } from '@/assets/gltf';
+import { OrbitControls } from '@react-three/drei'
+import { Ground, PersianCarpet, RoseRouge, TrestleLeft } from '@/assets/gltf'
+import { DirectionalLight } from '@/components/r3f/lights'
 
 function Box(props: any) {
-
-  const meshRef = useRef<Mesh>(null!)
+  const meshRef = useRef<THREE.Mesh>(null!)
 
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
-  
+
   useFrame((state, delta) => (meshRef.current.rotation.x += delta))
 
   return (
@@ -34,24 +34,17 @@ function Box(props: any) {
 
 export default function Home() {
   return (
-    <div className="h-screen">
+    <div className='h-screen'>
       <Canvas shadows>
         <OrbitControls />
-        <ambientLight castShadow />
-        <directionalLight
-          position={[10, 10, 0]}
-          castShadow
-          shadow-mapSize={[4096, 4096]}
-          shadow-camera-far={100}
-          shadow-camera-left={-100}
-          shadow-camera-right={100}
-          shadow-camera-top={100}
-          shadow-camera-bottom={-100}
-          shadow-bias={-0.000001}
+        <ambientLight />
+        <DirectionalLight
+          color={'#FFD95C'}
+          position={new THREE.Vector3(10, 10, 0)}
         />
         <Box position={[-1.2, 0, 0]} />
         <Box position={[1.2, 0, 0]} />
-        
+
         <Suspense>
           <Ground />
           <PersianCarpet />
