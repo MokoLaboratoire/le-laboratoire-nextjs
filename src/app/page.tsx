@@ -6,11 +6,13 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import {
   AmorLlamaAmor,
+  Couronnes,
   Ground,
   IconSpotify,
   PersianCarpet,
   RoseRouge,
   TrestleLeft,
+  WorldMap,
 } from '@/assets/gltf'
 import { DirectionalLight } from '@/components/r3f/lights'
 
@@ -54,11 +56,13 @@ export default function Home() {
 
         <Suspense>
           <AmorLlamaAmor />
+          <Couronnes />
           <Ground />
           <IconSpotify />
           <PersianCarpet />
           <RoseRouge />
           <TrestleLeft />
+          <WorldMap />
         </Suspense>
       </Canvas>
     </div>
