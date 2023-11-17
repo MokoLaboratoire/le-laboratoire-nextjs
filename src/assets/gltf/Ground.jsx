@@ -4,7 +4,10 @@ import { useGLTF } from '@react-three/drei'
 export function Ground(props) {
   const { nodes, materials } = useGLTF('./gltf/Ground.gltf')
   return (
-    <group {...props} dispose={null}>
+    <group
+      {...props}
+      dispose={null}
+    >
       <mesh
         geometry={nodes.Floor.geometry}
         material={materials.Material}

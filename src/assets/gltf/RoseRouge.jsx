@@ -4,8 +4,14 @@ import { useGLTF } from '@react-three/drei'
 export function RoseRouge(props) {
   const { nodes, materials } = useGLTF('./gltf/rose_rouge_draco.gltf')
   return (
-    <group {...props} dispose={null}>
-      <group position={[4.5, 3, -15.407]} rotation={[-0.161, 0, 0]}>
+    <group
+      {...props}
+      dispose={null}
+    >
+      <group
+        position={[4.5, 3, -15.407]}
+        rotation={[-0.161, 0, 0]}
+      >
         <mesh
           geometry={nodes.rose_rouge_frame_1.geometry}
           material={materials.black_frame}

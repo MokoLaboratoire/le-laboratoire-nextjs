@@ -6,7 +6,10 @@ export default function Header() {
   return (
     <header className='z-10 absolute v-full'>
       <nav className='mx-auto flex justify-between items-center sm:px-16 px-6 py-4'>
-        <Link href='/' className='flex jutify-center items-center'>
+        <Link
+          href='/'
+          className='flex jutify-center items-center'
+        >
           <Image
             src='/next-logo.png'
             alt='logo'

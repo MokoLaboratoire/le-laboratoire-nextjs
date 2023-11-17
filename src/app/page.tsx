@@ -4,7 +4,14 @@ import React, { Suspense, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
-import { Ground, PersianCarpet, RoseRouge, TrestleLeft } from '@/assets/gltf'
+import {
+  AmorLlamaAmor,
+  Ground,
+  IconSpotify,
+  PersianCarpet,
+  RoseRouge,
+  TrestleLeft,
+} from '@/assets/gltf'
 import { DirectionalLight } from '@/components/r3f/lights'
 
 function Box(props: any) {
@@ -20,9 +27,9 @@ function Box(props: any) {
       {...props}
       ref={meshRef}
       scale={active ? 1.5 : 1}
-      onClick={(event) => setActive(!active)}
-      onPointerOver={(event) => setHover(true)}
-      onPointerOut={(event) => setHover(false)}
+      onClick={() => setActive(!active)}
+      onPointerOyver={() => setHover(true)}
+      onPointerOut={() => setHover(false)}
       castShadow
       receiveShadow
     >
@@ -46,7 +53,9 @@ export default function Home() {
         <Box position={[1.2, 0, 0]} />
 
         <Suspense>
+          <AmorLlamaAmor />
           <Ground />
+          <IconSpotify />
           <PersianCarpet />
           <RoseRouge />
           <TrestleLeft />

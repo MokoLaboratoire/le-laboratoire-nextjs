@@ -4,7 +4,10 @@ import { useGLTF } from '@react-three/drei'
 export function PersianCarpet(props) {
   const { nodes, materials } = useGLTF('./gltf/persian_carpet_draco.gltf')
   return (
-    <group {...props} dispose={null}>
+    <group
+      {...props}
+      dispose={null}
+    >
       <mesh
         geometry={nodes.persian_carpet.geometry}
         material={materials.PersianCarpet}

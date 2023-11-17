@@ -7,7 +7,7 @@ const DirectionalLight = ({
   intensity = 1,
   position = new THREE.Vector3(0, 0, 0),
   castShadow = true,
-  target = new THREE.Object3D()
+  target = new THREE.Object3D(),
 }: DirectionalLightingInterface) => {
   return (
     <directionalLight
