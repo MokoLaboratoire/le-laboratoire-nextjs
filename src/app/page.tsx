@@ -1,8 +1,10 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { Suspense, useRef, useState } from 'react'
 import { Mesh } from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
+import { OrbitControls } from "@react-three/drei";
+import { Ground, PersianCarpet } from '@/assets/gltf';
 
 function Box(props: any) {
 
@@ -29,11 +31,18 @@ function Box(props: any) {
 
 export default function Home() {
   return (
-    <Canvas>
-      <ambientLight />
-      <pointLight position={[10, 10, 10]} />
-      <Box position={[-1.2, 0, 0]} />
-      <Box position={[1.2, 0, 0]} />
-    </Canvas>
+    <div className="h-screen">
+      <Canvas>
+        <OrbitControls />
+        <ambientLight />
+        <pointLight position={[10, 10, 10]} />
+        <Box position={[-1.2, 0, 0]} />
+        <Box position={[1.2, 0, 0]} />
+        <Suspense>
+          <Ground />
+          <PersianCarpet />
+        </Suspense>
+      </Canvas>
+    </div>
   )
 }
