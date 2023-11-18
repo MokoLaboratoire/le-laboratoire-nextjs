@@ -1,0 +1,106 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v4.0.43",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [0]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "twitter",
+      "rotation": [0.7071068286895752, 0, 0, 0.7071068286895752],
+      "scale": [0.6795361042022705, 0.6795361042022705, 0.6795361042022705],
+      "translation": [
+        10.100000381469727, 12.800000190734863, -13.30000114440918
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Material.019",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0122857466340065, 0.30498695373535156, 0.8069522976875305, 1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5
+      },
+      "emissiveFactor": [0, 0, 0],
+      "alphaMode": "OPAQUE"
+    }
+  ],
+  "meshes": [
+    {
+      "name": "twitter.001",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 1,
+            "NORMAL": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 0,
+          "material": 0,
+          "mode": 4,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 0,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "accessors": [
+    {
+      "componentType": 5123,
+      "count": 528,
+      "type": "SCALAR"
+    },
+    {
+      "componentType": 5126,
+      "count": 340,
+      "max": [1.618450055776949, 0.5482688446305819, 0.8078775295235205],
+      "min": [-1.6392642361510947, -0.5583046776641563, -1.888600478826876],
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 340,
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 340,
+      "type": "VEC2"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 829
+    }
+  ],
+  "buffers": [
+    {
+      "name": "icon_twitter_draco",
+      "byteLength": 832,
+      "uri": "data:application/octet-stream;base64,RFJBQ08CAgEBAAAAY7ABAq8BCgFnJQEvX/dXq29Vt3ZdqqhCQaHr1vZf26XVr1u7dSlq27rAA6TA2q1ZKfB6U2VZSqEKUAABARBfIK71m8TRscPBnp3XWmdiucb9mngAu2AbdgQzm3EjTKhcrB+0oK1GQwXcBcWUcHndglnbk19gYDTz2z/UdQAFVwSLA/8AAAABAAEBAAEACQMAAAIBAQkDAAEDAQMJAgACAgEBAQAMA8EHD6Q9A2kISQzBB/EXIHBaumZB+qoLp4N+I77ZtgK1kjm+5xmSugQQsOFPxtmHpACAIR7YGhgArBUAfFkrmnCHtQoGGQBjKACBMAGEmAdbObW0tbKFHiDkPGs9yx8ADmEAUEkDgGu3ANgTJ1qrFpkDIEQaAFzDAKBSAfYaAegkCgB4BMC6BQCzyABARwcAUHobALCUdgAgMTEBAEzJAgBjDAaASGoAEGpptj5D1GtVQQ0AQhkMAJFIFgAYIyYAgEk7AJD4NgBgKd8AEEJkAKC3AGB2BMDaAWwNAT4FwBJaAODQB8BZHgBINRQALkvI1gmdAEVcgK1FAADYWgQKIAgOoAgAIAhOgGiisBUZ2MRapfEGAMkDQMIPAGIfAGd5ACDVUAC4pANAOVoAuH4B0KxhACzBjwCIlPYAHIocQGFNsfVhLlprYJADKKw9AIf6EQCR2gxABgfgHwEIjsBas3IKMOqBtfrBRWwNDArYWgIAAAAAAP8HAABQn9G/3IQOv5CJ8b9LSlBACwYDAQECA5k2qQjAOwKwwTQiYOkiljC7ItCazBP9FRz4SmIsIVVEsAzAAIx5VDRSFobe7DhmGsnd26hkMXNUyd1/Nx97VY6A/wAAAH8AAAD/Au5tCAUBAQEF+gfVJIStFQOwBywsLyw7LCwsOyxHLAcsHyyHLEMs/xMs61hY////fyz///8sGyzXLC8s///3LJ8sTyxQCKV2VJnRYGI9fa8NtuUXf7YgX2V5BKw+qm72Zs+0fk2nIwHrC1RhZEICcRCFxSlxO8vEKQp3CvbvZW94wriZDLlGEhWk+4v3aO4AR5v4e0CsAAAAAQLlTgAAAAD/AwAAxL0YOQCwGDnp7H8/CgAAAA=="
+    }
+  ],
+  "extensionsRequired": ["KHR_draco_mesh_compression"],
+  "extensionsUsed": ["KHR_draco_mesh_compression"]
+}

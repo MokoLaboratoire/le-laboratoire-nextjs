@@ -1,0 +1,351 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v4.0.43",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [0]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "world_map_basement_marble",
+      "rotation": [0, -0.8874625563621521, 0, 0.4608798027038574],
+      "scale": [1.3000000715255737, 1.3000000715255737, 1.3000000715255737],
+      "translation": [
+        19.423086166381836, 14.455939292907715, -14.47878360748291
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "world_map_marble",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "world_map_basement_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.24620147049427032, 0.24620139598846436, 0.24620141088962555, 1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.20000000298023224
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "world_map_bar",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.24620147049427032, 0.24620139598846436, 0.24620141088962555, 1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.20000000298023224
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "world_map",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 1
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "world_map_basement_marble",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0
+        },
+        {
+          "attributes": {
+            "POSITION": 4,
+            "NORMAL": 5,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7,
+          "material": 1
+        },
+        {
+          "attributes": {
+            "POSITION": 8,
+            "NORMAL": 9,
+            "TEXCOORD_0": 10
+          },
+          "indices": 11,
+          "material": 2
+        },
+        {
+          "attributes": {
+            "POSITION": 12,
+            "NORMAL": 13,
+            "TEXCOORD_0": 14
+          },
+          "indices": 15,
+          "material": 3
+        }
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    }
+  ],
+  "images": [
+    {
+      "mimeType": "image/jpeg",
+      "name": "emperador_dark",
+      "uri": "emperador_dark.jpg"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "name": "carte-du-monde",
+      "uri": "carte-du-monde.jpg"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 324,
+      "max": [0.6456037163734436, 0.14400002360343933, 0.6456037163734436],
+      "min": [-0.6456037163734436, 0, -0.6456037163734436],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 324,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 324,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 576,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 776,
+      "max": [0.45864003896713257, 0.3707085847854614, 0.4586399793624878],
+      "min": [-0.45864003896713257, 0.14400002360343933, -0.45864009857177734],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5126,
+      "count": 776,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 776,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5123,
+      "count": 1344,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 8,
+      "componentType": 5126,
+      "count": 236,
+      "max": [0.03520015627145767, 2.599740743637085, 1.1317720413208008],
+      "min": [-0.035200439393520355, 0.3682279586791992, -0.48744624853134155],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 9,
+      "componentType": 5126,
+      "count": 236,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 10,
+      "componentType": 5126,
+      "count": 236,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 11,
+      "componentType": 5123,
+      "count": 444,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 12,
+      "componentType": 5126,
+      "count": 1984,
+      "max": [0.9962749481201172, 2.4976706504821777, 0.9943292140960693],
+      "min": [-0.9962736368179321, 0.5023292303085327, -0.9943294525146484],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 13,
+      "componentType": 5126,
+      "count": 1984,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 14,
+      "componentType": 5126,
+      "count": 1984,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 15,
+      "componentType": 5123,
+      "count": 2880,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 3888,
+      "byteOffset": 0,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 3888,
+      "byteOffset": 3888,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 2592,
+      "byteOffset": 7776,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1152,
+      "byteOffset": 10368,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 9312,
+      "byteOffset": 11520,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 9312,
+      "byteOffset": 20832,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 6208,
+      "byteOffset": 30144,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 2688,
+      "byteOffset": 36352,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 2832,
+      "byteOffset": 39040,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 2832,
+      "byteOffset": 41872,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1888,
+      "byteOffset": 44704,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 888,
+      "byteOffset": 46592,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 23808,
+      "byteOffset": 47480,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 23808,
+      "byteOffset": 71288,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 15872,
+      "byteOffset": 95096,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 5760,
+      "byteOffset": 110968,
+      "target": 34963
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 116728,
+      "uri": "world_map.bin"
+    }
+  ]
+}
