@@ -2,7 +2,7 @@
 
 import React, { Suspense, useRef, useState } from 'react'
 import * as THREE from 'three'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import {
   AmorLlamaAmor,
@@ -17,6 +17,7 @@ import {
   WorldMap,
 } from '@/assets/gltf'
 import { DirectionalLight } from '@/components/r3f/lights'
+import { Physics, RigidBody } from '@react-three/rapier'
 
 function Box(props: any) {
   const meshRef = useRef<THREE.Mesh>(null!)
@@ -24,7 +25,10 @@ function Box(props: any) {
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
 
-  useFrame((state, delta) => (meshRef.current.rotation.x += delta))
+  useFrame((state, delta) => {
+    meshRef.current.rotation.x += delta
+    state.camera?.lookAt(new THREE.Vector3(20, 0, 0))
+  })
 
   return (
     <mesh
@@ -46,7 +50,7 @@ function Box(props: any) {
 export default function Home() {
   return (
     <div className='h-screen'>
-      <Canvas shadows>
+      <Canvas shadows camera={{ position: [-20, 20, 0], fov: 80 }}>
         <OrbitControls />
         <ambientLight />
         <DirectionalLight
@@ -57,16 +61,23 @@ export default function Home() {
         <Box position={[1.2, 0, 0]} />
 
         <Suspense>
-          <AmorLlamaAmor />
-          <Armchair />
-          <Couronnes />
-          <Ground />
-          <IconSpotify />
-          <IconTwitter />
-          <PersianCarpet />
-          <RoseRouge />
-          <TrestleLeft />
-          <WorldMap />
+          <Physics debug>
+            <AmorLlamaAmor />
+            <Armchair />
+            <Couronnes />
+            <RigidBody type='fixed'>
+              <Ground />
+            </RigidBody>
+            <IconSpotify />
+            <IconTwitter />
+            <PersianCarpet />
+            <RoseRouge />
+            <TrestleLeft />
+            <WorldMap />
+            <RigidBody restitution={2}>
+              <Box position={[10, 10, 0]} />
+            </RigidBody>
+          </Physics>
         </Suspense>
       </Canvas>
     </div>
