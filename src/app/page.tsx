@@ -6,9 +6,11 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import {
   AmorLlamaAmor,
+  Armchair,
   Couronnes,
   Ground,
   IconSpotify,
+  IconTwitter,
   PersianCarpet,
   RoseRouge,
   TrestleLeft,
@@ -49,16 +51,18 @@ export default function Home() {
         <ambientLight />
         <DirectionalLight
           color={'#FFD95C'}
-          position={new THREE.Vector3(10, 10, 0)}
+          position={new THREE.Vector3(20, 10, 0)}
         />
         <Box position={[-1.2, 0, 0]} />
         <Box position={[1.2, 0, 0]} />
 
         <Suspense>
           <AmorLlamaAmor />
+          <Armchair />
           <Couronnes />
           <Ground />
           <IconSpotify />
+          <IconTwitter />
           <PersianCarpet />
           <RoseRouge />
           <TrestleLeft />
