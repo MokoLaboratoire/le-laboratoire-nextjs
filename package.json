@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-three/drei": "^9.88.16",
     "@react-three/fiber": "^8.15.11",
+    "@react-three/rapier": "^1.1.2",
     "@reduxjs/toolkit": "^1.9.7",
     "moment": "^2.29.4",
     "next": "14.0.2",
