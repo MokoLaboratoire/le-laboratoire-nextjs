@@ -2,12 +2,10 @@
 
 import React, { Suspense, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import {
   KeyboardControls,
-  OrbitControls,
-  PointerLockControls,
-  useKeyboardControls,
+  PointerLockControls
 } from '@react-three/drei'
 import {
   AmorLlamaAmor,
@@ -22,7 +20,7 @@ import {
   WorldMap,
 } from '@/assets/models'
 import { DirectionalLight } from '@/components/r3f/lights'
-import { Physics, RigidBody, MeshCollider } from '@react-three/rapier'
+import { Physics, RigidBody } from '@react-three/rapier'
 import Player from '@/components/r3f/Player'
 
 import { default as controlConstants } from '@/constants/controlConstants.json'
@@ -74,7 +72,6 @@ export default function Home() {
           shadows
           camera={{ fov: 80 }}
         >
-          {/* <OrbitControls /> */}
           <ambientLight />
           <DirectionalLight
             color={'#FFD95C'}
@@ -90,9 +87,7 @@ export default function Home() {
               <Armchair />
               <Couronnes />
               <RigidBody type='fixed'>
-                {/* <MeshCollider type="trimesh"> */}
-                  <Ground />
-                {/* </MeshCollider> */}
+                <Ground />
               </RigidBody>
               <IconSpotify />
               <IconTwitter />
