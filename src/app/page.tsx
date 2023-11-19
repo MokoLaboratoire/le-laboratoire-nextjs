@@ -33,7 +33,7 @@ function Box(props: any) {
 
   useFrame((state, delta) => {
     meshRef.current.rotation.x += delta
-    /* state.camera?.lookAt(new THREE.Vector3(20, 0, 0)) */
+    state.camera?.lookAt(new THREE.Vector3(20, 0, 0))
   })
 
   return (
@@ -70,7 +70,7 @@ export default function Home() {
       <KeyboardControls map={keyboardControlsMap}>
         <Canvas
           shadows
-          camera={{ fov: 80 }}
+          camera={{ position: [-20, 20, 0], fov: 80 }}
         >
           <ambientLight />
           <DirectionalLight
@@ -86,7 +86,7 @@ export default function Home() {
               <AmorLlamaAmor />
               <Armchair />
               <Couronnes />
-              <RigidBody type='fixed'>
+              <RigidBody type='fixed' colliders='trimesh'>
                 <Ground />
               </RigidBody>
               <IconSpotify />
