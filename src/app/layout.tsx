@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import ReduxProvider from '@/redux/ReduxProvider'
 
 import './globals.css'
-import { Footer, Header } from '../components'
+import { Footer, Header } from '../components/shared'
 
 export const metadata: Metadata = {
   title: 'Home',
