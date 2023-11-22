@@ -1,7 +1,12 @@
 {
   "FORWARD": "forward",
+  "FORWARD_KEYS": ["ArrowUp", "W", "w"],
   "BACKWARD": "backward",
+  "BACKWARD_KEYS": ["ArrowDown", "S", "s"],
   "LEFT": "left",
+  "LEFT_KEYS": ["ArrowLeft", "A", "a"],
   "RIGHT": "right",
-  "JUMP": "jump"
+  "RIGHT_KEYS": ["ArrowRight", "D", "d"],
+  "JUMP": "jump",
+  "JUMP_KEY": ["Space"]
 }

@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import * as THREE from 'three'
+import { useHelper } from '@react-three/drei'
+
 import { DirectionalLightingInterface } from '@/interfaces/components/r3f/DirectionalLightInterface'
 
 const DirectionalLight = ({
@@ -9,8 +11,14 @@ const DirectionalLight = ({
   castShadow = true,
   target = new THREE.Object3D(),
 }: DirectionalLightingInterface) => {
+  const directionalLightRef = useRef<THREE.DirectionalLight>(null)
+
+  // @ts-ignore
+  useHelper(directionalLightRef, THREE.DirectionalLightHelper)
+
   return (
     <directionalLight
+      ref={directionalLightRef}
       color={color}
       intensity={intensity}
       position={position}
