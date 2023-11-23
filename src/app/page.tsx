@@ -2,8 +2,7 @@
 
 import React, { Suspense, useEffect, useMemo, useState } from 'react'
 import * as THREE from 'three'
-import { Canvas, extend, Object3DNode } from '@react-three/fiber'
-import { shaderMaterial } from "@react-three/drei";
+import { Canvas } from '@react-three/fiber'
 import {
   KeyboardControls,
   PointerLockControls,
@@ -14,75 +13,13 @@ import {
 import { Physics, RigidBody } from '@react-three/rapier'
 import Player from '@/components/r3f/Player'
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      customMaterial: Object3DNode<CustomMaterial, typeof CustomMaterial>
-    }
-  }
-}
-
 import { DirectionalLight } from '@/components/r3f/lights'
 import { R3fDefaultCube } from '@/components/r3f/Primitives'
 import Assets from '@/components/r3f/Assets'
 
 import { default as controlConstants } from '@/constants/controlConstants.json'
 
-
-
-class CustomMaterial extends THREE.ShaderMaterial {
-  constructor() {
-    super({
-      vertexShader: `
-      void main() {
-        gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-      }
-  `,
-      fragmentShader: `
-      uniform vec3 color;
-
-
-      void main() {
-        gl_FragColor=vec4(1.0,0.0,0.0,1.0);
-      }`,
-      uniforms: {
-        color: { value: new THREE.Color("hotpink") },
-        // other uniforms...
-      },
-    })
-  }
-}
-
-extend({ CustomMaterial })
-
-/* const lineShaderMaterial = shaderMaterial(
-  { color: new THREE.Color("hotpink") },
-
-  // language=GLSL
-  `
-      varying float camera_distance;
-
-      void main() {
-          // calculate distance to camera by translating into camera/eye space and measure along the z-axis
-          vec4 eyeVertexPosition = modelViewMatrix * vec4(position, 1.0);
-          camera_distance = -eyeVertexPosition.z;
-
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-      }
-  `,
-
-  // language=GLSL
-  `
-      uniform vec3 color;
-
-      varying float camera_distance;
-
-      void main() {
-          gl_FragColor.rgb = vec3(1.0, 1.0, 0.0);
-      }`
-);
-
-extend({ lineShaderMaterial }); */
+import { TestShaderMaterial } from '@/assets/materials/TestShaderMaterial'
 
 export default function Home() {
   const keyboardControlsMap = useMemo(
@@ -103,10 +40,18 @@ export default function Home() {
   }
 
   useEffect(() => {
-    console.log("TEST")
-    document.addEventListener('HandleShowInstructions', HandleShowInstructions, false)
+    console.log('TEST')
+    document.addEventListener(
+      'HandleShowInstructions',
+      HandleShowInstructions,
+      false,
+    )
     return () => {
-      document.removeEventListener('HandleShowInstructions', HandleShowInstructions, false)
+      document.removeEventListener(
+        'HandleShowInstructions',
+        HandleShowInstructions,
+        false,
+      )
     }
   })
 
@@ -130,24 +75,23 @@ export default function Home() {
 
           <Suspense>
             <Physics debug>
-              {/* <Player /> */}
-              {/* <Assets /> */}
+              <Player />
+              <Assets />
               <mesh
                 castShadow
                 receiveShadow
                 position={[2, 2, 2]}
+                material={new TestShaderMaterial()}
               >
                 <boxGeometry
                   attach='geometry'
                   args={[1, 1, 1]}
                 />
-                <customMaterial
-                  attach='material' 
-                  />
+                {/* <customMaterial /> */}
               </mesh>
-              {/* <RigidBody restitution={2}>
+              <RigidBody restitution={2}>
                 <R3fDefaultCube position={[10, 10, 0]} />
-              </RigidBody> */}
+              </RigidBody>
             </Physics>
           </Suspense>
           <Stats />
@@ -159,7 +103,12 @@ export default function Home() {
         className={showInstructions ? 'show' : 'hide'}
       >
         Instructions
-        <button id='button' onClick={HandleShowInstructions}>Click To Enter</button>
+        <button
+          id='button'
+          onClick={HandleShowInstructions}
+        >
+          Click To Enter
+        </button>
       </div>
     </div>
   )
