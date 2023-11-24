@@ -2,9 +2,10 @@
 
 import React, { Suspense, useEffect, useMemo, useState } from 'react'
 import * as THREE from 'three'
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useThree } from '@react-three/fiber'
 import {
   KeyboardControls,
+  PerspectiveCamera,
   PointerLockControls,
   Sky,
   Stats,
@@ -20,8 +21,10 @@ import Assets from '@/components/r3f/Assets'
 import { default as controlConstants } from '@/constants/controlConstants.json'
 
 import { TestShaderMaterial } from '@/assets/materials/TestShaderMaterial'
+import DirectionalLightTest from '@/assets/lights/DirectionalLightTest'
 
 export default function Home() {
+
   const keyboardControlsMap = useMemo(
     () => [
       { name: controlConstants.FORWARD, keys: controlConstants.FORWARD_KEYS },
@@ -60,16 +63,20 @@ export default function Home() {
       <KeyboardControls map={keyboardControlsMap}>
         <Canvas
           shadows
-          camera={{ fov: 80 }}
+          /* camera={{ fov: 80 }} */
           /* camera={{ position: [-20, 20, 0], fov: 80 }} */
         >
+          <DirectionalLightTest />
+          <PerspectiveCamera
+            makeDefault
+            aspect={1200 / 600}
+            fov={80}
+            position={[0, 0, 2]}
+            onUpdate={self => self.updateProjectionMatrix()}
+          />
           <PointerLockControls selector='#button' />
           <Sky sunPosition={[100, 100, 20]} />
           <ambientLight />
-          <DirectionalLight
-            color={'#FFD95C'}
-            position={new THREE.Vector3(20, 10, 0)}
-          />
           <R3fDefaultCube position={[-1.2, 0, 0]} />
           <R3fDefaultCube position={[1.2, 0, 0]} />
 
@@ -87,7 +94,6 @@ export default function Home() {
                   attach='geometry'
                   args={[1, 1, 1]}
                 />
-                {/* <customMaterial /> */}
               </mesh>
               <RigidBody restitution={2}>
                 <R3fDefaultCube position={[10, 10, 0]} />
