@@ -21,6 +21,7 @@ import Assets from '@/components/r3f/Assets'
 import { default as controlConstants } from '@/constants/controlConstants.json'
 
 import { TestShaderMaterial } from '@/assets/materials/TestShaderMaterial'
+import TestLibraryCustomShader from '@/assets/materials/TestLibraryCustomShader'
 import DirectionalLightTest from '@/assets/lights/DirectionalLightTest'
 
 export default function Home() {
@@ -95,6 +96,7 @@ export default function Home() {
                   args={[1, 1, 1]}
                 />
               </mesh>
+              <TestLibraryCustomShader />
               <RigidBody restitution={2}>
                 <R3fDefaultCube position={[10, 10, 0]} />
               </RigidBody>

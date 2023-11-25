@@ -12,10 +12,6 @@ declare global {
   }
 }
 
-const { scene } = useThree() 
-
-console.log('scene', scene)
-
 export class TestShaderMaterial extends THREE.ShaderMaterial {
   constructor() {
     super({
