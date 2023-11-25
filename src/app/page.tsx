@@ -25,7 +25,6 @@ import TestLibraryCustomShader from '@/assets/materials/TestLibraryCustomShader'
 import DirectionalLightTest from '@/assets/lights/DirectionalLightTest'
 
 export default function Home() {
-
   const keyboardControlsMap = useMemo(
     () => [
       { name: controlConstants.FORWARD, keys: controlConstants.FORWARD_KEYS },
@@ -73,7 +72,7 @@ export default function Home() {
             aspect={1200 / 600}
             fov={80}
             position={[0, 0, 2]}
-            onUpdate={self => self.updateProjectionMatrix()}
+            onUpdate={(self) => self.updateProjectionMatrix()}
           />
           <PointerLockControls selector='#button' />
           <Sky sunPosition={[100, 100, 20]} />

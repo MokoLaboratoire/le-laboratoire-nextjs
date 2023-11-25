@@ -14,33 +14,23 @@ function TestLibraryCustomShader() {
 
   return (
     <mesh
-    castShadow
-    receiveShadow
+      castShadow
+      receiveShadow
     >
       <boxGeometry />
       <CustomShaderMaterial
         ref={materialRef}
         baseMaterial={THREE.MeshPhysicalMaterial}
-        vertexShader={/* glsl */ `
-        varying vec4 projShadow;
-        void main() {
-          projShadow = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-          gl_Position = projShadow;
-        }
-      `}
-        fragmentShader={/* glsl */ `
-        varying vec4 projShadow;
-        void main() {
-          // Use projShadow.z to perform shadow calculations
-          // ...
-      
-          // Example: Apply a shadow if projShadow.z is less than 0.0
-          gl_FragColor = projShadow.z < 0.0 ? vec4(0.0, 0.0, 0.0, 1.0) : vec4(1.0, 0.0, 0.0, 1.0);
-      
-          // Your fragment shader code goes here
-          // ...
-          // gl_FragColor=vec4(1.0, 0.0, 0.0, 1.0);
-        }`}
+        vertexShader={`
+          void main() {
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        `}
+        fragmentShader={`
+          void main() {
+            csm_DiffuseColor = vec4(1.0, 0.0, 0.0, 1.0);
+          }
+        `}
         silent
         uniforms={{
           uTime: {
@@ -48,8 +38,6 @@ function TestLibraryCustomShader() {
           },
         }}
         flatShading
-        color={0xff0000}
-        // ...
       />
     </mesh>
   )
