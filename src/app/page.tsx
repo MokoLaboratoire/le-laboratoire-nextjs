@@ -17,7 +17,7 @@ import { Physics, RigidBody } from '@react-three/rapier'
 import Player from '@/components/r3f/Player'
 
 import { DirectionalLight } from '@/components/r3f/lights'
-import { R3fDefaultCube } from '@/components/r3f/Primitives'
+import { R3fDefaultCube } from '@/components/r3f/primitives'
 import Assets from '@/components/r3f/Assets'
 
 import { default as controlConstants } from '@/constants/controlConstants.json'
