@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import * as THREE from 'three'
 import { Sky } from 'three/addons/objects/Sky.js'
 import { GUI } from 'three/addons/libs/lil-gui.module.min.js'
@@ -55,6 +55,36 @@ export default function CustomSky() {
   }
 
   guiChanged();
+
+  interface LocationInterface {
+    lat: number
+    lon: number
+  }
+
+  const [location, setLocation] = useState<LocationInterface | null>(null)
+
+  let requestLocFromBrowser = async (): Promise<LocationInterface | null> => {
+    let prom = new Promise<LocationInterface | null>(() => {
+      navigator.geolocation.getCurrentPosition(
+        (result) => {
+          setLocation({
+            lat: result.coords.latitude,
+            lon: result.coords.longitude,
+          })
+        },
+        (err) => {
+          console.warn(err);
+        }
+      );
+    });
+    return prom;
+  };
+
+  useEffect(() => {
+    console.log("location", location)
+  }, [location])
+
+  if(!location) requestLocFromBrowser()
 
   return null
 }
