@@ -3,6 +3,7 @@ import * as THREE from 'three'
 import { Sky } from 'three/addons/objects/Sky.js'
 import { GUI } from 'three/addons/libs/lil-gui.module.min.js'
 import { useThree } from '@react-three/fiber'
+import * as SunCalc from 'suncalc'
 
 export default function CustomSky() {
   const { scene, gl, camera } = useThree()
@@ -82,6 +83,7 @@ export default function CustomSky() {
 
   useEffect(() => {
     console.log("location", location)
+    SunCalc.getPosition(/*Date*/ timeAndDate, /*Number*/ latitude, /*Number*/ longitude).getPosition(/*Date*/ timeAndDate, /*Number*/ latitude, /*Number*/ longitude)
   }, [location])
 
   if(!location) requestLocFromBrowser()
