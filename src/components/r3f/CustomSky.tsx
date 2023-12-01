@@ -83,7 +83,7 @@ export default function CustomSky() {
 
   useEffect(() => {
     console.log("location", location)
-    SunCalc.getPosition(/*Date*/ timeAndDate, /*Number*/ latitude, /*Number*/ longitude).getPosition(/*Date*/ timeAndDate, /*Number*/ latitude, /*Number*/ longitude)
+    if(location) console.log("Sun position", SunCalc.getPosition(/*Date*/ new Date(), /*Number*/ location.lat, /*Number*/ location.lon))
   }, [location])
 
   if(!location) requestLocFromBrowser()
