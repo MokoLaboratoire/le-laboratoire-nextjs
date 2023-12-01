@@ -2,9 +2,10 @@
 
 import React, { Suspense, useEffect, useMemo, useState } from 'react'
 import * as THREE from 'three'
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useThree } from '@react-three/fiber'
 import {
   KeyboardControls,
+  PerspectiveCamera,
   PointerLockControls,
   Sky,
   Stats,
@@ -18,6 +19,10 @@ import { R3fDefaultCube } from '@/components/r3f/Primitives'
 import Assets from '@/components/r3f/Assets'
 
 import { default as controlConstants } from '@/constants/controlConstants.json'
+
+import { TestShaderMaterial } from '@/assets/materials/TestShaderMaterial'
+import TestLibraryCustomShader from '@/assets/materials/TestLibraryCustomShader'
+import DirectionalLightTest from '@/assets/lights/DirectionalLightTest'
 
 export default function Home() {
   const keyboardControlsMap = useMemo(
@@ -38,10 +43,18 @@ export default function Home() {
   }
 
   useEffect(() => {
-    console.log("TEST")
-    document.addEventListener('HandleShowInstructions', HandleShowInstructions, false)
+    console.log('TEST')
+    document.addEventListener(
+      'HandleShowInstructions',
+      HandleShowInstructions,
+      false,
+    )
     return () => {
-      document.removeEventListener('HandleShowInstructions', HandleShowInstructions, false)
+      document.removeEventListener(
+        'HandleShowInstructions',
+        HandleShowInstructions,
+        false,
+      )
     }
   })
 
@@ -50,16 +63,20 @@ export default function Home() {
       <KeyboardControls map={keyboardControlsMap}>
         <Canvas
           shadows
-          camera={{ fov: 80 }}
+          /* camera={{ fov: 80 }} */
           /* camera={{ position: [-20, 20, 0], fov: 80 }} */
         >
+          <DirectionalLightTest />
+          <PerspectiveCamera
+            makeDefault
+            aspect={1200 / 600}
+            fov={80}
+            position={[0, 0, 2]}
+            onUpdate={(self) => self.updateProjectionMatrix()}
+          />
           <PointerLockControls selector='#button' />
           <Sky sunPosition={[100, 100, 20]} />
           <ambientLight />
-          <DirectionalLight
-            color={'#FFD95C'}
-            position={new THREE.Vector3(20, 10, 0)}
-          />
           <R3fDefaultCube position={[-1.2, 0, 0]} />
           <R3fDefaultCube position={[1.2, 0, 0]} />
 
@@ -67,6 +84,18 @@ export default function Home() {
             <Physics debug>
               <Player />
               <Assets />
+              <mesh
+                castShadow
+                receiveShadow
+                position={[2, 2, 2]}
+                material={new TestShaderMaterial()}
+              >
+                <boxGeometry
+                  attach='geometry'
+                  args={[1, 1, 1]}
+                />
+              </mesh>
+              <TestLibraryCustomShader />
               <RigidBody restitution={2}>
                 <R3fDefaultCube position={[10, 10, 0]} />
               </RigidBody>
@@ -81,7 +110,12 @@ export default function Home() {
         className={showInstructions ? 'show' : 'hide'}
       >
         Instructions
-        <button id='button' onClick={HandleShowInstructions}>Click To Enter</button>
+        <button
+          id='button'
+          onClick={HandleShowInstructions}
+        >
+          Click To Enter
+        </button>
       </div>
     </div>
   )

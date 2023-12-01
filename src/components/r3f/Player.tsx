@@ -19,7 +19,6 @@ export default function Player() {
   const direction = new THREE.Vector3()
 
   useFrame((state) => {
-
     const { forward, backward, left, right, jump } = get()
 
     if (rigidBodyRef.current) {
