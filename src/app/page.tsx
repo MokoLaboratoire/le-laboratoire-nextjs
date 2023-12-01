@@ -11,9 +11,9 @@ import {
   PointerLockControls,
   Stats,
 } from '@react-three/drei'
-
 import { Physics, RigidBody } from '@react-three/rapier'
 import Player from '@/components/r3f/Player'
+import Sky from '@/components/r3f/CustomSky'
 
 import { DirectionalLight } from '@/components/r3f/lights'
 import { R3fDefaultCube } from '@/components/r3f/primitives'
@@ -97,6 +97,7 @@ export default function Home() {
 
           <Suspense>
             <Physics debug>
+              <Sky />
               <Player />
               <Assets />
               <mesh
