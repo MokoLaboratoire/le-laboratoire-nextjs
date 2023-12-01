@@ -4,6 +4,8 @@ import React, { Suspense, useEffect, useMemo, useState } from 'react'
 import * as THREE from 'three'
 import { Canvas, useThree } from '@react-three/fiber'
 import {
+  Cloud,
+  Clouds,
   KeyboardControls,
   PerspectiveCamera,
   PointerLockControls,
@@ -75,8 +77,28 @@ export default function Home() {
             onUpdate={(self) => self.updateProjectionMatrix()}
           />
           <PointerLockControls selector='#button' />
-          <Sky sunPosition={[100, 100, 20]} />
+          <Sky
+            distance={450000}
+            sunPosition={[1, 1, 50]}
+            inclination={0.4}
+            azimuth={0.5}
+          />
           <ambientLight />
+          <Clouds material={THREE.MeshBasicMaterial}>
+            <Cloud
+              segments={40}
+              bounds={[10, 2, 2]}
+              volume={10}
+              color='orange'
+            />
+            <Cloud
+              seed={1}
+              scale={2}
+              volume={5}
+              color='hotpink'
+              fade={100}
+            />
+          </Clouds>
           <R3fDefaultCube position={[-1.2, 0, 0]} />
           <R3fDefaultCube position={[1.2, 0, 0]} />
 
