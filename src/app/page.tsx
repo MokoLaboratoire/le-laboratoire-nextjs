@@ -9,7 +9,6 @@ import {
   KeyboardControls,
   PerspectiveCamera,
   PointerLockControls,
-  Sky,
   Stats,
 } from '@react-three/drei'
 
@@ -77,12 +76,6 @@ export default function Home() {
             onUpdate={(self) => self.updateProjectionMatrix()}
           />
           <PointerLockControls selector='#button' />
-          <Sky
-            distance={450000}
-            sunPosition={[1, 1, 50]}
-            inclination={0.4}
-            azimuth={0.5}
-          />
           <ambientLight />
           <Clouds material={THREE.MeshBasicMaterial}>
             <Cloud
