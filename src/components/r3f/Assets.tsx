@@ -17,7 +17,7 @@ import {
 export default function Assets() {
   return (
     <>
-      <AmorLlamaAmor />
+      {/* <AmorLlamaAmor />
       <Armchair />
       <Couronnes />
       <IconSpotify />
@@ -25,7 +25,7 @@ export default function Assets() {
       <PersianCarpet />
       <RoseRouge />
       <TrestleLeft />
-      <WorldMap />
+      <WorldMap /> */}
       <RigidBody
         type='fixed'
         colliders='trimesh'
