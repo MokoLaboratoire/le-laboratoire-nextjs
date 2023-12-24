@@ -69,10 +69,7 @@ export default function Home() {
       <KeyboardControls map={keyboardControlsMap}>
         <Canvas
           shadows
-          /* camera={{ fov: 80 }} */
-          /* camera={{ position: [-20, 20, 0], fov: 80 }} */
         >
-          {/* <DirectionalLightTest /> */}
           <PerspectiveCamera
             makeDefault
             aspect={1200 / 600}
@@ -81,46 +78,13 @@ export default function Home() {
             onUpdate={(self) => self.updateProjectionMatrix()}
           />
           <PointerLockControls selector='#button' />
+          
           <Environment map={envMap} />
-          {/* <ambientLight /> */}
-          {/* <Clouds material={THREE.MeshBasicMaterial}>
-            <Cloud
-              segments={40}
-              bounds={[10, 2, 2]}
-              volume={10}
-              color='orange'
-            />
-            <Cloud
-              seed={1}
-              scale={2}
-              volume={5}
-              color='hotpink'
-              fade={100}
-            />
-          </Clouds> */}
-          {/* <R3fDefaultCube position={[-1.2, 0, 0]} />
-          <R3fDefaultCube position={[1.2, 0, 0]} /> */}
 
           <Suspense>
             <Physics debug>
-              {/* <Sky /> */}
               <Player />
               <Assets />
-              {/* <mesh
-                castShadow
-                receiveShadow
-                position={[2, 2, 2]}
-                material={new TestShaderMaterial()}
-              >
-                <boxGeometry
-                  attach='geometry'
-                  args={[1, 1, 1]}
-                />
-              </mesh> */}
-              {/* <TestLibraryCustomShader /> */}
-              {/* <RigidBody restitution={2}>
-                <R3fDefaultCube position={[10, 10, 0]} />
-              </RigidBody> */}
             </Physics>
           </Suspense>
           <Stats />
