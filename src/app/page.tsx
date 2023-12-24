@@ -6,10 +6,12 @@ import { Canvas, useThree } from '@react-three/fiber'
 import {
   Cloud,
   Clouds,
+  Environment,
   KeyboardControls,
   PerspectiveCamera,
   PointerLockControls,
   Stats,
+  useEnvironment,
 } from '@react-three/drei'
 import { Physics, RigidBody } from '@react-three/rapier'
 import Player from '@/components/r3f/Player'
@@ -26,6 +28,9 @@ import TestLibraryCustomShader from '@/assets/materials/TestLibraryCustomShader'
 import DirectionalLightTest from '@/assets/lights/DirectionalLightTest'
 
 export default function Home() {
+
+  const envMap = useEnvironment({ files: '/HDRs/safari_sunset_4k.exr' })
+  
   const keyboardControlsMap = useMemo(
     () => [
       { name: controlConstants.FORWARD, keys: controlConstants.FORWARD_KEYS },
@@ -76,6 +81,7 @@ export default function Home() {
             onUpdate={(self) => self.updateProjectionMatrix()}
           />
           <PointerLockControls selector='#button' />
+          <Environment map={envMap} />
           {/* <ambientLight /> */}
           {/* <Clouds material={THREE.MeshBasicMaterial}>
             <Cloud
