@@ -26,6 +26,7 @@ import { default as controlConstants } from '@/constants/controlConstants.json'
 import { TestShaderMaterial } from '@/assets/materials/TestShaderMaterial'
 import TestLibraryCustomShader from '@/assets/materials/TestLibraryCustomShader'
 import DirectionalLightTest from '@/assets/lights/DirectionalLightTest'
+import AxeHelper from '@/components/r3f/helpers/AxeHelper'
 
 export default function Home() {
 
@@ -78,8 +79,10 @@ export default function Home() {
             onUpdate={(self) => self.updateProjectionMatrix()}
           />
           <PointerLockControls selector='#button' />
-          
+
           <Environment map={envMap} />
+
+          <AxeHelper size={10} />
 
           <Suspense>
             <Physics debug>
