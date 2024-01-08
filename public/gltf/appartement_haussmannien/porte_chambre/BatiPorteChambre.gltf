@@ -1,0 +1,94 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v4.0.44",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [0]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "BatiPorteChambre"
+    }
+  ],
+  "meshes": [
+    {
+      "name": "BatiPorteChambre",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3
+        }
+      ]
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 3398,
+      "max": [-25.283540725708008, 24.738006591796875, -3.1799895763397217],
+      "min": [-27.576461791992188, 0, -13.819991111755371],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 3398,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 3398,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 6474,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 40776,
+      "byteOffset": 0,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 40776,
+      "byteOffset": 40776,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 27184,
+      "byteOffset": 81552,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 12948,
+      "byteOffset": 108736,
+      "target": 34963
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 121684,
+      "uri": "BatiPorteChambre.bin"
+    }
+  ]
+}

@@ -17,8 +17,11 @@ import { Physics, RigidBody } from '@react-three/rapier'
 import Player from '@/components/r3f/Player'
 /* import Sky from '@/components/r3f/CustomSky' */
 
-import { DirectionalLight } from '@/components/r3f/lights'
-import { R3fDefaultCube } from '@/components/r3f/primitives'
+import {
+  CustomBox,
+  CustomPlane,
+  R3fDefaultCube,
+} from '@/components/r3f/primitives'
 import Assets from '@/components/r3f/Assets'
 
 import { default as controlConstants } from '@/constants/controlConstants.json'
@@ -27,11 +30,14 @@ import { TestShaderMaterial } from '@/assets/materials/TestShaderMaterial'
 import TestLibraryCustomShader from '@/assets/materials/TestLibraryCustomShader'
 import DirectionalLightTest from '@/assets/lights/DirectionalLightTest'
 import AxeHelper from '@/components/r3f/helpers/AxeHelper'
+import AppartementHuassmannien from '@/assets/models/appartement_haussmannien/AppartementHaussmannien'
+import Lights from '@/assets/lights/Lights'
+import Lampes from '@/assets/models/lampes/Lampes'
+import CustomMeshStandardMaterial from '@/components/r3f/materials/CustomMeshStandardMaterial'
 
 export default function Home() {
+  const envMap = useEnvironment({ files: '/HDRs/test_1.hdr' })
 
-  const envMap = useEnvironment({ files: '/HDRs/safari_sunset_4k.exr' })
-  
   const keyboardControlsMap = useMemo(
     () => [
       { name: controlConstants.FORWARD, keys: controlConstants.FORWARD_KEYS },
@@ -69,7 +75,15 @@ export default function Home() {
     <div className='h-screen'>
       <KeyboardControls map={keyboardControlsMap}>
         <Canvas
+          id='home_canvas'
           shadows
+          legacy
+          gl={{
+            antialias: true,
+            alpha: true,
+            powerPreference: 'high-performance',
+            /* shadowMapEnabled: true */
+          }}
         >
           <PerspectiveCamera
             makeDefault
@@ -82,13 +96,39 @@ export default function Home() {
 
           <Environment map={envMap} />
 
+          <AppartementHuassmannien />
+          <Lampes />
+          <Lights />
+
           <AxeHelper size={10} />
 
-          <Suspense>
+          <Suspense fallback={null}>
             <Physics debug>
               <Player />
-              <Assets />
+              <RigidBody
+                type='fixed'
+                colliders='trimesh'
+              >
+                <CustomPlane
+                  name={'sol'}
+                  width={52}
+                  depth={29.1}
+                  receiveShadow
+                />
+              </RigidBody>
+              {/* <Assets /> */}
             </Physics>
+            <CustomBox
+              name={'testBox'}
+              width={3}
+              depth={3}
+              height={3}
+              position={new THREE.Vector3(0, 0, 5)}
+              castShadow
+              receiveShadow
+            >
+              <CustomMeshStandardMaterial />
+            </CustomBox>
           </Suspense>
           <Stats />
         </Canvas>
