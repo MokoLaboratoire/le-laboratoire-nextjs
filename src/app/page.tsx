@@ -6,17 +6,22 @@ import { Canvas, useThree } from '@react-three/fiber'
 import {
   Cloud,
   Clouds,
+  Environment,
   KeyboardControls,
   PerspectiveCamera,
   PointerLockControls,
   Stats,
+  useEnvironment,
 } from '@react-three/drei'
 import { Physics, RigidBody } from '@react-three/rapier'
 import Player from '@/components/r3f/Player'
 /* import Sky from '@/components/r3f/CustomSky' */
 
-import { DirectionalLight } from '@/components/r3f/lights'
-import { R3fDefaultCube } from '@/components/r3f/primitives'
+import {
+  CustomBox,
+  CustomPlane,
+  R3fDefaultCube,
+} from '@/components/r3f/primitives'
 import Assets from '@/components/r3f/Assets'
 
 import { default as controlConstants } from '@/constants/controlConstants.json'
@@ -24,8 +29,15 @@ import { default as controlConstants } from '@/constants/controlConstants.json'
 import { TestShaderMaterial } from '@/assets/materials/TestShaderMaterial'
 import TestLibraryCustomShader from '@/assets/materials/TestLibraryCustomShader'
 import DirectionalLightTest from '@/assets/lights/DirectionalLightTest'
+import AxeHelper from '@/components/r3f/helpers/AxeHelper'
+import AppartementHuassmannien from '@/assets/models/appartement_haussmannien/AppartementHaussmannien'
+import Lights from '@/assets/lights/Lights'
+import Lampes from '@/assets/models/lampes/Lampes'
+import CustomMeshStandardMaterial from '@/components/r3f/materials/CustomMeshStandardMaterial'
 
 export default function Home() {
+  const envMap = useEnvironment({ files: '/HDRs/test_1.hdr' })
+
   const keyboardControlsMap = useMemo(
     () => [
       { name: controlConstants.FORWARD, keys: controlConstants.FORWARD_KEYS },
@@ -63,11 +75,16 @@ export default function Home() {
     <div className='h-screen'>
       <KeyboardControls map={keyboardControlsMap}>
         <Canvas
+          id='home_canvas'
           shadows
-          /* camera={{ fov: 80 }} */
-          /* camera={{ position: [-20, 20, 0], fov: 80 }} */
+          legacy
+          gl={{
+            antialias: true,
+            alpha: true,
+            powerPreference: 'high-performance',
+            /* shadowMapEnabled: true */
+          }}
         >
-          {/* <DirectionalLightTest /> */}
           <PerspectiveCamera
             makeDefault
             aspect={1200 / 600}
@@ -76,46 +93,42 @@ export default function Home() {
             onUpdate={(self) => self.updateProjectionMatrix()}
           />
           <PointerLockControls selector='#button' />
-          {/* <ambientLight /> */}
-          {/* <Clouds material={THREE.MeshBasicMaterial}>
-            <Cloud
-              segments={40}
-              bounds={[10, 2, 2]}
-              volume={10}
-              color='orange'
-            />
-            <Cloud
-              seed={1}
-              scale={2}
-              volume={5}
-              color='hotpink'
-              fade={100}
-            />
-          </Clouds> */}
-          {/* <R3fDefaultCube position={[-1.2, 0, 0]} />
-          <R3fDefaultCube position={[1.2, 0, 0]} /> */}
 
-          <Suspense>
+          <Environment map={envMap} />
+
+          <AppartementHuassmannien />
+          <Lampes />
+          <Lights />
+
+          <AxeHelper size={10} />
+
+          <Suspense fallback={null}>
             <Physics debug>
-              {/* <Sky /> */}
               <Player />
-              <Assets />
-              {/* <mesh
-                castShadow
-                receiveShadow
-                position={[2, 2, 2]}
-                material={new TestShaderMaterial()}
+              <RigidBody
+                type='fixed'
+                colliders='trimesh'
               >
-                <boxGeometry
-                  attach='geometry'
-                  args={[1, 1, 1]}
+                <CustomPlane
+                  name={'sol'}
+                  width={52}
+                  depth={29.1}
+                  receiveShadow
                 />
-              </mesh> */}
-              {/* <TestLibraryCustomShader /> */}
-              {/* <RigidBody restitution={2}>
-                <R3fDefaultCube position={[10, 10, 0]} />
-              </RigidBody> */}
+              </RigidBody>
+              {/* <Assets /> */}
             </Physics>
+            <CustomBox
+              name={'testBox'}
+              width={3}
+              depth={3}
+              height={3}
+              position={new THREE.Vector3(0, 0, 5)}
+              castShadow
+              receiveShadow
+            >
+              <CustomMeshStandardMaterial />
+            </CustomBox>
           </Suspense>
           <Stats />
         </Canvas>
