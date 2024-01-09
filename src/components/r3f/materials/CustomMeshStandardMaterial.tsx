@@ -5,23 +5,33 @@ import { MeshStandardMaterialInterface } from '@/interfaces/components/r3f/Mater
 
 export default function CustomMeshStandardMaterial({
 	visible = true,
-  color = 'white',
   transparent = false,
   opacity = 1,
-	emissive = 'white',
   doubleSide = false,
+  color = 'white',
+	emissive = 'white',
+  emissiveIntensity = 1,
+  emissiveMap,
   envMapIntensity = 0,
+  wireframe = false,
+  wireframeLinecap = 'round',
+  wireframeLinewidth = 1,
 }: MeshStandardMaterialInterface) {
   return (
     <meshStandardMaterial
       attach={'material'}
 			visible={visible}
-      color={color}
       transparent={transparent}
       opacity={opacity}
+      color={color}
       emissive={emissive}
+      emissiveIntensity={emissiveIntensity}
+      emissiveMap={emissiveMap}
       side={doubleSide ? THREE.DoubleSide : undefined}
       envMapIntensity={envMapIntensity}
+      wireframe={wireframe}
+      wireframeLinecap={wireframeLinecap}
+      wireframeLinewidth={wireframeLinewidth}
     />
   )
 }
