@@ -11,7 +11,7 @@ import {
   Stats,
   useEnvironment,
 } from '@react-three/drei'
-import { Physics, RigidBody } from '@react-three/rapier'
+import { Physics } from '@react-three/rapier'
 import Player from '@/components/r3f/Player'
 
 import {
@@ -66,7 +66,6 @@ export default function HomeScene() {
 
         <Environment map={envMap} />
 
-        <AppartementHuassmannien />
         <Lampes />
         <Lights />
 
@@ -75,17 +74,7 @@ export default function HomeScene() {
         <Suspense fallback={null}>
           <Physics debug>
             <Player />
-            <RigidBody
-              type='fixed'
-              colliders='trimesh'
-            >
-              <CustomPlane
-                name={'sol'}
-                width={52}
-                depth={29.1}
-                receiveShadow
-              />
-            </RigidBody>
+        		<AppartementHuassmannien />
           </Physics>
           <CustomBox
             name={'testBox'}
@@ -95,9 +84,7 @@ export default function HomeScene() {
             position={new THREE.Vector3(0, 0, 5)}
             castShadow
             receiveShadow
-          >
-            <CustomMeshStandardMaterial />
-          </CustomBox>
+          />
         </Suspense>
         <Stats />
       </Canvas>

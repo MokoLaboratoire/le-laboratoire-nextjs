@@ -2,6 +2,8 @@ import React from 'react'
 import * as THREE from 'three'
 import { Plane } from '@react-three/drei'
 
+import { CustomMeshStandardMaterial } from '@/components/r3f/materials'
+
 import { PlaneInterface } from '@/interfaces/components/r3f/GeometriesInterfaces'
 
 export default function CustomPlane({
@@ -21,7 +23,7 @@ export default function CustomPlane({
       castShadow={castShadow}
       receiveShadow={receiveShadow}
     >
-      {children}
+      {children ? children : <CustomMeshStandardMaterial />}
     </Plane>
   )
 }

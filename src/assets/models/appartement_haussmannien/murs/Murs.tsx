@@ -4,6 +4,7 @@ import MurNord from './MurNord'
 import MurOuest from './MurOuest'
 import MurSud from './MurSud'
 import Plafond from './Plafond'
+import Sol from './Sol'
 
 export default function Murs() {
   return (
@@ -11,7 +12,8 @@ export default function Murs() {
       <MurNord />
       <MurOuest />
       <MurSud />
-      {/* <Plafond /> */}
+      <Plafond />
+      <Sol />
     </>
   )
 }

@@ -2,6 +2,8 @@ import React from 'react'
 import * as THREE from 'three'
 import { Box, RoundedBox } from '@react-three/drei'
 
+import { CustomMeshStandardMaterial } from '@/components/r3f/materials'
+
 import { BoxInterface } from '@/interfaces/components/r3f/GeometriesInterfaces'
 
 export default function CustomBox({
@@ -31,7 +33,7 @@ export default function CustomBox({
       castShadow={castShadow}
       receiveShadow={receiveShadow}
     >
-      {children}
+      {children ? children : <CustomMeshStandardMaterial />}
     </MeshType>
   )
 }
