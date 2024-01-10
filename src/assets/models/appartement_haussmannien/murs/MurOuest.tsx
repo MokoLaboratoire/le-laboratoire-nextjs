@@ -50,3 +50,5 @@ export default function MurOuest() {
   )
 } */
 
+// https://discourse.threejs.org/t/simple-custom-geometry/45213/2
+
