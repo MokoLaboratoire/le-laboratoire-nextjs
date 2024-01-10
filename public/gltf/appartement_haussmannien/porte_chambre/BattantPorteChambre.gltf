@@ -1,107 +1,122 @@
 {
-  "asset": {
-    "generator": "Khronos glTF Blender I/O v4.0.44",
-    "version": "2.0"
-  },
-  "scene": 0,
-  "scenes": [
-    {
-      "name": "Scene",
-      "nodes": [0]
-    }
-  ],
-  "nodes": [
-    {
-      "mesh": 0,
-      "name": "BattantPorteChambre"
-    }
-  ],
-  "meshes": [
-    {
-      "name": "BattantPorteChambre",
-      "primitives": [
-        {
-          "attributes": {
-            "POSITION": 0,
-            "NORMAL": 1,
-            "TEXCOORD_0": 2,
-            "TEXCOORD_1": 3
-          },
-          "indices": 4
-        }
-      ]
-    }
-  ],
-  "accessors": [
-    {
-      "bufferView": 0,
-      "componentType": 5126,
-      "count": 3376,
-      "max": [-25.890897750854492, 23.40933609008789, -4.508659839630127],
-      "min": [-26.430004119873047, 0.03324848413467407, -12.491321563720703],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 1,
-      "componentType": 5126,
-      "count": 3376,
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 2,
-      "componentType": 5126,
-      "count": 3376,
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 3,
-      "componentType": 5126,
-      "count": 3376,
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 4,
-      "componentType": 5123,
-      "count": 5178,
-      "type": "SCALAR"
-    }
-  ],
-  "bufferViews": [
-    {
-      "buffer": 0,
-      "byteLength": 40512,
-      "byteOffset": 0,
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 40512,
-      "byteOffset": 40512,
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 27008,
-      "byteOffset": 81024,
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 27008,
-      "byteOffset": 108032,
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 10356,
-      "byteOffset": 135040,
-      "target": 34963
-    }
-  ],
-  "buffers": [
-    {
-      "byteLength": 145396,
-      "uri": "BattantPorteChambre.bin"
-    }
-  ]
+	"asset":{
+		"generator":"Khronos glTF Blender I/O v4.0.44",
+		"version":"2.0"
+	},
+	"scene":0,
+	"scenes":[
+		{
+			"name":"Scene",
+			"nodes":[
+				0
+			]
+		}
+	],
+	"nodes":[
+		{
+			"mesh":0,
+			"name":"BattantPorteChambre",
+			"translation":[
+				-0.20000000298023224,
+				0,
+				0
+			]
+		}
+	],
+	"meshes":[
+		{
+			"name":"BattantPorteChambre",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":0,
+						"NORMAL":1,
+						"TEXCOORD_0":2,
+						"TEXCOORD_1":3
+					},
+					"indices":4
+				}
+			]
+		}
+	],
+	"accessors":[
+		{
+			"bufferView":0,
+			"componentType":5126,
+			"count":3376,
+			"max":[
+				-25.890897750854492,
+				23.40933609008789,
+				-4.508659839630127
+			],
+			"min":[
+				-26.430004119873047,
+				0.03324848413467407,
+				-12.491321563720703
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":1,
+			"componentType":5126,
+			"count":3376,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":2,
+			"componentType":5126,
+			"count":3376,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":3,
+			"componentType":5126,
+			"count":3376,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":4,
+			"componentType":5123,
+			"count":5178,
+			"type":"SCALAR"
+		}
+	],
+	"bufferViews":[
+		{
+			"buffer":0,
+			"byteLength":40512,
+			"byteOffset":0,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":40512,
+			"byteOffset":40512,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":27008,
+			"byteOffset":81024,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":27008,
+			"byteOffset":108032,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":10356,
+			"byteOffset":135040,
+			"target":34963
+		}
+	],
+	"buffers":[
+		{
+			"byteLength":145396,
+			"uri":"BattantPorteChambre.bin"
+		}
+	]
 }

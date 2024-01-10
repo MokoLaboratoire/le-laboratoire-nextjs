@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { BatiPorteChambreDraco } from './BatiPorteChambreDraco'
-import { BattantPorteChambreDraco } from './BattantPorteChambreDraco'
+import { BatiPorteChambre } from './BatiPorteChambre'
+import { BattantPorteChambre } from './BattantPorteChambre'
 
 export default function Murs() {
   return (
     <>
-      <BatiPorteChambreDraco />
-      <BattantPorteChambreDraco />
+      <BatiPorteChambre />
+      <BattantPorteChambre />
     </>
   )
 }

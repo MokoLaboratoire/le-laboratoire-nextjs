@@ -14,11 +14,7 @@ import {
 import { Physics } from '@react-three/rapier'
 import Player from '@/components/r3f/Player'
 
-import {
-  CustomBox,
-  CustomPlane,
-} from '@/components/r3f/primitives'
-import CustomMeshStandardMaterial from '@/components/r3f/materials/CustomMeshStandardMaterial'
+import { CustomBox } from '@/components/r3f/primitives'
 import { AxeHelper } from '@/components/r3f/helpers'
 
 import { default as controlConstants } from '@/constants/controlConstants.json'

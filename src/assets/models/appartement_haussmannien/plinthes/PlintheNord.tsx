@@ -14,6 +14,7 @@ export function PlintheNord() {
       if (object instanceof THREE.Mesh) {
         object.castShadow = true
         object.receiveShadow = true
+        object.material = new THREE.MeshStandardMaterial
         object.material.envMapIntensity = 0
       }
     })
