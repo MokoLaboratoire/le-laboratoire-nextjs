@@ -6,10 +6,10 @@ import { CustomPlane } from '@/components/r3f/primitives'
 export default function Plafond() {
   return (
     <CustomPlane
+      name={'plafond'}
       width={52}
       depth={29.1}
-      position={new THREE.Vector3(0, 26, 0)}
-      rotation={new THREE.Euler(Math.PI / 2, 0, 0)}
+      position={new THREE.Vector3(0, 0, 26)}
       castShadow
       receiveShadow
     />
