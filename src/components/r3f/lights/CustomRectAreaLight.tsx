@@ -7,7 +7,7 @@ import { RectAreaLightInterface } from '@/interfaces/components/r3f/LightsInterf
 export default function CustomRectAreaLight({
     width = 1,
     depth = 1,
-    color = 'red',
+    color = 'white',
     intensity = 1,
     position = new THREE.Vector3(0, 0, 0),
 		rotation = new THREE.Euler(-Math.PI / 2, 0, 0),

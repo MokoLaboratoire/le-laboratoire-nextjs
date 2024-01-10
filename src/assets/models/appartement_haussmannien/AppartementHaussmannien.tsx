@@ -1,14 +1,16 @@
 import React from 'react'
 
 import Murs from './murs/Murs'
-import PorteChambre from './porte_chambre/PorteChambre'
 import Parquet from './sol/lattes/Parquet'
+import Plinthes from './plinthes/Plinthes'
+import PorteChambre from './porte_chambre/PorteChambre'
 
 export default function AppartementHuassmannien() {
   return (
     <>
       <Murs />
       <Parquet />
+      <Plinthes />
       <PorteChambre />
     </>
   )
