@@ -1,4 +1,3 @@
 export interface AxeHelperInterface {
-	size?: number
+  size?: number
 }
-  

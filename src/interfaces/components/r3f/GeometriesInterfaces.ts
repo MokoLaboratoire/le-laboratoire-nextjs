@@ -1,5 +1,5 @@
 interface BufferGeometryInterface {
-	name: string
+  name: string
   children?: JSX.Element
 }
 
@@ -17,7 +17,7 @@ export interface BoxInterface extends BufferGeometryInterface {
   depth?: number
   height?: number
   radius?: number
-	smoothness?: number
+  smoothness?: number
   bevelSegments?: number
   creaseAngle?: number
   position?: THREE.Vector3

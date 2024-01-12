@@ -8,8 +8,8 @@ export default function CustomAmbientLight({
 }: LightInterface) {
   return (
     <ambientLight
-			color={color}
-			intensity={intensity}
+      color={color}
+      intensity={intensity}
     />
   )
 }

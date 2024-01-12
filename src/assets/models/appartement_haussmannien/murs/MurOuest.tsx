@@ -4,7 +4,6 @@ import * as THREE from 'three'
 import { CustomMeshStandardMaterial } from '@/components/r3f/materials'
 
 export default function MurOuest() {
-
   const shape = new THREE.Shape()
   shape.moveTo(14.55, 0)
   shape.lineTo(14.55, 26)
@@ -16,7 +15,10 @@ export default function MurOuest() {
   shape.lineTo(-3.18, 0)
 
   return (
-    <mesh position={[-26, 0, 0]} rotation={[0, -Math.PI / 2, 0]}>
+    <mesh
+      position={[-26, 0, 0]}
+      rotation={[0, -Math.PI / 2, 0]}
+    >
       <shapeGeometry args={[new THREE.Shape(shape.getPoints(8))]} />
       <CustomMeshStandardMaterial />
     </mesh>
@@ -51,4 +53,3 @@ export default function MurOuest() {
 } */
 
 // https://discourse.threejs.org/t/simple-custom-geometry/45213/2
-

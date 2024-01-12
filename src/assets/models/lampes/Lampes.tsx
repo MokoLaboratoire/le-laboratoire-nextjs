@@ -6,7 +6,7 @@ import LampePlafondEmission from './LampePlafondEmission'
 export default function Lampes() {
   return (
     <>
-			<LampePlafondCadre />
+      <LampePlafondCadre />
       <LampePlafondEmission />
     </>
   )

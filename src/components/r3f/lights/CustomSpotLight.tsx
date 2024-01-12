@@ -8,7 +8,7 @@ export default function CustomSpotLight({
   color = 0xffffff,
   intensity = 1,
   power = 1,
-	angle = Math.PI / 3,
+  angle = Math.PI / 3,
   distance = 1,
   decay = 2,
   penumbra = 0,
@@ -18,17 +18,17 @@ export default function CustomSpotLight({
 }: SpotLightInterface) {
   return (
     <SpotLight
-			isSpotLight
-			color={color}
-			intensity={intensity}
-			power={power}
-			angle={angle}
-			distance={distance}
-			decay={decay}
-			penumbra={penumbra}
-			position={position}
+      isSpotLight
+      color={color}
+      intensity={intensity}
+      power={power}
+      angle={angle}
+      distance={distance}
+      decay={decay}
+      penumbra={penumbra}
+      position={position}
       target={target}
       castShadow={castShadow}
-		/>
+    />
   )
 }

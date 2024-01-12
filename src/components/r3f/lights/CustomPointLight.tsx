@@ -14,12 +14,12 @@ export default function CustomPointLight({
 }: PointLightInterface) {
   return (
     <pointLight
-			color={color}
-			intensity={intensity}
-			power={power}
-			distance={distance}
-			decay={decay}
-			position={position}
+      color={color}
+      intensity={intensity}
+      power={power}
+      distance={distance}
+      decay={decay}
+      position={position}
       castShadow={castShadow}
     />
   )

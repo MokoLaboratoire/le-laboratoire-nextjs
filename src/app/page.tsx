@@ -1,10 +1,9 @@
 'use client'
 
 import HomeScene from '@/components/r3f/scenes/HomeScene'
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function Home() {
-
   const [showInstructions, setShowInstructions] = useState(true)
 
   function HandleShowInstructions() {
