@@ -3,7 +3,7 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { useLoader } from '@react-three/fiber'
 
-import useTextureLoader from '@/hooks/useTextureLoader'
+import useTextureLoader from '@/hooks/UseTextureLoader'
 
 import { default as gltfConstants } from '@/constants/gltfConstants.json'
 import { default as texturesConstants } from '@/constants/texturesConstants.json'
