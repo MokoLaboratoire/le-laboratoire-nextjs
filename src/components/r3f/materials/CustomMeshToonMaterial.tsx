@@ -4,12 +4,12 @@ import * as THREE from 'three'
 import { MeshToonMaterialInterface } from '@/interfaces/components/r3f/MaterialsInterfaces'
 
 export default function CustomMeshToonMaterial({
-	visible = true,
+  visible = true,
   transparent = false,
   opacity = 1,
   doubleSide = false,
   color = 'white',
-	emissive = 'white',
+  emissive = 'white',
   emissiveIntensity = 1,
   emissiveMap,
   wireframe = false,
@@ -19,19 +19,19 @@ export default function CustomMeshToonMaterial({
 }: MeshToonMaterialInterface) {
   return (
     <meshToonMaterial
-			attach={'material'}
-			visible={visible}
-			transparent={transparent}
-			opacity={opacity}
-			color={color}
-			emissive={emissive}
-			emissiveIntensity={emissiveIntensity}
-			emissiveMap={emissiveMap}
-			side={doubleSide ? THREE.DoubleSide : undefined}
-			wireframe={wireframe}
-			wireframeLinecap={wireframeLinecap}
-			wireframeLinejoin={wireframeLinejoin}
-			wireframeLinewidth={wireframeLinewidth}
+      attach={'material'}
+      visible={visible}
+      transparent={transparent}
+      opacity={opacity}
+      color={color}
+      emissive={emissive}
+      emissiveIntensity={emissiveIntensity}
+      emissiveMap={emissiveMap}
+      side={doubleSide ? THREE.DoubleSide : undefined}
+      wireframe={wireframe}
+      wireframeLinecap={wireframeLinecap}
+      wireframeLinejoin={wireframeLinejoin}
+      wireframeLinewidth={wireframeLinewidth}
     />
   )
 }

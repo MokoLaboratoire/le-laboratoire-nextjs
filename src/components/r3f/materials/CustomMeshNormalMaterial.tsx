@@ -4,7 +4,7 @@ import * as THREE from 'three'
 import { MeshNormalMaterialInterface } from '@/interfaces/components/r3f/MaterialsInterfaces'
 
 export default function CustomMeshNormalMaterial({
-	visible = true,
+  visible = true,
   transparent = false,
   opacity = 1,
   doubleSide = false,
@@ -13,13 +13,13 @@ export default function CustomMeshNormalMaterial({
 }: MeshNormalMaterialInterface) {
   return (
     <meshNormalMaterial
-			attach={'material'}
-			visible={visible}
-			transparent={transparent}
-			opacity={opacity}
-			side={doubleSide ? THREE.DoubleSide : undefined}
-			wireframe={wireframe}
-			wireframeLinewidth={wireframeLinewidth}
+      attach={'material'}
+      visible={visible}
+      transparent={transparent}
+      opacity={opacity}
+      side={doubleSide ? THREE.DoubleSide : undefined}
+      wireframe={wireframe}
+      wireframeLinewidth={wireframeLinewidth}
     />
   )
 }

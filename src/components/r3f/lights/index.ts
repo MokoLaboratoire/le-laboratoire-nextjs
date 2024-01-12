@@ -6,10 +6,10 @@ import CustomRectAreaLight from './CustomRectAreaLight'
 import CustomSpotLight from './CustomSpotLight'
 
 export {
-	CustomAmbientLight,
-	CustomDirectionalLight,
-	CustomHemisphereLight,
-	CustomPointLight,
-	CustomRectAreaLight,
-	CustomSpotLight,
+  CustomAmbientLight,
+  CustomDirectionalLight,
+  CustomHemisphereLight,
+  CustomPointLight,
+  CustomRectAreaLight,
+  CustomSpotLight,
 }

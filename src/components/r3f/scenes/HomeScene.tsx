@@ -24,19 +24,18 @@ import Lights from '@/assets/lights/Lights'
 import Lampes from '@/assets/models/lampes/Lampes'
 
 export default function HomeScene() {
+  const keyboardControlsMap = useMemo(
+    () => [
+      { name: controlConstants.FORWARD, keys: controlConstants.FORWARD_KEYS },
+      { name: controlConstants.BACKWARD, keys: controlConstants.BACKWARD_KEYS },
+      { name: controlConstants.LEFT, keys: controlConstants.LEFT_KEYS },
+      { name: controlConstants.RIGHT, keys: controlConstants.RIGHT_KEYS },
+      { name: controlConstants.JUMP, keys: controlConstants.JUMP_KEY },
+    ],
+    [],
+  )
 
-	const keyboardControlsMap = useMemo(
-		() => [
-			{ name: controlConstants.FORWARD, keys: controlConstants.FORWARD_KEYS },
-			{ name: controlConstants.BACKWARD, keys: controlConstants.BACKWARD_KEYS },
-			{ name: controlConstants.LEFT, keys: controlConstants.LEFT_KEYS },
-			{ name: controlConstants.RIGHT, keys: controlConstants.RIGHT_KEYS },
-			{ name: controlConstants.JUMP, keys: controlConstants.JUMP_KEY },
-		],
-		[],
-	)
-	
-	const envMap = useEnvironment({ files: '/HDRs/test_1.hdr' })
+  const envMap = useEnvironment({ files: '/HDRs/test_1.hdr' })
 
   return (
     <KeyboardControls map={keyboardControlsMap}>
@@ -70,7 +69,7 @@ export default function HomeScene() {
         <Suspense fallback={null}>
           <Physics debug>
             <Player />
-        		<AppartementHuassmannien />
+            <AppartementHuassmannien />
           </Physics>
           <CustomBox
             name={'testBox'}

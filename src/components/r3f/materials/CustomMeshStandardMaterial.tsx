@@ -4,12 +4,12 @@ import * as THREE from 'three'
 import { MeshStandardMaterialInterface } from '@/interfaces/components/r3f/MaterialsInterfaces'
 
 export default function CustomMeshStandardMaterial({
-	visible = true,
+  visible = true,
   transparent = false,
   opacity,
   doubleSide = true,
   color = 'white',
-	emissive,
+  emissive,
   emissiveIntensity,
   emissiveMap,
   envMapIntensity = 0,
@@ -20,7 +20,7 @@ export default function CustomMeshStandardMaterial({
   return (
     <meshStandardMaterial
       attach={'material'}
-			visible={visible}
+      visible={visible}
       transparent={transparent}
       opacity={opacity}
       color={color}

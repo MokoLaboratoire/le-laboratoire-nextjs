@@ -15,13 +15,16 @@ export function BatiPorteChambre() {
       if (object instanceof THREE.Mesh) {
         object.castShadow = true
         object.receiveShadow = true
-        object.material = new THREE.MeshStandardMaterial
+        object.material = new THREE.MeshStandardMaterial()
         object.material.envMapIntensity = 0
       }
     })
   }, [gltf])
 
   return (
-    <primitive object={gltf.scene} material={<CustomMeshStandardMaterial />} />
+    <primitive
+      object={gltf.scene}
+      material={<CustomMeshStandardMaterial />}
+    />
   )
 }

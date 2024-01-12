@@ -4,12 +4,12 @@ import * as THREE from 'three'
 import { MeshPhysicalMaterialInterface } from '@/interfaces/components/r3f/MaterialsInterfaces'
 
 export default function CustomMeshPhysicalMaterial({
-	visible = true,
+  visible = true,
   transparent = false,
   opacity = 1,
   doubleSide = false,
   color = 'white',
-	emissive = 'white',
+  emissive = 'white',
   emissiveIntensity = 1,
   emissiveMap,
   envMapIntensity = 0,
@@ -19,19 +19,19 @@ export default function CustomMeshPhysicalMaterial({
 }: MeshPhysicalMaterialInterface) {
   return (
     <meshPhysicalMaterial
-			attach={'material'}
-			visible={visible}
-			transparent={transparent}
-			opacity={opacity}
-			color={color}
-			emissive={emissive}
-			emissiveIntensity={emissiveIntensity}
-			emissiveMap={emissiveMap}
-			side={doubleSide ? THREE.DoubleSide : undefined}
-			envMapIntensity={envMapIntensity}
-			wireframe={wireframe}
-			wireframeLinecap={wireframeLinecap}
-			wireframeLinewidth={wireframeLinewidth}
+      attach={'material'}
+      visible={visible}
+      transparent={transparent}
+      opacity={opacity}
+      color={color}
+      emissive={emissive}
+      emissiveIntensity={emissiveIntensity}
+      emissiveMap={emissiveMap}
+      side={doubleSide ? THREE.DoubleSide : undefined}
+      envMapIntensity={envMapIntensity}
+      wireframe={wireframe}
+      wireframeLinecap={wireframeLinecap}
+      wireframeLinewidth={wireframeLinewidth}
     />
   )
 }

@@ -2,7 +2,10 @@ import React from 'react'
 import * as THREE from 'three'
 
 import { CustomPlane } from '@/components/r3f/primitives'
-import { CustomMeshBasicMaterial, CustomMeshStandardMaterial } from '@/components/r3f/materials'
+import {
+  CustomMeshBasicMaterial,
+  CustomMeshStandardMaterial,
+} from '@/components/r3f/materials'
 
 export default function MurNord() {
   return (

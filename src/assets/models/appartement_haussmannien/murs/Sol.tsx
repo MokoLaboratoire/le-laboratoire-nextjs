@@ -2,6 +2,7 @@ import React from 'react'
 import { RigidBody } from '@react-three/rapier'
 
 import { CustomPlane } from '@/components/r3f/primitives'
+import { CustomMeshStandardMaterial } from '@/components/r3f/materials'
 
 export default function Sol() {
   return (
@@ -14,7 +15,9 @@ export default function Sol() {
         width={52}
         depth={29.1}
         receiveShadow
-      />
+      >
+        <CustomMeshStandardMaterial color={'black'} />
+      </CustomPlane>
     </RigidBody>
   )
 }

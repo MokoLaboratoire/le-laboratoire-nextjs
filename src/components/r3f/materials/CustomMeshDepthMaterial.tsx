@@ -4,7 +4,7 @@ import * as THREE from 'three'
 import { MeshDepthMaterialInterface } from '@/interfaces/components/r3f/MaterialsInterfaces'
 
 export default function CustomMeshDepthMaterial({
-	visible = true,
+  visible = true,
   transparent = false,
   opacity = 1,
   doubleSide = false,
@@ -13,13 +13,13 @@ export default function CustomMeshDepthMaterial({
 }: MeshDepthMaterialInterface) {
   return (
     <meshDepthMaterial
-			attach={'material'}
-			visible={visible}
-			transparent={transparent}
-			opacity={opacity}
-			wireframe={wireframe}
-			wireframeLinewidth={wireframeLinewidth}
-			side={doubleSide ? THREE.DoubleSide : undefined}
+      attach={'material'}
+      visible={visible}
+      transparent={transparent}
+      opacity={opacity}
+      wireframe={wireframe}
+      wireframeLinewidth={wireframeLinewidth}
+      side={doubleSide ? THREE.DoubleSide : undefined}
     />
   )
 }
