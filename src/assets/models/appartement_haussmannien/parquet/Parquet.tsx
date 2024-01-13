@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import * as THREE from 'three'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import { useLoader } from '@react-three/fiber'
 
+import useGltfLoader from '@/hooks/UseGltfLoader'
 import useTextureLoader from '@/hooks/UseTextureLoader'
 
 import { default as gltfConstants } from '@/constants/gltfConstants.json'
@@ -20,7 +19,7 @@ const maxGreyGradientRange = 15
 const minGreyGradientRange = 8
 
 export function Parquet() {
-  const gltf = useLoader(GLTFLoader, gltfConstants.PARQUET)
+  const gltf = useGltfLoader(gltfConstants.PARQUET)
 
   const colorMap = useTextureLoader(texturesConstants.PARQUET_DIFFUSE)
   colorMap.wrapS = THREE.RepeatWrapping

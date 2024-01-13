@@ -22,6 +22,7 @@ import { default as controlConstants } from '@/constants/controlConstants.json'
 import AppartementHuassmannien from '@/assets/models/appartement_haussmannien/AppartementHaussmannien'
 import Lights from '@/assets/lights/Lights'
 import Lampes from '@/assets/models/lampes/Lampes'
+import Mobilier from '@/assets/models/mobilier/Mobilier'
 
 export default function HomeScene() {
   const keyboardControlsMap = useMemo(
@@ -70,6 +71,7 @@ export default function HomeScene() {
           <Physics debug>
             <Player />
             <AppartementHuassmannien />
+            <Mobilier />
           </Physics>
           <CustomBox
             name={'testBox'}

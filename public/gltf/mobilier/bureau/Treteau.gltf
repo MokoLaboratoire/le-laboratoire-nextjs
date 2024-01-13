@@ -13,23 +13,31 @@
   "nodes": [
     {
       "mesh": 0,
-      "name": "LampePlafondCadre",
-      "rotation": [0, -0.7071068286895752, 0, 0.7071068286895752],
-      "translation": [0, 25.51641845703125, 0]
+      "name": "Traiteau"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Material.003",
+      "pbrMetallicRoughness": {
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5
+      }
     }
   ],
   "meshes": [
     {
-      "name": "LampePlafondCadre",
+      "name": "Traiteau",
       "primitives": [
         {
           "attributes": {
             "POSITION": 0,
             "NORMAL": 1,
-            "TEXCOORD_0": 2,
-            "TEXCOORD_1": 3
+            "TEXCOORD_0": 2
           },
-          "indices": 4
+          "indices": 3,
+          "material": 0
         }
       ]
     }
@@ -38,72 +46,60 @@
     {
       "bufferView": 0,
       "componentType": 5126,
-      "count": 264,
-      "max": [5, 0.5000001192092896, 8.09000015258789],
-      "min": [-5, 0, -8.09000015258789],
+      "count": 556,
+      "max": [1.918050765991211, 6, 3.1933441162109375],
+      "min": [-1.918050765991211, -2.60540168676689e-14, -3.1933441162109375],
       "type": "VEC3"
     },
     {
       "bufferView": 1,
       "componentType": 5126,
-      "count": 264,
+      "count": 556,
       "type": "VEC3"
     },
     {
       "bufferView": 2,
       "componentType": 5126,
-      "count": 264,
+      "count": 556,
       "type": "VEC2"
     },
     {
       "bufferView": 3,
-      "componentType": 5126,
-      "count": 264,
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 4,
       "componentType": 5123,
-      "count": 528,
+      "count": 1104,
       "type": "SCALAR"
     }
   ],
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 3168,
+      "byteLength": 6672,
       "byteOffset": 0,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 3168,
-      "byteOffset": 3168,
+      "byteLength": 6672,
+      "byteOffset": 6672,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 2112,
-      "byteOffset": 6336,
+      "byteLength": 4448,
+      "byteOffset": 13344,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 2112,
-      "byteOffset": 8448,
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 1056,
-      "byteOffset": 10560,
+      "byteLength": 2208,
+      "byteOffset": 17792,
       "target": 34963
     }
   ],
   "buffers": [
     {
-      "byteLength": 11616,
-      "uri": "LampePlafondCadre.bin"
+      "byteLength": 20000,
+      "uri": "Treteau.bin"
     }
   ]
 }
