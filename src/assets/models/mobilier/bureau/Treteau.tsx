@@ -9,7 +9,7 @@ import { default as texturesConstants } from '@/constants/texturesConstants.json
 
 export function Treteau({
 	position
-}: TreteauInterface) {
+}: ModelInterface) {
   
 	// @ts-ignore
   const { nodes } = useGLTF(gltfConstants.TRETEAU)

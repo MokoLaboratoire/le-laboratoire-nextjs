@@ -15,7 +15,7 @@ export default function CustomBox({
   bevelSegments = 0,
   creaseAngle = 0,
   position = new THREE.Vector3(0, 0, 0),
-  rotation = new THREE.Euler(0, 0, 0),
+  rotation = new THREE.Euler(Math.PI / 2, 0, 0),
   castShadow = false,
   receiveShadow = false,
   children,
