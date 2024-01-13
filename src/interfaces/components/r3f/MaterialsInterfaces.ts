@@ -58,6 +58,10 @@ export interface MeshPhysicalMaterialInterface
     clearcoat?: number
     clearcoatRoughness?: number
     clearcoatNormalScale?: THREE.Vector2
+    specularColor?: string | THREE.Color
+    specularIntensity?: number
+    attenuationColor?: string | THREE.Color
+    attenuationDistance?: number
   }
 
 export interface MeshStandardMaterialInterface extends MaterialInterface {
