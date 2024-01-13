@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import * as THREE from 'three'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import { useLoader } from '@react-three/fiber'
+
+import useGltfLoader from '@/hooks/UseGltfLoader'
 
 export function LampePlafondCadre() {
-  const gltf = useLoader(GLTFLoader, '/gltf/lampes/LampePlafondCadre.gltf')
+  const gltf = useGltfLoader('/gltf/lampes/LampePlafondCadre.gltf')
 
   useEffect(() => {
     gltf.scene.traverse((object) => {

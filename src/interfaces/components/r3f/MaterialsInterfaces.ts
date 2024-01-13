@@ -50,10 +50,24 @@ export interface MeshPhongMaterialInterface extends MaterialInterface {
 }
 
 export interface MeshPhysicalMaterialInterface
-  extends MeshStandardMaterialInterface {}
+  extends MeshStandardMaterialInterface {
+    transmission?: number
+    ior?: number
+    reflectivity?: number
+    thickness?: number
+    clearcoat?: number
+    clearcoatRoughness?: number
+    clearcoatNormalScale?: THREE.Vector2
+    specularColor?: string | THREE.Color
+    specularIntensity?: number
+    attenuationColor?: string | THREE.Color
+    attenuationDistance?: number
+  }
 
 export interface MeshStandardMaterialInterface extends MaterialInterface {
   color?: string | THREE.Color
+  metalness?: number
+  roughness?: number
   emissive?: string | THREE.Color
   emissiveIntensity?: number
   emissiveMap?: THREE.Texture
@@ -61,6 +75,8 @@ export interface MeshStandardMaterialInterface extends MaterialInterface {
   wireframe?: boolean
   wireframeLinecap?: 'butt' | 'round' | 'square'
   wireframeLinewidth?: number
+  normalScale?: THREE.Vector2
+  normalMap?: THREE.Texture
 }
 
 export interface MeshToonMaterialInterface extends MaterialInterface {

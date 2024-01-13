@@ -22,6 +22,7 @@ import { default as controlConstants } from '@/constants/controlConstants.json'
 import AppartementHuassmannien from '@/assets/models/appartement_haussmannien/AppartementHaussmannien'
 import Lights from '@/assets/lights/Lights'
 import Lampes from '@/assets/models/lampes/Lampes'
+import Mobilier from '@/assets/models/mobilier/Mobilier'
 
 export default function HomeScene() {
   const keyboardControlsMap = useMemo(
@@ -70,13 +71,14 @@ export default function HomeScene() {
           <Physics debug>
             <Player />
             <AppartementHuassmannien />
+            <Mobilier />
           </Physics>
           <CustomBox
             name={'testBox'}
             width={3}
             depth={3}
             height={3}
-            position={new THREE.Vector3(0, 0, 5)}
+            position={new THREE.Vector3(0, 5, 5)}
             castShadow
             receiveShadow
           />

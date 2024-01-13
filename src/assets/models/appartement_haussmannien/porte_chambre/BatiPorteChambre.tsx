@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react'
 import * as THREE from 'three'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import { useLoader } from '@react-three/fiber'
-import { CustomMeshStandardMaterial } from '@/components/r3f/materials'
+
+import useGltfLoader from '@/hooks/UseGltfLoader'
 
 export function BatiPorteChambre() {
-  const gltf = useLoader(
-    GLTFLoader,
+  const gltf = useGltfLoader(
     '/gltf/appartement_haussmannien/porte_chambre/BatiPorteChambre.gltf',
   )
 
@@ -21,10 +19,5 @@ export function BatiPorteChambre() {
     })
   }, [gltf])
 
-  return (
-    <primitive
-      object={gltf.scene}
-      material={<CustomMeshStandardMaterial />}
-    />
-  )
+  return <primitive object={gltf.scene} />
 }

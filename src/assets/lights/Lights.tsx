@@ -7,9 +7,7 @@ export default function Lights() {
   return (
     <>
       <ambientLight intensity={0.1} />
-      {/* <CustomDirectionalLight
-        position={new THREE.Vector3(0, 25, 0)}
-      /> */}
+      <CustomDirectionalLight position={new THREE.Vector3(0, 25, 0)} />
     </>
   )
 }
