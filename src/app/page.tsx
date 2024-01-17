@@ -1,5 +1,7 @@
 'use client'
 
+import { MeshStandardMaterial } from '@/components/r3f/materials'
+import MeshPhysicalMaterial from '@/components/r3f/materials/MeshPhysicalMaterial'
 import HomeScene from '@/components/r3f/scenes/HomeScene'
 import React, { useEffect, useState } from 'react'
 

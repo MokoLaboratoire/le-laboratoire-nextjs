@@ -19,7 +19,7 @@ export default function CustomMeshStandardMaterial({
   wireframeLinecap = 'round',
   wireframeLinewidth = 1,
   normalScale = new THREE.Vector2(1, 1),
-  normalMap
+  normalMap,
 }: MeshStandardMaterialInterface) {
   return (
     <meshStandardMaterial
