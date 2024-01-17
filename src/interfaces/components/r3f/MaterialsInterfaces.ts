@@ -62,6 +62,8 @@ export interface MaterialInterface {
   vertexColors?: boolean
   visible?: boolean
   userData?: Object
+  children?: JSX.Element
+  leva?: boolean
 }
 
 export interface MeshBasicMaterialInterface extends MaterialInterface {

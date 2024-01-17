@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+/* import React, { Component } from 'react'
 
 import { MaterialInterface } from '@/interfaces/components/r3f/MaterialsInterfaces'
 import { materialProps } from '@/constants/materialsConstants'
@@ -14,4 +14,21 @@ export default class Material<
       />
     )
   }
+}
+ */
+
+import React, { Children } from 'react'
+
+import { MaterialInterface } from '@/interfaces/components/r3f/MaterialsInterfaces'
+import { materialProps } from '@/constants/materialsConstants'
+
+export default function Material({
+  ...materialProps
+}: MaterialInterface) {
+  return (
+    <material
+    
+    >
+    </material>
+  )
 }

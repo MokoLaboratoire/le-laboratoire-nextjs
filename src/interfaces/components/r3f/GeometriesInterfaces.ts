@@ -24,4 +24,5 @@ export interface BoxInterface extends BufferGeometryInterface {
   rotation?: THREE.Euler
   castShadow?: boolean
   receiveShadow?: boolean
+  leva?: boolean
 }

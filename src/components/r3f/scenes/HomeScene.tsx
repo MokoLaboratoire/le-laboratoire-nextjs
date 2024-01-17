@@ -78,9 +78,10 @@ export default function HomeScene() {
             width={3}
             depth={3}
             height={3}
-            position={new THREE.Vector3(0, 5, 5)}
+            position={new THREE.Vector3(0, -7, 5)}
             castShadow
             receiveShadow
+            leva
           />
         </Suspense>
         <Stats />

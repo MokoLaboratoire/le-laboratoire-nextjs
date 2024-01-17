@@ -1,10 +1,11 @@
 import * as THREE from 'three'
 
 export const materialProps = {
+  alphaHash: false,
   alphaTest: 0,
   alphaToCoverage: false,
   blendAlpha: 0,
-  blendColor: new THREE.Color(0x000000),
+  blendColor: '#000000',
   blendDst: THREE.OneMinusSrcAlphaFactor,
   blendEquation: THREE.AddEquation,
   blending: THREE.NormalBlending,
@@ -31,35 +32,252 @@ export const materialProps = {
   polygonOffsetUnits: 0,
   premultipliedAlpha: false,
   dithering: false,
-  side: THREE.DoubleSide,
+  side: THREE.FrontSide,
   toneMapped: true,
   transparent: false,
   version: 0,
   vertexColors: false,
   visible: true,
   userData: {},
+  leva: false
 }
 
+export const materialControls = {
+  alphaHash: materialProps.alphaHash,
+  alphaTest: { value: materialProps.alphaTest, min: 0, max: 1 },
+  alphaToCoverage: materialProps.alphaToCoverage,
+  blendAlpha: { value: materialProps.alphaTest, min: 0, max: 1 },
+  blendColor: materialProps.blendColor,
+  blendDst: {
+    options: { 
+      OneMinusSrcAlphaFactor: materialProps.blendDst,
+      ZeroFactor: THREE.ZeroFactor,
+      OneFactor: THREE.OneFactor,
+      SrcColorFactor: THREE.SrcColorFactor,
+      OneMinusSrcColorFactor: THREE.OneMinusSrcColorFactor,
+      SrcAlphaFactor: THREE.SrcAlphaFactor,
+      DstAlphaFactor: THREE.DstAlphaFactor,
+      OneMinusDstAlphaFactor: THREE.OneMinusDstAlphaFactor,
+      DstColorFactor: THREE.DstColorFactor,
+      OneMinusDstColorFactor: THREE.OneMinusDstColorFactor,
+      SrcAlphaSaturateFactor: THREE.SrcAlphaSaturateFactor,
+      ConstantColorFactor: THREE.ConstantColorFactor,
+      OneMinusConstantColorFactor: THREE.OneMinusConstantColorFactor,
+      ConstantAlphaFactor: THREE.ConstantAlphaFactor,
+      OneMinusConstantAlphaFactor: THREE.OneMinusConstantAlphaFactor,
+    }
+  },
+  blendEquation: {
+    options: { 
+      AddEquation: materialProps.blendEquation,
+      SubtractEquation: THREE.SubtractEquation,
+      ReverseSubtractEquation: THREE.ReverseSubtractEquation,
+      MinEquation: THREE.MinEquation,
+      MaxEquation: THREE.MaxEquation,
+    }
+  },
+  blending: {
+    options: { 
+      NormalBlending: materialProps.blending,
+      NoBlending: THREE.NoBlending,
+      AdditiveBlending: THREE.AdditiveBlending,
+      SubtractiveBlending: THREE.SubtractiveBlending,
+      MultiplyBlending: THREE.MultiplyBlending,
+      CustomBlending: THREE.CustomBlending,
+    }
+  },
+  blendSrc: {
+    options: { 
+      SrcAlphaFactor: materialProps.blendSrc,
+      ZeroFactor: THREE.ZeroFactor,
+      OneFactor: THREE.OneFactor,
+      SrcColorFactor: THREE.SrcColorFactor,
+      OneMinusSrcColorFactor: THREE.OneMinusSrcColorFactor,
+      DstAlphaFactor: THREE.DstAlphaFactor,
+      OneMinusDstAlphaFactor: THREE.OneMinusDstAlphaFactor,
+      DstColorFactor: THREE.DstColorFactor,
+      OneMinusDstColorFactor: THREE.OneMinusDstColorFactor,
+      SrcAlphaSaturateFactor: THREE.SrcAlphaSaturateFactor,
+      ConstantColorFactor: THREE.ConstantColorFactor,
+      OneMinusConstantColorFactor: THREE.OneMinusConstantColorFactor,
+      ConstantAlphaFactor: THREE.ConstantAlphaFactor,
+      OneMinusConstantAlphaFactor: THREE.OneMinusConstantAlphaFactor,
+    }
+  },
+  clipIntersection: materialProps.clipIntersection,
+  clipShadows: materialProps.clipShadows,
+  colorWrite: materialProps.colorWrite,
+  depthFunc: {
+    options: { 
+      LessEqualDepth: materialProps.depthFunc,
+      NeverDepth: THREE.NeverDepth,
+      AlwaysDepth: THREE.AlwaysDepth,
+      EqualDepth: THREE.EqualDepth,
+      LessDepth: THREE.LessDepth,
+      GreaterEqualDepth: THREE.GreaterEqualDepth,
+      GreaterDepth: THREE.GreaterDepth,
+      NotEqualDepth: THREE.NotEqualDepth,
+    }
+  },
+  depthTest: materialProps.depthTest,
+  depthWrite: materialProps.depthWrite,
+  forceSinglePass: materialProps.forceSinglePass,
+  stencilWrite: materialProps.stencilWrite,
+  stencilWriteMask: materialProps.stencilWriteMask,
+  stencilFunc: {
+    options: { 
+      AlwaysStencilFunc: materialProps.stencilFunc,
+      NeverStencilFunc: THREE.NeverStencilFunc,
+      LessStencilFunc: THREE.LessStencilFunc,
+      EqualStencilFunc: THREE.EqualStencilFunc,
+      LessEqualStencilFunc: THREE.LessEqualStencilFunc,
+      GreaterStencilFunc: THREE.GreaterStencilFunc,
+      NotEqualStencilFunc: THREE.NotEqualStencilFunc,
+      GreaterEqualStencilFunc: THREE.GreaterEqualStencilFunc,
+    }
+  },
+  stencilRef: { value: materialProps.stencilRef, min: 0, max: 1 },
+  stencilFuncMask: materialProps.stencilFuncMask,
+  stencilFail: {
+    options: { 
+      KeepStencilOp: materialProps.stencilFail,
+      ZeroStencilOp: THREE.ZeroStencilOp, 
+      ReplaceStencilOp: THREE.ReplaceStencilOp,
+      IncrementStencilOp: THREE.IncrementStencilOp, 
+      DecrementStencilOp: THREE.DecrementStencilOp,
+      IncrementWrapStencilOp: THREE.IncrementWrapStencilOp, 
+      DecrementWrapStencilOp: THREE.DecrementWrapStencilOp,
+      InvertStencilOp: THREE.InvertStencilOp,
+    }
+  },
+  stencilZFail: {
+    options: { 
+      KeepStencilOp: materialProps.stencilZFail,
+      ZeroStencilOp: THREE.ZeroStencilOp, 
+      ReplaceStencilOp: THREE.ReplaceStencilOp,
+      IncrementStencilOp: THREE.IncrementStencilOp, 
+      DecrementStencilOp: THREE.DecrementStencilOp,
+      IncrementWrapStencilOp: THREE.IncrementWrapStencilOp, 
+      DecrementWrapStencilOp: THREE.DecrementWrapStencilOp,
+      InvertStencilOp: THREE.InvertStencilOp,
+    }
+  },
+  stencilZPass: {
+    options: { 
+      KeepStencilOp: materialProps.stencilZPass,
+      ZeroStencilOp: THREE.ZeroStencilOp, 
+      ReplaceStencilOp: THREE.ReplaceStencilOp,
+      IncrementStencilOp: THREE.IncrementStencilOp, 
+      DecrementStencilOp: THREE.DecrementStencilOp,
+      IncrementWrapStencilOp: THREE.IncrementWrapStencilOp, 
+      DecrementWrapStencilOp: THREE.DecrementWrapStencilOp,
+      InvertStencilOp: THREE.InvertStencilOp,
+    }
+  },
+  name: materialProps.name,
+  opacity: { value: materialProps.opacity, min: 0, max: 1 },
+  polygonOffset: materialProps.polygonOffset,
+  polygonOffsetFactor: { value: materialProps.polygonOffsetFactor, min: 0, max: 1 },
+  polygonOffsetUnits: { value: materialProps.polygonOffsetUnits, min: 0, max: 1 },
+  premultipliedAlpha: materialProps.premultipliedAlpha,
+  dithering: materialProps.dithering,
+  side: {
+    options: { 
+      FrontSide: materialProps.side,
+      BackSide: THREE.BackSide,
+      DoubleSide: THREE.DoubleSide, 
+    }
+  },
+  toneMapped: materialProps.toneMapped,
+  transparent: materialProps.transparent,
+  version: { value: materialProps.version, min: 0, max: 1 },
+  vertexColors: materialProps.vertexColors,
+  visible: materialProps.visible,
+  /* userData: materialProps.userData, */ // Object???
+}
+
+
 export const meshStandardMaterialProps = {
+  alphaMap: undefined,
+  aoMap: undefined,
   aoMapIntensity: 1,
+  bumMap: undefined,
   bumpScale: 1,
-  color: new THREE.Color(0xffffff),
+  color: '#ffffff',
+  displacementMap: undefined,
   displacementScale: 1,
   displacementBias: 0,
-  emissive: new THREE.Color(0x000000),
+  emissive: '#000000',
+  emissiveMap: undefined,
   emissiveIntensity: 1,
+  envMap: undefined,
   envMapIntensity: 0,
   flatShading: false,
   fog: true,
+  lightMap: undefined,
   lightMapIntensity: 1,
+  map: undefined,
   metalness: 0,
+  metalnessMap: undefined,
+  normalMap: undefined,
   normalMapType: THREE.TangentSpaceNormalMap,
   normalScale: new THREE.Vector2(1, 1),
   roughness: 1,
+  roughnessMap: undefined,
   wireframe: false,
   wireframeLinecap: 'round',
   wireframeLinejoin: 'round',
   wireframeLinewidth: 1,
+}
+
+export const meshStandardMaterialControls = {
+  alphaMap: { image: meshStandardMaterialProps.alphaMap },
+  aoMap: { image: meshStandardMaterialProps.aoMap },
+  aoMapIntensity: { value: meshStandardMaterialProps.aoMapIntensity, min: 0, max: 1 },
+  bumMap: { image: meshStandardMaterialProps.bumMap },
+  bumpScale: { value: meshStandardMaterialProps.bumpScale, min: 0, max: 1 },
+  color: meshStandardMaterialProps.color,
+  displacementMap: { image: meshStandardMaterialProps.displacementMap },
+  displacementScale: { value: meshStandardMaterialProps.displacementScale, min: 0, max: 1 },
+  displacementBias: { value: meshStandardMaterialProps.displacementBias, min: 0, max: 1 },
+  emissive: meshStandardMaterialProps.emissive,
+  emissiveMap: { image: meshStandardMaterialProps.emissiveMap },
+  emissiveIntensity: { value: meshStandardMaterialProps.emissiveIntensity, min: 0, max: 1 },
+  envMap: { image: meshStandardMaterialProps.envMap },
+  envMapIntensity: { value: meshStandardMaterialProps.envMapIntensity, min: 0, max: 1 },
+  flatShading: meshStandardMaterialProps.flatShading,
+  fog: meshStandardMaterialProps.fog,
+  lightMap: { image: meshStandardMaterialProps.lightMap },
+  lightMapIntensity: { value: meshStandardMaterialProps.lightMapIntensity, min: 0, max: 1 },
+  map: { image: meshStandardMaterialProps.map, onChange: (value: string) => console.log('TEST', value) },
+  metalness: { value: meshStandardMaterialProps.metalness, min: 0, max: 1 },
+  metalnessMap: { image: meshStandardMaterialProps.metalnessMap },
+  normalMap: { image: meshStandardMaterialProps.normalMap },
+  normalMapType: {
+    options: { 
+      TangentSpaceNormalMap: meshStandardMaterialProps.normalMapType,
+      ObjectSpaceNormalMap: THREE.ObjectSpaceNormalMap,
+    }
+  },
+  normalScale: { x: meshStandardMaterialProps.normalScale.x, y: meshStandardMaterialProps.normalScale.y },
+  roughness: { value: meshStandardMaterialProps.metalness, min: 0, max: 1 },
+  roughnessMap: { image: meshStandardMaterialProps.roughnessMap },
+  wireframe: meshStandardMaterialProps.wireframe,
+  wireframeLinecap: {
+    options: { 
+      Butt: 'butt',
+      Round: meshStandardMaterialProps.wireframeLinecap,
+      Square: 'square',
+    }
+  },
+  wireframeLinejoin: {
+    options: { 
+      Bevel: 'bevel',
+      Miter: 'Miter',
+      Round: meshStandardMaterialProps.wireframeLinejoin,
+    }
+  },
+  wireframeLinewidth: { value: meshStandardMaterialProps.wireframeLinewidth, min: 0, max: 1 },
 }
 
 export const meshPhysicalMaterialProps = {

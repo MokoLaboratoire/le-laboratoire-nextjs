@@ -2,7 +2,7 @@ import React from 'react'
 import * as THREE from 'three'
 import { Box, RoundedBox } from '@react-three/drei'
 
-import { CustomMeshStandardMaterial } from '@/components/r3f/materials'
+import { MeshStandardMaterial } from '@/components/r3f/materials'
 
 import { BoxInterface } from '@/interfaces/components/r3f/GeometriesInterfaces'
 
@@ -19,6 +19,7 @@ export default function CustomBox({
   castShadow = false,
   receiveShadow = false,
   children,
+  leva = false,
 }: BoxInterface) {
   const MeshType = !radius && !bevelSegments ? Box : RoundedBox
   return (
@@ -33,7 +34,7 @@ export default function CustomBox({
       castShadow={castShadow}
       receiveShadow={receiveShadow}
     >
-      {children ? children : <CustomMeshStandardMaterial />}
+      {children ? children : <MeshStandardMaterial leva={leva} />}
     </MeshType>
   )
 }

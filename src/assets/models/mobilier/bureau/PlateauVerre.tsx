@@ -3,7 +3,7 @@ import * as THREE from 'three'
 import { useControls } from 'leva'
 
 import { CustomBox } from '@/components/r3f/primitives'
-import { CustomMeshPhysicalMaterial } from '@/components/r3f/materials'
+import { MeshPhysicalMaterial } from '@/components/r3f/materials'
 
 const options = {
   thickness: 0.2,
@@ -35,7 +35,7 @@ export default function PlateauVerre() {
     transmission: { value: 1, min: 0.9, max: 1, step: 0.01 },
     ior: { value: 1.25, min: 1, max: 2.3, step: 0.05 },
     envMapIntensity: { value: 25, min: 0, max: 100, step: 1 },
-    color: '#ffffff',
+    color: '#ff0000',
     attenuationTint: '#ffe79e',
     attenuationDistance: { value: 0, min: 0, max: 1 },
   })
@@ -48,7 +48,7 @@ export default function PlateauVerre() {
       height={0.1}
       position={new THREE.Vector3(0, -10, 6.07)}
     >
-      <CustomMeshPhysicalMaterial
+      <MeshPhysicalMaterial
         {...materialProps}
         /* thickness={options.thickness}
 				roughness={options.roughness}
