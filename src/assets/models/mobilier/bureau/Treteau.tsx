@@ -7,7 +7,7 @@ import useTextureLoader from '@/hooks/UseTextureLoader'
 import { default as gltfConstants } from '@/constants/gltfConstants.json'
 import { default as texturesConstants } from '@/constants/texturesConstants.json'
 
-export function Treteau({ position }: ModelInterface) {
+export default function Treteau({ position }: ModelInterface) {
   // @ts-ignore
   const { nodes } = useGLTF(gltfConstants.TRETEAU)
 

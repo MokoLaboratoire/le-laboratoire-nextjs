@@ -1,6 +1,7 @@
 {
   "BATI_PORTE_CHAMBRE": "/gltf/appartement_haussmannien/porte_chambre/BatiPorteChambre.gltf",
   "BATTANT_PORTE_CHAMBRE": "/gltf/appartement_haussmannien/porte_chambre/BattantPorteChambre.gltf",
+  "ECRAN_ORDINATEUR": "/gltf/mobilier/bureau/EcranOrdinateur.gltf",
   "LAMPE_PLAFOND_CADRE": "/gltf/lampes/LampePlafondCadre.gltf",
   "MAC_BOOK_PRO": "/gltf/mobilier/bureau/MacBookPro.gltf",
   "PARQUET": "/gltf/appartement_haussmannien/parquet/Parquet.gltf",
