@@ -40,20 +40,23 @@ import {
 
 import { MeshStandardMaterialInterface } from '@/interfaces/components/r3f/MaterialsInterfaces'
 
-export default function MeshStandardMaterial(props: MeshStandardMaterialInterface) {
-  const controls = useControls({
+export default function MeshStandardMaterial(
+  props: MeshStandardMaterialInterface,
+) {
+  /* const controls = useControls({
     'Material': folder({
       ...materialControls,
     }),
     'MeshStandardMaterial': folder({
       ...meshStandardMaterialControls
     }),
-  })
+  }) */
 
   return (
     <meshStandardMaterial
       attach={'material'}
-      {...props.leva ? {...controls} : {...props}}
+      {...props}
+      /* {...props.leva ? {...controls} : {...props}} */
     />
   )
 }

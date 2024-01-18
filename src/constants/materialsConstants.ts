@@ -39,7 +39,7 @@ export const materialProps = {
   vertexColors: false,
   visible: true,
   userData: {},
-  leva: false
+  leva: false,
 }
 
 export const materialControls = {
@@ -49,7 +49,7 @@ export const materialControls = {
   blendAlpha: { value: materialProps.alphaTest, min: 0, max: 1 },
   blendColor: materialProps.blendColor,
   blendDst: {
-    options: { 
+    options: {
       OneMinusSrcAlphaFactor: materialProps.blendDst,
       ZeroFactor: THREE.ZeroFactor,
       OneFactor: THREE.OneFactor,
@@ -65,29 +65,29 @@ export const materialControls = {
       OneMinusConstantColorFactor: THREE.OneMinusConstantColorFactor,
       ConstantAlphaFactor: THREE.ConstantAlphaFactor,
       OneMinusConstantAlphaFactor: THREE.OneMinusConstantAlphaFactor,
-    }
+    },
   },
   blendEquation: {
-    options: { 
+    options: {
       AddEquation: materialProps.blendEquation,
       SubtractEquation: THREE.SubtractEquation,
       ReverseSubtractEquation: THREE.ReverseSubtractEquation,
       MinEquation: THREE.MinEquation,
       MaxEquation: THREE.MaxEquation,
-    }
+    },
   },
   blending: {
-    options: { 
+    options: {
       NormalBlending: materialProps.blending,
       NoBlending: THREE.NoBlending,
       AdditiveBlending: THREE.AdditiveBlending,
       SubtractiveBlending: THREE.SubtractiveBlending,
       MultiplyBlending: THREE.MultiplyBlending,
       CustomBlending: THREE.CustomBlending,
-    }
+    },
   },
   blendSrc: {
-    options: { 
+    options: {
       SrcAlphaFactor: materialProps.blendSrc,
       ZeroFactor: THREE.ZeroFactor,
       OneFactor: THREE.OneFactor,
@@ -102,13 +102,13 @@ export const materialControls = {
       OneMinusConstantColorFactor: THREE.OneMinusConstantColorFactor,
       ConstantAlphaFactor: THREE.ConstantAlphaFactor,
       OneMinusConstantAlphaFactor: THREE.OneMinusConstantAlphaFactor,
-    }
+    },
   },
   clipIntersection: materialProps.clipIntersection,
   clipShadows: materialProps.clipShadows,
   colorWrite: materialProps.colorWrite,
   depthFunc: {
-    options: { 
+    options: {
       LessEqualDepth: materialProps.depthFunc,
       NeverDepth: THREE.NeverDepth,
       AlwaysDepth: THREE.AlwaysDepth,
@@ -117,7 +117,7 @@ export const materialControls = {
       GreaterEqualDepth: THREE.GreaterEqualDepth,
       GreaterDepth: THREE.GreaterDepth,
       NotEqualDepth: THREE.NotEqualDepth,
-    }
+    },
   },
   depthTest: materialProps.depthTest,
   depthWrite: materialProps.depthWrite,
@@ -125,7 +125,7 @@ export const materialControls = {
   stencilWrite: materialProps.stencilWrite,
   stencilWriteMask: materialProps.stencilWriteMask,
   stencilFunc: {
-    options: { 
+    options: {
       AlwaysStencilFunc: materialProps.stencilFunc,
       NeverStencilFunc: THREE.NeverStencilFunc,
       LessStencilFunc: THREE.LessStencilFunc,
@@ -134,59 +134,67 @@ export const materialControls = {
       GreaterStencilFunc: THREE.GreaterStencilFunc,
       NotEqualStencilFunc: THREE.NotEqualStencilFunc,
       GreaterEqualStencilFunc: THREE.GreaterEqualStencilFunc,
-    }
+    },
   },
   stencilRef: { value: materialProps.stencilRef, min: 0, max: 1 },
   stencilFuncMask: materialProps.stencilFuncMask,
   stencilFail: {
-    options: { 
+    options: {
       KeepStencilOp: materialProps.stencilFail,
-      ZeroStencilOp: THREE.ZeroStencilOp, 
+      ZeroStencilOp: THREE.ZeroStencilOp,
       ReplaceStencilOp: THREE.ReplaceStencilOp,
-      IncrementStencilOp: THREE.IncrementStencilOp, 
+      IncrementStencilOp: THREE.IncrementStencilOp,
       DecrementStencilOp: THREE.DecrementStencilOp,
-      IncrementWrapStencilOp: THREE.IncrementWrapStencilOp, 
+      IncrementWrapStencilOp: THREE.IncrementWrapStencilOp,
       DecrementWrapStencilOp: THREE.DecrementWrapStencilOp,
       InvertStencilOp: THREE.InvertStencilOp,
-    }
+    },
   },
   stencilZFail: {
-    options: { 
+    options: {
       KeepStencilOp: materialProps.stencilZFail,
-      ZeroStencilOp: THREE.ZeroStencilOp, 
+      ZeroStencilOp: THREE.ZeroStencilOp,
       ReplaceStencilOp: THREE.ReplaceStencilOp,
-      IncrementStencilOp: THREE.IncrementStencilOp, 
+      IncrementStencilOp: THREE.IncrementStencilOp,
       DecrementStencilOp: THREE.DecrementStencilOp,
-      IncrementWrapStencilOp: THREE.IncrementWrapStencilOp, 
+      IncrementWrapStencilOp: THREE.IncrementWrapStencilOp,
       DecrementWrapStencilOp: THREE.DecrementWrapStencilOp,
       InvertStencilOp: THREE.InvertStencilOp,
-    }
+    },
   },
   stencilZPass: {
-    options: { 
+    options: {
       KeepStencilOp: materialProps.stencilZPass,
-      ZeroStencilOp: THREE.ZeroStencilOp, 
+      ZeroStencilOp: THREE.ZeroStencilOp,
       ReplaceStencilOp: THREE.ReplaceStencilOp,
-      IncrementStencilOp: THREE.IncrementStencilOp, 
+      IncrementStencilOp: THREE.IncrementStencilOp,
       DecrementStencilOp: THREE.DecrementStencilOp,
-      IncrementWrapStencilOp: THREE.IncrementWrapStencilOp, 
+      IncrementWrapStencilOp: THREE.IncrementWrapStencilOp,
       DecrementWrapStencilOp: THREE.DecrementWrapStencilOp,
       InvertStencilOp: THREE.InvertStencilOp,
-    }
+    },
   },
   name: materialProps.name,
   opacity: { value: materialProps.opacity, min: 0, max: 1 },
   polygonOffset: materialProps.polygonOffset,
-  polygonOffsetFactor: { value: materialProps.polygonOffsetFactor, min: 0, max: 1 },
-  polygonOffsetUnits: { value: materialProps.polygonOffsetUnits, min: 0, max: 1 },
+  polygonOffsetFactor: {
+    value: materialProps.polygonOffsetFactor,
+    min: 0,
+    max: 1,
+  },
+  polygonOffsetUnits: {
+    value: materialProps.polygonOffsetUnits,
+    min: 0,
+    max: 1,
+  },
   premultipliedAlpha: materialProps.premultipliedAlpha,
   dithering: materialProps.dithering,
   side: {
-    options: { 
+    options: {
       FrontSide: materialProps.side,
       BackSide: THREE.BackSide,
-      DoubleSide: THREE.DoubleSide, 
-    }
+      DoubleSide: THREE.DoubleSide,
+    },
   },
   toneMapped: materialProps.toneMapped,
   transparent: materialProps.transparent,
@@ -195,7 +203,6 @@ export const materialControls = {
   visible: materialProps.visible,
   /* userData: materialProps.userData, */ // Object???
 }
-
 
 export const meshStandardMaterialProps = {
   alphaMap: undefined,
@@ -233,51 +240,85 @@ export const meshStandardMaterialProps = {
 export const meshStandardMaterialControls = {
   alphaMap: { image: meshStandardMaterialProps.alphaMap },
   aoMap: { image: meshStandardMaterialProps.aoMap },
-  aoMapIntensity: { value: meshStandardMaterialProps.aoMapIntensity, min: 0, max: 1 },
+  aoMapIntensity: {
+    value: meshStandardMaterialProps.aoMapIntensity,
+    min: 0,
+    max: 1,
+  },
   bumMap: { image: meshStandardMaterialProps.bumMap },
   bumpScale: { value: meshStandardMaterialProps.bumpScale, min: 0, max: 1 },
   color: meshStandardMaterialProps.color,
   displacementMap: { image: meshStandardMaterialProps.displacementMap },
-  displacementScale: { value: meshStandardMaterialProps.displacementScale, min: 0, max: 1 },
-  displacementBias: { value: meshStandardMaterialProps.displacementBias, min: 0, max: 1 },
+  displacementScale: {
+    value: meshStandardMaterialProps.displacementScale,
+    min: 0,
+    max: 1,
+  },
+  displacementBias: {
+    value: meshStandardMaterialProps.displacementBias,
+    min: 0,
+    max: 1,
+  },
   emissive: meshStandardMaterialProps.emissive,
   emissiveMap: { image: meshStandardMaterialProps.emissiveMap },
-  emissiveIntensity: { value: meshStandardMaterialProps.emissiveIntensity, min: 0, max: 1 },
+  emissiveIntensity: {
+    value: meshStandardMaterialProps.emissiveIntensity,
+    min: 0,
+    max: 1,
+  },
   envMap: { image: meshStandardMaterialProps.envMap },
-  envMapIntensity: { value: meshStandardMaterialProps.envMapIntensity, min: 0, max: 1 },
+  envMapIntensity: {
+    value: meshStandardMaterialProps.envMapIntensity,
+    min: 0,
+    max: 1,
+  },
   flatShading: meshStandardMaterialProps.flatShading,
   fog: meshStandardMaterialProps.fog,
   lightMap: { image: meshStandardMaterialProps.lightMap },
-  lightMapIntensity: { value: meshStandardMaterialProps.lightMapIntensity, min: 0, max: 1 },
-  map: { image: meshStandardMaterialProps.map/* , onChange: (value: string) => console.log('TEST', value)  */},
+  lightMapIntensity: {
+    value: meshStandardMaterialProps.lightMapIntensity,
+    min: 0,
+    max: 1,
+  },
+  map: {
+    image:
+      meshStandardMaterialProps.map /* , onChange: (value: string) => console.log('TEST', value)  */,
+  },
   metalness: { value: meshStandardMaterialProps.metalness, min: 0, max: 1 },
   metalnessMap: { image: meshStandardMaterialProps.metalnessMap },
   normalMap: { image: meshStandardMaterialProps.normalMap },
   normalMapType: {
-    options: { 
+    options: {
       TangentSpaceNormalMap: meshStandardMaterialProps.normalMapType,
       ObjectSpaceNormalMap: THREE.ObjectSpaceNormalMap,
-    }
+    },
   },
-  normalScale: { x: meshStandardMaterialProps.normalScale.x, y: meshStandardMaterialProps.normalScale.y },
+  normalScale: {
+    x: meshStandardMaterialProps.normalScale.x,
+    y: meshStandardMaterialProps.normalScale.y,
+  },
   roughness: { value: meshStandardMaterialProps.metalness, min: 0, max: 1 },
   roughnessMap: { image: meshStandardMaterialProps.roughnessMap },
   wireframe: meshStandardMaterialProps.wireframe,
   wireframeLinecap: {
-    options: { 
+    options: {
       Butt: 'butt',
       Round: meshStandardMaterialProps.wireframeLinecap,
       Square: 'square',
-    }
+    },
   },
   wireframeLinejoin: {
-    options: { 
+    options: {
       Bevel: 'bevel',
       Miter: 'Miter',
       Round: meshStandardMaterialProps.wireframeLinejoin,
-    }
+    },
   },
-  wireframeLinewidth: { value: meshStandardMaterialProps.wireframeLinewidth, min: 0, max: 1 },
+  wireframeLinewidth: {
+    value: meshStandardMaterialProps.wireframeLinewidth,
+    min: 0,
+    max: 1,
+  },
 }
 
 export const meshPhysicalMaterialProps = {
@@ -313,31 +354,68 @@ export const meshPhysicalMaterialProps = {
 
 export const meshPhysicalMaterialControls = {
   attenuationColor: meshPhysicalMaterialProps.attenuationColor,
-  attenuationDistance: { value: meshPhysicalMaterialProps.attenuationDistance, min: 0, max: Infinity },
+  attenuationDistance: {
+    value: meshPhysicalMaterialProps.attenuationDistance,
+    min: 0,
+    max: Infinity,
+  },
   clearcoat: { value: meshPhysicalMaterialProps.clearcoat, min: 0, max: 1 },
   clearcoatMap: { image: meshPhysicalMaterialProps.clearcoatMap },
   clearcoatNormalMap: { image: meshPhysicalMaterialProps.clearcoatNormalMap },
-  clearcoatNormalScale: { x: meshPhysicalMaterialProps.clearcoatNormalScale.x, y: meshPhysicalMaterialProps.clearcoatNormalScale.y },
-  clearcoatRoughness: { value: meshPhysicalMaterialProps.clearcoatRoughness, min: 0, max: 1 },
-  clearcoatRoughnessMap: { image: meshPhysicalMaterialProps.clearcoatRoughnessMap },
+  clearcoatNormalScale: {
+    x: meshPhysicalMaterialProps.clearcoatNormalScale.x,
+    y: meshPhysicalMaterialProps.clearcoatNormalScale.y,
+  },
+  clearcoatRoughness: {
+    value: meshPhysicalMaterialProps.clearcoatRoughness,
+    min: 0,
+    max: 1,
+  },
+  clearcoatRoughnessMap: {
+    image: meshPhysicalMaterialProps.clearcoatRoughnessMap,
+  },
   ior: { value: meshPhysicalMaterialProps.ior, min: 0, max: 10 },
-  reflectivity: { value: meshPhysicalMaterialProps.reflectivity, min: 0, max: 1 },
+  reflectivity: {
+    value: meshPhysicalMaterialProps.reflectivity,
+    min: 0,
+    max: 1,
+  },
   iridescence: { value: meshPhysicalMaterialProps.iridescence, min: 0, max: 1 },
   iridescenceMap: { image: meshPhysicalMaterialProps.iridescenceMap },
-  iridescenceIOR: { value: meshPhysicalMaterialProps.iridescenceIOR, min: 0, max: 10 },
+  iridescenceIOR: {
+    value: meshPhysicalMaterialProps.iridescenceIOR,
+    min: 0,
+    max: 10,
+  },
   // iridescenceThicknessRange
-  iridescenceThicknessMap: { image: meshPhysicalMaterialProps.iridescenceThicknessMap },
+  iridescenceThicknessMap: {
+    image: meshPhysicalMaterialProps.iridescenceThicknessMap,
+  },
   sheen: { value: meshPhysicalMaterialProps.sheen, min: 0, max: 1 },
-  sheenRoughness: { value: meshPhysicalMaterialProps.sheenRoughness, min: 0, max: 1 },
+  sheenRoughness: {
+    value: meshPhysicalMaterialProps.sheenRoughness,
+    min: 0,
+    max: 1,
+  },
   sheenRoughnessMap: { image: meshPhysicalMaterialProps.sheenRoughnessMap },
   sheenColor: meshPhysicalMaterialProps.sheenColor,
   sheenColorMap: { image: meshPhysicalMaterialProps.sheenColorMap },
-  specularIntensity: { value: meshPhysicalMaterialProps.specularIntensity, min: 0, max: 1 },
-  specularIntensityMap: { image: meshPhysicalMaterialProps.specularIntensityMap },
+  specularIntensity: {
+    value: meshPhysicalMaterialProps.specularIntensity,
+    min: 0,
+    max: 1,
+  },
+  specularIntensityMap: {
+    image: meshPhysicalMaterialProps.specularIntensityMap,
+  },
   specularColor: meshPhysicalMaterialProps.specularColor,
   specularColorMap: { image: meshPhysicalMaterialProps.specularColorMap },
   thickness: { value: meshPhysicalMaterialProps.thickness, min: 0, max: 1 },
   thicknessMap: { image: meshPhysicalMaterialProps.thicknessMap },
-  transmission: { value: meshPhysicalMaterialProps.transmission, min: 0, max: 1 },
+  transmission: {
+    value: meshPhysicalMaterialProps.transmission,
+    min: 0,
+    max: 1,
+  },
   transmissionMap: { image: meshPhysicalMaterialProps.transmissionMap },
 }
