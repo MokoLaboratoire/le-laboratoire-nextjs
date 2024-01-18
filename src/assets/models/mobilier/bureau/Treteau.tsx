@@ -19,7 +19,7 @@ export default function Treteau({ position }: ModelInterface) {
   return (
     <mesh
       geometry={nodes.Traiteau.geometry}
-      position={new THREE.Vector3(position.x, position.z, position.y)}
+      position={new THREE.Vector3(position!.x, position!.z, position!.y)}
       material={material}
       receiveShadow
       castShadow
