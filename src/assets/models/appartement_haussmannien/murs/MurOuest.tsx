@@ -1,7 +1,7 @@
 import React from 'react'
 import * as THREE from 'three'
 
-import { CustomMeshStandardMaterial } from '@/components/r3f/materials'
+import { MeshStandardMaterial } from '@/components/r3f/materials'
 
 export default function MurOuest() {
   const shape = new THREE.Shape()
@@ -20,7 +20,7 @@ export default function MurOuest() {
       rotation={[0, -Math.PI / 2, 0]}
     >
       <shapeGeometry args={[new THREE.Shape(shape.getPoints(8))]} />
-      <CustomMeshStandardMaterial />
+      <MeshStandardMaterial />
     </mesh>
   )
 }
