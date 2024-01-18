@@ -30,23 +30,17 @@ export default class MeshStandardMaterial<
 }
  */
 
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import { folder, useControls } from 'leva'
 
 import {
   materialControls,
   meshStandardMaterialControls,
-  meshStandardMaterialProps,
 } from '@/constants/materialsConstants'
+
 import { MeshStandardMaterialInterface } from '@/interfaces/components/r3f/MaterialsInterfaces'
 
 export default function MeshStandardMaterial(props: MeshStandardMaterialInterface) {
-  /* const meshStandardMaterialRef = useRef<MeshStandardMaterialInterface>(null) */
-
-  /* useEffect(() => {
-    console.log('meshStandardMaterialRef', meshStandardMaterialRef)
-  }, [meshStandardMaterialRef]) */
-
   const controls = useControls({
     'Material': folder({
       ...materialControls,
@@ -58,7 +52,6 @@ export default function MeshStandardMaterial(props: MeshStandardMaterialInterfac
 
   return (
     <meshStandardMaterial
-      /* ref={meshStandardMaterialRef} */
       attach={'material'}
       {...props.leva ? {...controls} : {...props}}
     />

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+/* import React, { Component } from 'react'
 
 import { MeshPhysicalMaterialInterface } from '@/interfaces/components/r3f/MaterialsInterfaces'
 import {
@@ -24,4 +24,37 @@ export default class MeshPhysicalMaterial<
       />
     )
   }
+} */
+
+import React from 'react'
+import { folder, useControls } from 'leva'
+
+import {
+  materialControls,
+  meshStandardMaterialControls,
+  meshPhysicalMaterialControls,
+} from '@/constants/materialsConstants'
+
+import { MeshPhysicalMaterialInterface } from '@/interfaces/components/r3f/MaterialsInterfaces'
+
+export default function MeshPhysicalMaterial(props: MeshPhysicalMaterialInterface) {
+  const controls = useControls({
+    'Material': folder({
+      ...materialControls,
+    }),
+    'MeshStandardMaterial': folder({
+      ...meshStandardMaterialControls
+    }),
+    'MeshPhysicalMaterial': folder({
+      ...meshPhysicalMaterialControls
+    }),
+  })
+
+  return (
+    <meshPhysicalMaterial
+      attach={'material'}
+      {...props.leva ? {...controls} : {...props}}
+    />
+  )
 }
+
