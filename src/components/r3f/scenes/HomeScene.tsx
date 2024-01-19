@@ -73,7 +73,7 @@ export default function HomeScene() {
             <AppartementHuassmannien />
             <Mobilier />
           </Physics>
-          <CustomBox
+          {/* <CustomBox
             name={'testBox'}
             width={3}
             depth={3}
@@ -81,8 +81,7 @@ export default function HomeScene() {
             position={new THREE.Vector3(0, -7, 5)}
             castShadow
             receiveShadow
-            leva
-          />
+          /> */}
         </Suspense>
         <Stats />
       </Canvas>

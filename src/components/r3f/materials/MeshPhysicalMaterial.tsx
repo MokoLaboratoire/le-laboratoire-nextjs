@@ -37,8 +37,10 @@ import {
 
 import { MeshPhysicalMaterialInterface } from '@/interfaces/components/r3f/MaterialsInterfaces'
 
-export default function MeshPhysicalMaterial(props: MeshPhysicalMaterialInterface) {
-  const controls = useControls({
+export default function MeshPhysicalMaterial(
+  props: MeshPhysicalMaterialInterface,
+) {
+  /* const controls = useControls({
     'Material': folder({
       ...materialControls,
     }),
@@ -48,13 +50,13 @@ export default function MeshPhysicalMaterial(props: MeshPhysicalMaterialInterfac
     'MeshPhysicalMaterial': folder({
       ...meshPhysicalMaterialControls
     }),
-  })
+  }) */
 
   return (
     <meshPhysicalMaterial
       attach={'material'}
-      {...props.leva ? {...controls} : {...props}}
+      {...props}
+      /* {...props.leva ? {...controls} : {...props}} */
     />
   )
 }
-

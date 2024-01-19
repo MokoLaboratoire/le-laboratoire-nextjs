@@ -13,12 +13,12 @@
   "nodes": [
     {
       "mesh": 0,
-      "name": "LampePlafondCadre"
+      "name": "EcranOrdinateur"
     }
   ],
   "meshes": [
     {
-      "name": "LampePlafondCadre",
+      "name": "EcranOrdinateur",
       "primitives": [
         {
           "attributes": {
@@ -36,72 +36,72 @@
     {
       "bufferView": 0,
       "componentType": 5126,
-      "count": 264,
-      "max": [8.09000015258789, 26.01641845703125, 5.000000476837158],
-      "min": [-8.09000015258789, 25.51641845703125, -5.000000476837158],
+      "count": 836,
+      "max": [5.566000938415527, 12.992640495300293, -11.728039741516113],
+      "min": [-5.565999984741211, 6.172640323638916, -13.67195987701416],
       "type": "VEC3"
     },
     {
       "bufferView": 1,
       "componentType": 5126,
-      "count": 264,
+      "count": 836,
       "type": "VEC3"
     },
     {
       "bufferView": 2,
       "componentType": 5126,
-      "count": 264,
+      "count": 836,
       "type": "VEC2"
     },
     {
       "bufferView": 3,
       "componentType": 5126,
-      "count": 264,
+      "count": 836,
       "type": "VEC2"
     },
     {
       "bufferView": 4,
       "componentType": 5123,
-      "count": 528,
+      "count": 1476,
       "type": "SCALAR"
     }
   ],
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 3168,
+      "byteLength": 10032,
       "byteOffset": 0,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 3168,
-      "byteOffset": 3168,
+      "byteLength": 10032,
+      "byteOffset": 10032,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 2112,
-      "byteOffset": 6336,
+      "byteLength": 6688,
+      "byteOffset": 20064,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 2112,
-      "byteOffset": 8448,
+      "byteLength": 6688,
+      "byteOffset": 26752,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 1056,
-      "byteOffset": 10560,
+      "byteLength": 2952,
+      "byteOffset": 33440,
       "target": 34963
     }
   ],
   "buffers": [
     {
-      "byteLength": 11616,
-      "uri": "LampePlafondCadre.bin"
+      "byteLength": 36392,
+      "uri": "EcranOrdinateur.bin"
     }
   ]
 }

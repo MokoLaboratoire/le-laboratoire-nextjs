@@ -13,21 +13,20 @@
   "nodes": [
     {
       "mesh": 0,
-      "name": "LampePlafondCadre"
+      "name": "MacBookPro"
     }
   ],
   "meshes": [
     {
-      "name": "LampePlafondCadre",
+      "name": "MacBookPro",
       "primitives": [
         {
           "attributes": {
             "POSITION": 0,
             "NORMAL": 1,
-            "TEXCOORD_0": 2,
-            "TEXCOORD_1": 3
+            "TEXCOORD_0": 2
           },
-          "indices": 4
+          "indices": 3
         }
       ]
     }
@@ -36,72 +35,60 @@
     {
       "bufferView": 0,
       "componentType": 5126,
-      "count": 264,
-      "max": [8.09000015258789, 26.01641845703125, 5.000000476837158],
-      "min": [-8.09000015258789, 25.51641845703125, -5.000000476837158],
+      "count": 13266,
+      "max": [1.778499960899353, 8.693307876586914, -6.759500026702881],
+      "min": [-1.778499960899353, 6.189999580383301, -9.69327449798584],
       "type": "VEC3"
     },
     {
       "bufferView": 1,
       "componentType": 5126,
-      "count": 264,
+      "count": 13266,
       "type": "VEC3"
     },
     {
       "bufferView": 2,
       "componentType": 5126,
-      "count": 264,
+      "count": 13266,
       "type": "VEC2"
     },
     {
       "bufferView": 3,
-      "componentType": 5126,
-      "count": 264,
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 4,
       "componentType": 5123,
-      "count": 528,
+      "count": 25215,
       "type": "SCALAR"
     }
   ],
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 3168,
+      "byteLength": 159192,
       "byteOffset": 0,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 3168,
-      "byteOffset": 3168,
+      "byteLength": 159192,
+      "byteOffset": 159192,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 2112,
-      "byteOffset": 6336,
+      "byteLength": 106128,
+      "byteOffset": 318384,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 2112,
-      "byteOffset": 8448,
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 1056,
-      "byteOffset": 10560,
+      "byteLength": 50430,
+      "byteOffset": 424512,
       "target": 34963
     }
   ],
   "buffers": [
     {
-      "byteLength": 11616,
-      "uri": "LampePlafondCadre.bin"
+      "byteLength": 474944,
+      "uri": "MacBookPro.bin"
     }
   ]
 }

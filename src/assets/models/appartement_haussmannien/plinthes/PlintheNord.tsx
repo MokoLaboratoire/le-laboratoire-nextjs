@@ -1,23 +1,22 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import * as THREE from 'three'
+import { useGLTF } from '@react-three/drei'
 
-import useGltfLoader from '@/hooks/UseGltfLoader'
+import { default as gltfConstants } from '@/constants/gltfConstants.json'
 
 export function PlintheNord() {
-  const gltf = useGltfLoader(
-    '/gltf/appartement_haussmannien/plinthes/PlintheNord.gltf',
+  // @ts-ignore
+  const { nodes } = useGLTF(gltfConstants.PLINTHE_NORD)
+
+  const material = new THREE.MeshStandardMaterial()
+  material.envMapIntensity = 0
+
+  return (
+    <mesh
+      geometry={nodes.PlintheNord.geometry}
+      material={material}
+    />
   )
-
-  useEffect(() => {
-    gltf.scene.traverse((object) => {
-      if (object instanceof THREE.Mesh) {
-        object.castShadow = true
-        object.receiveShadow = true
-        object.material = new THREE.MeshStandardMaterial()
-        object.material.envMapIntensity = 0
-      }
-    })
-  }, [gltf])
-
-  return <primitive object={gltf.scene} />
 }
+
+useGLTF.preload(gltfConstants.PLINTHE_NORD)

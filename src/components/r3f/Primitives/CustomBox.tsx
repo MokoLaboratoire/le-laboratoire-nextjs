@@ -34,7 +34,7 @@ export default function CustomBox({
       castShadow={castShadow}
       receiveShadow={receiveShadow}
     >
-      {children ? children : <MeshStandardMaterial leva={leva} />}
+      {children ? children : <MeshStandardMaterial /* leva={leva} */ />}
     </MeshType>
   )
 }

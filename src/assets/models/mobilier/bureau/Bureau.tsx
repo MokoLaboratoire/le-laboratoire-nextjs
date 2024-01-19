@@ -1,15 +1,23 @@
 import React from 'react'
 import * as THREE from 'three'
 
+import Cahiers from './Cahiers'
+import EcranOrdinateur from './EcranOrdinateur'
+import MacBookPro from './MacBookPro'
 import PlateauVerre from './PlateauVerre'
-import { Treteau } from './Treteau'
+import Treteaux from './Treteaux'
+import Vinyls from './Vinyls'
 
 export default function Bureau() {
+
   return (
     <>
-      {/* <PlateauVerre /> */}
-      <Treteau position={new THREE.Vector3(6, -10, 0.034)} />
-      <Treteau position={new THREE.Vector3(-6, -10, 0.034)} />
+      <Cahiers />
+      <EcranOrdinateur />
+      <MacBookPro />
+      <PlateauVerre />
+      <Treteaux />
+      <Vinyls />
     </>
   )
 }

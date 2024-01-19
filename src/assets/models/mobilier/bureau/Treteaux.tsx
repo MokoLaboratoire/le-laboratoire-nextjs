@@ -7,7 +7,7 @@ import useTextureLoader from '@/hooks/UseTextureLoader'
 import { default as gltfConstants } from '@/constants/gltfConstants.json'
 import { default as texturesConstants } from '@/constants/texturesConstants.json'
 
-export function Treteau({ position }: ModelInterface) {
+function Treteau({ position }: ModelInterface) {
   // @ts-ignore
   const { nodes } = useGLTF(gltfConstants.TRETEAU)
 
@@ -19,7 +19,7 @@ export function Treteau({ position }: ModelInterface) {
   return (
     <mesh
       geometry={nodes.Traiteau.geometry}
-      position={new THREE.Vector3(position.x, position.z, position.y)}
+      position={new THREE.Vector3(position!.x, position!.z, position!.y)}
       material={material}
       receiveShadow
       castShadow
@@ -28,3 +28,39 @@ export function Treteau({ position }: ModelInterface) {
 }
 
 useGLTF.preload(gltfConstants.TRETEAU)
+
+export default function Treteaux() {
+  const treteaux = [
+    {
+      position: {
+        x: 6,
+        y: -10,
+        z: 0.034,
+      },
+    },
+    {
+      position: {
+        x: -6,
+        y: -10,
+        z: 0.034,
+      },
+    },
+  ]
+  
+  return (
+    <>
+      {treteaux.map((treteau, index) => (
+        <Treteau
+          key={`treteau${index}`}
+          position={
+            new THREE.Vector3(
+              treteau.position.x,
+              treteau.position.y,
+              treteau.position.z,
+            )
+          }
+        />
+      ))}
+    </>
+  )
+}
