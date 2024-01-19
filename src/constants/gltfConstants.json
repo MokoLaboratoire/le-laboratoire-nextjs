@@ -8,5 +8,6 @@
   "PARQUET": "/gltf/appartement_haussmannien/parquet/Parquet.gltf",
   "PLINTHE_NORD": "/gltf/appartement_haussmannien/plinthes/PlintheNord.gltf",
   "PLINTHE_OUEST": "/gltf/appartement_haussmannien/plinthes/PlintheOuest.gltf",
-  "TRETEAU": "/gltf/mobilier/bureau/Treteau.gltf"
+  "TRETEAU": "/gltf/mobilier/bureau/Treteau.gltf",
+  "VINYL": "/gltf/mobilier/bureau/Vinyl.gltf"
 }

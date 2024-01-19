@@ -3,5 +3,5 @@ export const radians_to_degrees = (radians: number) => {
 }
 
 export const degrees_to_radians = (degrees: number) => {
-	return (degrees * Math.PI) / 180
+  return (degrees * Math.PI) / 180
 }

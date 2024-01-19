@@ -13,21 +13,20 @@
   "nodes": [
     {
       "mesh": 0,
-      "name": "EcranOrdinateur"
+      "name": "Vinyl"
     }
   ],
   "meshes": [
     {
-      "name": "EcranOrdinateur",
+      "name": "Vinyl",
       "primitives": [
         {
           "attributes": {
             "POSITION": 0,
             "NORMAL": 1,
-            "TEXCOORD_0": 2,
-            "TEXCOORD_1": 3
+            "TEXCOORD_0": 2
           },
-          "indices": 4
+          "indices": 3
         }
       ]
     }
@@ -36,72 +35,62 @@
     {
       "bufferView": 0,
       "componentType": 5126,
-      "count": 836,
-      "max": [5.566000938415527, 12.992640495300293, -11.728039741516113],
-      "min": [-5.565999984741211, 6.172640323638916, -13.67195987701416],
+      "count": 193,
+      "max": [1.6350005865097046, 3.2300007343292236, 0.020000001415610313],
+      "min": [
+        -1.6350005865097046, -3.850460075227602e-7, -0.020000001415610313
+      ],
       "type": "VEC3"
     },
     {
       "bufferView": 1,
       "componentType": 5126,
-      "count": 836,
+      "count": 193,
       "type": "VEC3"
     },
     {
       "bufferView": 2,
       "componentType": 5126,
-      "count": 836,
+      "count": 193,
       "type": "VEC2"
     },
     {
       "bufferView": 3,
-      "componentType": 5126,
-      "count": 836,
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 4,
       "componentType": 5123,
-      "count": 1476,
+      "count": 384,
       "type": "SCALAR"
     }
   ],
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 10032,
+      "byteLength": 2316,
       "byteOffset": 0,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 10032,
-      "byteOffset": 10032,
+      "byteLength": 2316,
+      "byteOffset": 2316,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 6688,
-      "byteOffset": 20064,
+      "byteLength": 1544,
+      "byteOffset": 4632,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 6688,
-      "byteOffset": 26752,
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 2952,
-      "byteOffset": 33440,
+      "byteLength": 768,
+      "byteOffset": 6176,
       "target": 34963
     }
   ],
   "buffers": [
     {
-      "byteLength": 36392,
-      "uri": "EcranOrdinateur.bin"
+      "byteLength": 6944,
+      "uri": "Vinyl.bin"
     }
   ]
 }
