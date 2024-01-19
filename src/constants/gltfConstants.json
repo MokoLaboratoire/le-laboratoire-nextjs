@@ -1,14 +1,21 @@
 {
+  "AMOR_AMOR": "/gltf/mobilier/cadres/AmorAmor.gltf",
   "BATI_PORTE_CHAMBRE": "/gltf/appartement_haussmannien/porte_chambre/BatiPorteChambre.gltf",
   "BATTANT_PORTE_CHAMBRE": "/gltf/appartement_haussmannien/porte_chambre/BattantPorteChambre.gltf",
   "CAHIER": "/gltf/mobilier/bureau/Cahier.gltf",
+  "CARTE_CELESTE": "/gltf/mobilier/cadres/CarteCeleste.gltf",
+  "CERVEAU": "/gltf/mobilier/cadres/Cerveau.gltf",
+  "COURONNES": "/gltf/mobilier/cadres/Couronnes.gltf",
   "ECRAN_ORDINATEUR": "/gltf/mobilier/bureau/EcranOrdinateur.gltf",
   "LAMPE_PLAFOND_CADRE": "/gltf/lampes/LampePlafondCadre.gltf",
   "MAC_BOOK_PRO": "/gltf/mobilier/bureau/MacBookPro.gltf",
+  "NICOTIANA_RUSTICA_L": "/gltf/mobilier/cadres/NicotianaRusticaL.gltf",
   "PARQUET": "/gltf/appartement_haussmannien/parquet/Parquet.gltf",
   "PAPILLON": "/gltf/mobilier/cadres/Papillon.gltf",
   "PLINTHE_NORD": "/gltf/appartement_haussmannien/plinthes/PlintheNord.gltf",
   "PLINTHE_OUEST": "/gltf/appartement_haussmannien/plinthes/PlintheOuest.gltf",
   "TRETEAU": "/gltf/mobilier/bureau/Treteau.gltf",
+  "TRINITE": "/gltf/mobilier/cadres/Trinite.gltf",
+  "VERBAL_SHOOTA": "/gltf/mobilier/cadres/VerbalShoota.gltf",
   "VINYL": "/gltf/mobilier/bureau/Vinyl.gltf"
 }

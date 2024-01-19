@@ -4,16 +4,16 @@ import { useGLTF } from '@react-three/drei'
 
 import { default as gltfConstants } from '@/constants/gltfConstants.json'
 
-export default function Papillon() {
+export default function AmorAmor() {
   // @ts-ignore
-  const { nodes } = useGLTF(gltfConstants.PAPILLON)
+  const { nodes } = useGLTF(gltfConstants.AMOR_AMOR)
 
   const material = new THREE.MeshStandardMaterial()
   material.envMapIntensity = 0
 
   return (
     <mesh
-      geometry={nodes.Papillon.geometry}
+      geometry={nodes.AmorAmor.geometry}
       material={material}
       receiveShadow
       castShadow
@@ -21,4 +21,4 @@ export default function Papillon() {
   )
 }
 
-useGLTF.preload(gltfConstants.PAPILLON)
+useGLTF.preload(gltfConstants.AMOR_AMOR)
