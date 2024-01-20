@@ -1,33 +1,41 @@
 {
-  "AMOR_AMOR": "/gltf/mobilier/cadres/AmorAmor.gltf",
+  "PARQUET": "/gltf/appartement_haussmannien/parquet/Parquet.gltf",
+
   "BATI_PORTE_CHAMBRE": "/gltf/appartement_haussmannien/porte_chambre/BatiPorteChambre.gltf",
   "BATTANT_PORTE_CHAMBRE": "/gltf/appartement_haussmannien/porte_chambre/BattantPorteChambre.gltf",
-  "CAHIER": "/gltf/mobilier/bureau/Cahier.gltf",
-  "CARTE_CELESTE": "/gltf/mobilier/cadres/CarteCeleste.gltf",
-  "CERVEAU": "/gltf/mobilier/cadres/Cerveau.gltf",
-  "CHAISE_DE_BUREAU": "/gltf/mobilier/sol/ChaiseDeBureau.gltf",
-  "COURONNES": "/gltf/mobilier/cadres/Couronnes.gltf",
-  "CUBE": "/gltf/mobilier/etagere_bureau/Cube.gltf",
-  "DODECAEDRE": "/gltf/mobilier/etagere_bureau/Dodecaedre.gltf",
-  "ECRAN_ORDINATEUR": "/gltf/mobilier/bureau/EcranOrdinateur.gltf",
-  "ETAGERE": "/gltf/mobilier/etagere_bureau/Etagere.gltf",
-  "HAUT_PARLEUR": "/gltf/mobilier/enceinte/HautParleur.gltf",
-  "ICOSAEDRE": "/gltf/mobilier/etagere_bureau/Icosaedre.gltf",
-  "LAMPE_PLAFOND_CADRE": "/gltf/lampes/LampePlafondCadre.gltf",
-  "MAC_BOOK_PRO": "/gltf/mobilier/bureau/MacBookPro.gltf",
-  "MAPPEMONDE": "/gltf/mobilier/enceinte/Mappemonde.gltf",
-  "NICOTIANA_RUSTICA_L": "/gltf/mobilier/cadres/NicotianaRusticaL.gltf",
-  "OCTAEDRE": "/gltf/mobilier/etagere_bureau/Octaedre.gltf",
-  "PABLO_ESCOBAR": "/gltf/mobilier/etagere_bureau/PabloEscobar.gltf",
-  "PAPILLON": "/gltf/mobilier/cadres/Papillon.gltf",
-  "PAROIS": "/gltf/mobilier/enceinte/Parois.gltf",
-  "PARQUET": "/gltf/appartement_haussmannien/parquet/Parquet.gltf",
+  
   "PLINTHE_NORD": "/gltf/appartement_haussmannien/plinthes/PlintheNord.gltf",
   "PLINTHE_OUEST": "/gltf/appartement_haussmannien/plinthes/PlintheOuest.gltf",
-  "TETRAEDRE": "/gltf/mobilier/etagere_bureau/Tetraedre.gltf",
+
+  "LAMPE_PLAFOND_CADRE": "/gltf/lampes/LampePlafondCadre.gltf",
+
+  "CAHIER": "/gltf/mobilier/bureau/Cahier.gltf",
+  "ECRAN_ORDINATEUR": "/gltf/mobilier/bureau/EcranOrdinateur.gltf",
+  "MAC_BOOK_PRO": "/gltf/mobilier/bureau/MacBookPro.gltf",
   "TRETEAU": "/gltf/mobilier/bureau/Treteau.gltf",
+  "VINYL": "/gltf/mobilier/bureau/Vinyl.gltf",
+
+  "AMOR_AMOR": "/gltf/mobilier/cadres/AmorAmor.gltf",
+  "CARTE_CELESTE": "/gltf/mobilier/cadres/CarteCeleste.gltf",
+  "CERVEAU": "/gltf/mobilier/cadres/Cerveau.gltf",
+  "COURONNES": "/gltf/mobilier/cadres/Couronnes.gltf",
+  "NICOTIANA_RUSTICA_L": "/gltf/mobilier/cadres/NicotianaRusticaL.gltf",
+  "PAPILLON": "/gltf/mobilier/cadres/Papillon.gltf",
   "TRINITE": "/gltf/mobilier/cadres/Trinite.gltf",
   "VERBAL_SHOOTA": "/gltf/mobilier/cadres/VerbalShoota.gltf",
-  "VINYL": "/gltf/mobilier/bureau/Vinyl.gltf",
-  "VIRGEN_DE_GUADALUPE": "/gltf/mobilier/etagere_bureau/VirgenDeGuadalupe.gltf"
+  
+  "HAUT_PARLEUR": "/gltf/mobilier/enceinte/HautParleur.gltf",
+  "MAPPEMONDE": "/gltf/mobilier/enceinte/Mappemonde.gltf",
+  "PAROIS": "/gltf/mobilier/enceinte/Parois.gltf",
+
+  "CUBE": "/gltf/mobilier/etagere_bureau/Cube.gltf",
+  "DODECAEDRE": "/gltf/mobilier/etagere_bureau/Dodecaedre.gltf",
+  "ETAGERE": "/gltf/mobilier/etagere_bureau/Etagere.gltf",
+  "ICOSAEDRE": "/gltf/mobilier/etagere_bureau/Icosaedre.gltf",
+  "OCTAEDRE": "/gltf/mobilier/etagere_bureau/Octaedre.gltf",
+  "PABLO_ESCOBAR": "/gltf/mobilier/etagere_bureau/PabloEscobar.gltf",
+  "TETRAEDRE": "/gltf/mobilier/etagere_bureau/Tetraedre.gltf",
+  "VIRGEN_DE_GUADALUPE": "/gltf/mobilier/etagere_bureau/VirgenDeGuadalupe.gltf",
+
+  "CHAISE_DE_BUREAU": "/gltf/mobilier/sol/ChaiseDeBureau.gltf"
 }
