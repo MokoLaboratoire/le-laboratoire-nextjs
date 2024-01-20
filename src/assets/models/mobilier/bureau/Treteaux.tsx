@@ -5,6 +5,7 @@ import { useGLTF } from '@react-three/drei'
 import useTextureLoader from '@/hooks/UseTextureLoader'
 
 import { default as gltfConstants } from '@/constants/gltfConstants.json'
+import { default as meshesConstants } from '@/constants/meshesConstants.json'
 import { default as texturesConstants } from '@/constants/texturesConstants.json'
 
 function Treteau({ position }: ModelInterface) {
@@ -30,33 +31,16 @@ function Treteau({ position }: ModelInterface) {
 useGLTF.preload(gltfConstants.TRETEAU)
 
 export default function Treteaux() {
-  const treteaux = [
-    {
-      position: {
-        x: 6,
-        y: -10,
-        z: 0.034,
-      },
-    },
-    {
-      position: {
-        x: -6,
-        y: -10,
-        z: 0.034,
-      },
-    },
-  ]
-  
   return (
     <>
-      {treteaux.map((treteau, index) => (
+      {meshesConstants.TRETEAUX.map((treteau, index) => (
         <Treteau
           key={`treteau${index}`}
           position={
             new THREE.Vector3(
-              treteau.position.x,
-              treteau.position.y,
-              treteau.position.z,
+              treteau.POSITION.X,
+              treteau.POSITION.Y,
+              treteau.POSITION.Z,
             )
           }
         />
