@@ -11,11 +11,11 @@ function Enceinte({ position }: ModelInterface) {
   return (
     <>
       <group
-      	position={new THREE.Vector3(position!.x, position!.z, position!.y)}
-			>
-				<HautParleurs />
-				<Parois />
-			</group>
+        position={new THREE.Vector3(position!.x, position!.z, position!.y)}
+      >
+        <HautParleurs />
+        <Parois />
+      </group>
     </>
   )
 }
@@ -35,7 +35,7 @@ export default function Enceintes() {
           }
         />
       ))}
-			<Mappemonde />
+      <Mappemonde />
     </>
   )
 }

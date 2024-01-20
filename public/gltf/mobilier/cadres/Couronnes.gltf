@@ -1,170 +1,152 @@
 {
-	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.0.44",
-		"version":"2.0"
-	},
-	"scene":0,
-	"scenes":[
-		{
-			"name":"Scene",
-			"nodes":[
-				0
-			]
-		}
-	],
-	"nodes":[
-		{
-			"mesh":0,
-			"name":"Couronnes"
-		}
-	],
-	"meshes":[
-		{
-			"name":"Couronnes",
-			"primitives":[
-				{
-					"attributes":{
-						"POSITION":0,
-						"NORMAL":1,
-						"TEXCOORD_0":2
-					},
-					"indices":3
-				},
-				{
-					"attributes":{
-						"POSITION":4,
-						"NORMAL":5,
-						"TEXCOORD_0":6
-					},
-					"indices":7
-				}
-			]
-		}
-	],
-	"accessors":[
-		{
-			"bufferView":0,
-			"componentType":5126,
-			"count":515,
-			"max":[
-				8.778779029846191,
-				24.202571868896484,
-				-14.349251747131348
-			],
-			"min":[
-				-8.785689353942871,
-				20.996318817138672,
-				-14.527490615844727
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":1,
-			"componentType":5126,
-			"count":515,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":2,
-			"componentType":5126,
-			"count":515,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":3,
-			"componentType":5123,
-			"count":921,
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":4,
-			"componentType":5126,
-			"count":258,
-			"max":[
-				8.293346405029297,
-				22.76024627685547,
-				-14.351776123046875
-			],
-			"min":[
-				-8.300864219665527,
-				22.4377498626709,
-				-14.527081489562988
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":5,
-			"componentType":5126,
-			"count":258,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":6,
-			"componentType":5126,
-			"count":258,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":7,
-			"componentType":5123,
-			"count":390,
-			"type":"SCALAR"
-		}
-	],
-	"bufferViews":[
-		{
-			"buffer":0,
-			"byteLength":6180,
-			"byteOffset":0,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":6180,
-			"byteOffset":6180,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":4120,
-			"byteOffset":12360,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":1842,
-			"byteOffset":16480,
-			"target":34963
-		},
-		{
-			"buffer":0,
-			"byteLength":3096,
-			"byteOffset":18324,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":3096,
-			"byteOffset":21420,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":2064,
-			"byteOffset":24516,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":780,
-			"byteOffset":26580,
-			"target":34963
-		}
-	],
-	"buffers":[
-		{
-			"byteLength":27360,
-			"uri":"Couronnes.bin"
-		}
-	]
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v4.0.44",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [0]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "Couronnes"
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Couronnes",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3
+        },
+        {
+          "attributes": {
+            "POSITION": 4,
+            "NORMAL": 5,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7
+        }
+      ]
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 515,
+      "max": [8.778779029846191, 24.202571868896484, -14.349251747131348],
+      "min": [-8.785689353942871, 20.996318817138672, -14.527490615844727],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 515,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 515,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 921,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 258,
+      "max": [8.293346405029297, 22.76024627685547, -14.351776123046875],
+      "min": [-8.300864219665527, 22.4377498626709, -14.527081489562988],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5126,
+      "count": 258,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 258,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5123,
+      "count": 390,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 6180,
+      "byteOffset": 0,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 6180,
+      "byteOffset": 6180,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 4120,
+      "byteOffset": 12360,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1842,
+      "byteOffset": 16480,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 3096,
+      "byteOffset": 18324,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 3096,
+      "byteOffset": 21420,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 2064,
+      "byteOffset": 24516,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 780,
+      "byteOffset": 26580,
+      "target": 34963
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 27360,
+      "uri": "Couronnes.bin"
+    }
+  ]
 }

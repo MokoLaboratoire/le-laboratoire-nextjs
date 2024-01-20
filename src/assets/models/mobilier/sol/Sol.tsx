@@ -5,7 +5,7 @@ import ChaiseDeBureau from './ChaiseDeBureau'
 export default function Sol() {
   return (
     <>
-			<ChaiseDeBureau />
+      <ChaiseDeBureau />
     </>
   )
 }
