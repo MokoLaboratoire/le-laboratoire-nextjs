@@ -36,7 +36,7 @@ export default function Player() {
       camera.position.copy(
         new THREE.Vector3(
           positionRef.current.x,
-          positionRef.current.y + 10,
+          positionRef.current.y + 15,
           positionRef.current.z,
         ),
       )
