@@ -41,14 +41,16 @@ export function Parquet() {
         object.material.normalMap = normalMap
         object.material.roughnessMap = roughnessMap
         object.material.color = new THREE.Color(
-          parquetConstants.GREY_GRADIENT[
-            Math.floor(
-              Math.random() *
-                (parquetConstants.MAX_GREY_GRADIENT_RANGE -
-                  parquetConstants.MIN_GREY_GRADIENT_RANGE) +
-                parquetConstants.MIN_GREY_GRADIENT_RANGE,
-            )
-          ],
+          parseInt(
+            parquetConstants.GREY_GRADIENT[
+              Math.floor(
+                Math.random() *
+                  (parquetConstants.MAX_GREY_GRADIENT_RANGE -
+                    parquetConstants.MIN_GREY_GRADIENT_RANGE) +
+                  parquetConstants.MIN_GREY_GRADIENT_RANGE,
+              )
+            ],
+          ),
         )
         object.material.envMapIntensity = 0
       }

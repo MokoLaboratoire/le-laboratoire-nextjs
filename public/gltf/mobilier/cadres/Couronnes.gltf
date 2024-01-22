@@ -13,7 +13,8 @@
   "nodes": [
     {
       "mesh": 0,
-      "name": "Couronnes"
+      "name": "Couronnes",
+      "translation": [0, 0, 10]
     }
   ],
   "meshes": [
