@@ -1,117 +1,107 @@
 {
-	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.0.44",
-		"version":"2.0"
-	},
-	"scene":0,
-	"scenes":[
-		{
-			"name":"Scene",
-			"nodes":[
-				0
-			]
-		}
-	],
-	"nodes":[
-		{
-			"mesh":0,
-			"name":"Papillon"
-		}
-	],
-	"meshes":[
-		{
-			"name":"Papillon",
-			"primitives":[
-				{
-					"attributes":{
-						"POSITION":0,
-						"NORMAL":1,
-						"TEXCOORD_0":2,
-						"TEXCOORD_1":3
-					},
-					"indices":4
-				}
-			]
-		}
-	],
-	"accessors":[
-		{
-			"bufferView":0,
-			"componentType":5126,
-			"count":28126,
-			"max":[
-				-14.37614917755127,
-				9.899998664855957,
-				-14.306171417236328
-			],
-			"min":[
-				-16.77614974975586,
-				7.499999046325684,
-				-14.534171104431152
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":1,
-			"componentType":5126,
-			"count":28126,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":2,
-			"componentType":5126,
-			"count":28126,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":3,
-			"componentType":5126,
-			"count":28126,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":4,
-			"componentType":5123,
-			"count":42234,
-			"type":"SCALAR"
-		}
-	],
-	"bufferViews":[
-		{
-			"buffer":0,
-			"byteLength":337512,
-			"byteOffset":0,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":337512,
-			"byteOffset":337512,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":225008,
-			"byteOffset":675024,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":225008,
-			"byteOffset":900032,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":84468,
-			"byteOffset":1125040,
-			"target":34963
-		}
-	],
-	"buffers":[
-		{
-			"byteLength":1209508,
-			"uri":"Papillon.bin"
-		}
-	]
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v4.0.44",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [0]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "Papillon"
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Papillon",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2,
+            "TEXCOORD_1": 3
+          },
+          "indices": 4
+        }
+      ]
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 28126,
+      "max": [-14.37614917755127, 9.899998664855957, -14.306171417236328],
+      "min": [-16.77614974975586, 7.499999046325684, -14.534171104431152],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 28126,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 28126,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 28126,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5123,
+      "count": 42234,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 337512,
+      "byteOffset": 0,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 337512,
+      "byteOffset": 337512,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 225008,
+      "byteOffset": 675024,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 225008,
+      "byteOffset": 900032,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 84468,
+      "byteOffset": 1125040,
+      "target": 34963
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 1209508,
+      "uri": "Papillon.bin"
+    }
+  ]
 }

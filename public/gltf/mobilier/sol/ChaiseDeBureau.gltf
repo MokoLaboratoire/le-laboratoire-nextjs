@@ -13,12 +13,12 @@
   "nodes": [
     {
       "mesh": 0,
-      "name": "Mappemonde"
+      "name": "ChaiseDeBureau"
     }
   ],
   "meshes": [
     {
-      "name": "Mappemonde",
+      "name": "ChaiseDeBureau",
       "primitives": [
         {
           "attributes": {
@@ -36,72 +36,72 @@
     {
       "bufferView": 0,
       "componentType": 5126,
-      "count": 38446,
-      "max": [-8.565319061279297, 11.615968704223633, -11.065023422241211],
-      "min": [-11.234681129455566, 8.19999885559082, -13.734979629516602],
+      "count": 27931,
+      "max": [2.6460888385772705, 8.029406547546387, 2.855393886566162],
+      "min": [-2.5649826526641846, 0.008638381958007812, -2.795083999633789],
       "type": "VEC3"
     },
     {
       "bufferView": 1,
       "componentType": 5126,
-      "count": 38446,
+      "count": 27931,
       "type": "VEC3"
     },
     {
       "bufferView": 2,
       "componentType": 5126,
-      "count": 38446,
+      "count": 27931,
       "type": "VEC2"
     },
     {
       "bufferView": 3,
       "componentType": 5126,
-      "count": 38446,
+      "count": 27931,
       "type": "VEC2"
     },
     {
       "bufferView": 4,
       "componentType": 5123,
-      "count": 59142,
+      "count": 95628,
       "type": "SCALAR"
     }
   ],
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 461352,
+      "byteLength": 335172,
       "byteOffset": 0,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 461352,
-      "byteOffset": 461352,
+      "byteLength": 335172,
+      "byteOffset": 335172,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 307568,
-      "byteOffset": 922704,
+      "byteLength": 223448,
+      "byteOffset": 670344,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 307568,
-      "byteOffset": 1230272,
+      "byteLength": 223448,
+      "byteOffset": 893792,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 118284,
-      "byteOffset": 1537840,
+      "byteLength": 191256,
+      "byteOffset": 1117240,
       "target": 34963
     }
   ],
   "buffers": [
     {
-      "byteLength": 1656124,
-      "uri": "Mappemonde.bin"
+      "byteLength": 1308496,
+      "uri": "ChaiseDeBureau.bin"
     }
   ]
 }

@@ -9,7 +9,6 @@ import Treteaux from './Treteaux'
 import Vinyls from './Vinyls'
 
 export default function Bureau() {
-
   return (
     <>
       <Cahiers />

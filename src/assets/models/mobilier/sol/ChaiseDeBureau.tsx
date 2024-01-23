@@ -4,16 +4,16 @@ import { useGLTF } from '@react-three/drei'
 
 import { default as gltfConstants } from '@/constants/gltfConstants.json'
 
-export default function Mappemonde() {
+export default function ChaiseDeBureau() {
   // @ts-ignore
-  const { nodes } = useGLTF(gltfConstants.MAPPEMONDE)
+  const { nodes } = useGLTF(gltfConstants.CHAISE_DE_BUREAU)
 
   const material = new THREE.MeshStandardMaterial()
   material.envMapIntensity = 0
 
   return (
     <mesh
-      geometry={nodes.Mappemonde.geometry}
+      geometry={nodes.ChaiseDeBureau.geometry}
       material={material}
       receiveShadow
       castShadow
@@ -21,4 +21,4 @@ export default function Mappemonde() {
   )
 }
 
-useGLTF.preload(gltfConstants.MAPPEMONDE)
+useGLTF.preload(gltfConstants.CHAISE_DE_BUREAU)

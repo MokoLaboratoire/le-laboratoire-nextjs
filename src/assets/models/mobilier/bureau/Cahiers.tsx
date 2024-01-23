@@ -3,6 +3,7 @@ import * as THREE from 'three'
 import { useGLTF } from '@react-three/drei'
 
 import { default as gltfConstants } from '@/constants/gltfConstants.json'
+import { default as meshesConstants } from '@/constants/meshesConstants.json'
 
 import { degrees_to_radians } from 'helpers/threeHelpers'
 
@@ -28,50 +29,23 @@ function Cahier({ position, rotation }: ModelInterface) {
 useGLTF.preload(gltfConstants.CAHIER)
 
 export default function Cahiers() {
-  const cahiers = [
-    {
-      position: {
-        x: 5.77157,
-        y: -8.89845,
-        z: 6.17,
-      },
-      rotation: {
-        x: 0,
-        y: 0,
-        z: degrees_to_radians(40),
-      },
-    },
-    {
-      position: {
-        x: 5.57157,
-        y: -9.09845,
-        z: 6.21,
-      },
-      rotation: {
-        x: 0,
-        y: 0,
-        z: degrees_to_radians(55),
-      },
-    },
-  ]
-
   return (
     <>
-      {cahiers.map((cahier, index) => (
+      {meshesConstants.CAHIERS.map((cahier, index) => (
         <Cahier
-          key={`cahier${index}`}
+          key={`cahier_${index}`}
           position={
             new THREE.Vector3(
-              cahier.position.x,
-              cahier.position.y,
-              cahier.position.z,
+              cahier.POSITION.X,
+              cahier.POSITION.Y,
+              cahier.POSITION.Z,
             )
           }
           rotation={
             new THREE.Euler(
-              cahier.rotation.x,
-              cahier.rotation.y,
-              cahier.rotation.z,
+              cahier.ROTATION.X,
+              cahier.ROTATION.Y,
+              degrees_to_radians(cahier.ROTATION.Z),
             )
           }
         />
