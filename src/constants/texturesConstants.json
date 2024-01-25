@@ -4,5 +4,7 @@
   "PARQUET_NORMAL": "/textures/appartement_haussmannien/parquet/parquet_normal.jpg",
   "PARQUET_ROUGHNESS": "/textures/appartement_haussmannien/parquet/parquet_roughness.jpg",
 
-  "TRETEAU_DIFFUSE": "/textures/mobilier/bureau/treteau_diffuse.jpg"
+  "TRETEAU_DIFFUSE": "/textures/mobilier/bureau/treteau_diffuse.jpg",
+
+  "PAROIS_DIFFUSE": "/textures/mobilier/enceintes/parois_diffuse.jpg"
 }

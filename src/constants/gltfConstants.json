@@ -24,9 +24,9 @@
   "TRINITE": "/gltf/mobilier/cadres/Trinite.gltf",
   "VERBAL_SHOOTA": "/gltf/mobilier/cadres/VerbalShoota.gltf",
 
-  "HAUT_PARLEUR": "/gltf/mobilier/enceinte/HautParleur.gltf",
-  "MAPPEMONDE": "/gltf/mobilier/enceinte/Mappemonde.gltf",
-  "PAROIS": "/gltf/mobilier/enceinte/Parois.gltf",
+  "HAUT_PARLEUR": "/gltf/mobilier/enceintes/HautParleur.gltf",
+  "MAPPEMONDE": "/gltf/mobilier/enceintes/Mappemonde.gltf",
+  "PAROIS": "/gltf/mobilier/enceintes/Parois.gltf",
 
   "CUBE": "/gltf/mobilier/etagere_bureau/Cube.gltf",
   "DODECAEDRE": "/gltf/mobilier/etagere_bureau/Dodecaedre.gltf",
