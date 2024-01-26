@@ -2,7 +2,7 @@ import React from 'react'
 
 import Bureau from './bureau/Bureau'
 import Cadres from './cadres/Cadres'
-import Enceintes from './enceinte/Enceintes'
+import Enceintes from './enceintes/Enceintes'
 import EtagereBureau from './etagere_bureau/EtagereBureau'
 import Sol from './sol/Sol'
 
