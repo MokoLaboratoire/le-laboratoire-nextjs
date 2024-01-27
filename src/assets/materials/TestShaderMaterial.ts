@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { extend, Object3DNode, useThree } from '@react-three/fiber'
+import { extend, Object3DNode } from '@react-three/fiber'
 
 declare global {
   namespace JSX {

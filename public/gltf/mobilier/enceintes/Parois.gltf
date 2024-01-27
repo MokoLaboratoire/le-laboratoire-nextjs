@@ -1,117 +1,107 @@
 {
-	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.0.44",
-		"version":"2.0"
-	},
-	"scene":0,
-	"scenes":[
-		{
-			"name":"Scene",
-			"nodes":[
-				0
-			]
-		}
-	],
-	"nodes":[
-		{
-			"mesh":0,
-			"name":"Parois"
-		}
-	],
-	"meshes":[
-		{
-			"name":"Parois",
-			"primitives":[
-				{
-					"attributes":{
-						"POSITION":0,
-						"NORMAL":1,
-						"TEXCOORD_0":2,
-						"TEXCOORD_1":3
-					},
-					"indices":4
-				}
-			]
-		}
-	],
-	"accessors":[
-		{
-			"bufferView":0,
-			"componentType":5126,
-			"count":4003,
-			"max":[
-				1,
-				8.199999809265137,
-				1
-			],
-			"min":[
-				-1,
-				0.07999999821186066,
-				-1
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":1,
-			"componentType":5126,
-			"count":4003,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":2,
-			"componentType":5126,
-			"count":4003,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":3,
-			"componentType":5126,
-			"count":4003,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":4,
-			"componentType":5123,
-			"count":6483,
-			"type":"SCALAR"
-		}
-	],
-	"bufferViews":[
-		{
-			"buffer":0,
-			"byteLength":48036,
-			"byteOffset":0,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":48036,
-			"byteOffset":48036,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":32024,
-			"byteOffset":96072,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":32024,
-			"byteOffset":128096,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":12966,
-			"byteOffset":160120,
-			"target":34963
-		}
-	],
-	"buffers":[
-		{
-			"byteLength":173088,
-			"uri":"Parois.bin"
-		}
-	]
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v4.0.44",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [0]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "Parois"
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Parois",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2,
+            "TEXCOORD_1": 3
+          },
+          "indices": 4
+        }
+      ]
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 4003,
+      "max": [1, 8.199999809265137, 1],
+      "min": [-1, 0.07999999821186066, -1],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 4003,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 4003,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 4003,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5123,
+      "count": 6483,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 48036,
+      "byteOffset": 0,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 48036,
+      "byteOffset": 48036,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 32024,
+      "byteOffset": 96072,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 32024,
+      "byteOffset": 128096,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 12966,
+      "byteOffset": 160120,
+      "target": 34963
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 173088,
+      "uri": "Parois.bin"
+    }
+  ]
 }
