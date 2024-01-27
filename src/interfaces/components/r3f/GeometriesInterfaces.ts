@@ -10,6 +10,7 @@ export interface PlaneInterface extends BufferGeometryInterface {
   rotation?: THREE.Euler
   castShadow?: boolean
   receiveShadow?: boolean
+  material?: any
 }
 
 export interface BoxInterface extends BufferGeometryInterface {

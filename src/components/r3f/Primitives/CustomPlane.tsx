@@ -13,6 +13,7 @@ export default function CustomPlane({
   rotation = new THREE.Euler(-Math.PI / 2, 0, 0),
   castShadow = false,
   receiveShadow = false,
+  material,
   children,
 }: PlaneInterface) {
   return (
@@ -22,8 +23,9 @@ export default function CustomPlane({
       rotation={rotation}
       castShadow={castShadow}
       receiveShadow={receiveShadow}
+      material={material}
     >
-      {children ? children : <MeshStandardMaterial />}
+      {/* {children ? children : <MeshStandardMaterial />} */}
     </Plane>
   )
 }

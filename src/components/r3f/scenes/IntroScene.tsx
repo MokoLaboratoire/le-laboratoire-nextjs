@@ -4,15 +4,15 @@ import React, { Suspense } from 'react'
 import * as THREE from 'three'
 import { Canvas } from '@react-three/fiber'
 import {
-  Environment,
   PerspectiveCamera,
   Stats,
-  useEnvironment,
 } from '@react-three/drei'
 import { Physics } from '@react-three/rapier'
 
 import { CustomPlane } from '@/components/r3f/primitives'
 import { AxeHelper } from '@/components/r3f/helpers'
+
+import { DefaultShaderMaterial } from '@/assets/materials/DefaultShaderMaterial'
 
 export default function IntroScene() {
   return (
@@ -35,6 +35,8 @@ export default function IntroScene() {
         onUpdate={(self) => self.updateProjectionMatrix()}
       />
 
+			<ambientLight />
+
       <AxeHelper size={10} />
 
       <Suspense fallback={null}>
@@ -42,6 +44,7 @@ export default function IntroScene() {
           <CustomPlane
             name={'default_cube'}
             rotation={new THREE.Euler(0, 0, 0)}
+						material={new DefaultShaderMaterial()}
           />
         </Physics>
       </Suspense>
