@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import gsap from 'gsap'
 
 interface ThreeClassProps {
   mountPoint: HTMLDivElement
@@ -40,6 +41,7 @@ export default class ThreeClass {
   addMeshes(scene: THREE.Scene) {
     const geometry = new THREE.PlaneGeometry(1, 1)
     const material = new THREE.ShaderMaterial({
+      side: THREE.DoubleSide,
       uniforms: {
       },
       vertexShader: `
@@ -57,7 +59,8 @@ export default class ThreeClass {
       `,
     })
     const plane = new THREE.Mesh(geometry, material)
-    plane.rotation.x = Math.PI / 4
+    /* plane.rotation.x = Math.PI / 4 */
+    gsap.to(plane.rotation, {duration: 10, y: Math.PI * 2, repeat: -1, ease: "none"});
     scene.add(plane)
   }
 
