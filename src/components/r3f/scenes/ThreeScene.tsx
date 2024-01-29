@@ -27,7 +27,7 @@ export default class ThreeScene extends Component<{}, ThreeSceneState> {
   init = () => {
     const threeCanvas = new ThreeClass({
       // @ts-ignore
-      mountPoint: this.canvasRef.current,
+      container: this.canvasRef.current,
       // @ts-ignore
       width: this.canvasRef.current.clientWidth,
       // @ts-ignore
@@ -44,7 +44,6 @@ export default class ThreeScene extends Component<{}, ThreeSceneState> {
   render() {
     return (
       <div
-        className='visualizationMount'
         style={{ width: 600, height: 600 }}
         ref={this.canvasRef}
       ></div>

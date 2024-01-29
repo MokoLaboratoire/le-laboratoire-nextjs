@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import gsap from 'gsap'
 
 interface ThreeClassProps {
-  mountPoint: HTMLDivElement
+  container: HTMLDivElement
   width: number
   height: number
 }
@@ -13,7 +13,7 @@ export default class ThreeClass {
   private renderer: THREE.WebGLRenderer
 
   constructor(props: ThreeClassProps) {
-    const { mountPoint, width, height } = props
+    const { container, width, height } = props
 
     this.scene = new THREE.Scene()
 
@@ -33,7 +33,7 @@ export default class ThreeClass {
     this.renderer.setSize(width, height)
     this.camera.position.z = 5
 
-    mountPoint.appendChild(this.renderer.domElement)
+    container.appendChild(this.renderer.domElement)
 
     this.addMeshes(this.scene)
   }
@@ -59,7 +59,6 @@ export default class ThreeClass {
       `,
     })
     const plane = new THREE.Mesh(geometry, material)
-    /* plane.rotation.x = Math.PI / 4 */
     gsap.to(plane.rotation, {duration: 10, y: Math.PI * 2, repeat: -1, ease: "none"});
     scene.add(plane)
   }
