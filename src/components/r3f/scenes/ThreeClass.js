@@ -67,7 +67,7 @@ export default class ThreeClass {
 				let {x, y} = intersects[0].point
 				this.fboMaterial.uniforms.uMouse.value = new THREE.Vector2(x, y)
 				console.log(x, y)
-				this.ball.position.set(x, y, 0)
+				this.ball.position.set(x, y, 1)
 			}
 		})
 	}
