@@ -4,46 +4,76 @@ import gsap from 'gsap'
 
 export default class ThreeClass {
   constructor(props) {
-    const { container, width, height } = props
+    const { container } = props
 
-    this.width = width
-    this.height = height
-    this.size = 128
+		this.time = 0
+		this.isPlaying = true
+
+		this.container = container
 
     this.scene = new THREE.Scene()
-		this.scene.background = new THREE.Color(0x000000)
 
-    this.camera = new THREE.PerspectiveCamera(
-      75,
-      width / height,
-      0.1,
-      1000
-    )
-		this.camera.position.z = 5
-
-    this.renderer = new THREE.WebGLRenderer({
+    this.width = window.innerWidth
+    this.height = window.innerHeight
+    
+		this.renderer = new THREE.WebGLRenderer({
       alpha: true,
       antialias: true,
     })
-		this.renderer.setSize(width, height)
+		this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+		this.renderer.setSize(this.width, this.height)
+		this.renderer.setClearColor(0x000000, 1)
 
-    this.controls = new OrbitControls( this.camera, this.renderer.domElement )
+		this.container.appendChild(this.renderer.domElement)
 
-    container.appendChild(this.renderer.domElement)
+    this.camera = new THREE.PerspectiveCamera(
+      70,
+      this.width / this.height,
+      0.01,
+      1000
+    )
+		this.camera.position.set(0, 0, 2)
+
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+
+		/* this.render() */
+		this.setupResize()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    this.size = 128
+
+		/* this.scene.background = new THREE.Color(0x000000) */
+
+
+
 
     this.addParticules(this.scene)
-    /* this.addPlane(this.scene) */
 
     /* this.fbo = this.getRenderTarget
-    this.fbol = this.getRenderTarget
-    this.fboScene = new THREE.Scene()
+    this.fbol = this.getRenderTarget */
+    /* this.fboScene = new THREE.Scene()
     this.fboCamera = new THREE.OrthographicCamera(-1, 1, 1, -1, -1, 1)
     this.fboCamera.position.set(0, 0, 0.5)
-    this.fboCamera.lookAt(0, 0, 0)
+    this.fboCamera.lookAt(0, 0, 0) */
 
-    container.appendChild(this.renderer.domElement)
+    /* container.appendChild(this.renderer.domElement) */
 
-    let geometry = new THREE.PlaneGeometry(2, 2) */
+    /* let geometry = new THREE.PlaneGeometry(2, 2) */
 
     /* this.data = new Float32Array(this.size * this.size * 4)
 
@@ -73,6 +103,7 @@ export default class ThreeClass {
     /* this.fboMaterial = new THREE.ShaderMaterial({
       uniforms: {
         uPositions: { value: this.fboTexture },
+        time: { value: 0 },
       },
       vertexShader: `
  				varying vec2 vUv;
@@ -90,9 +121,21 @@ export default class ThreeClass {
 				}
 			`,
     })
-    this.fboMesh = new THREE.Mesh(geometry, this.fboMaterial) */
-    /* this.fboScene.add(this.fboMesh) */
+    this.fboMesh = new THREE.Mesh(geometry, this.fboMaterial)
+    this.fboScene.add(this.fboMesh) */
   }
+
+	setupResize() {
+		window.addEventListener('resize', this.resize.bind(this))
+	}
+
+	resize() {
+		this.width = window.innerWidth
+		this.height = window.innerHeight
+		this.renderer.setSize(this.width, this.height)
+		this.camera.aspect = this.width / this.height
+		this.camera.updateProjectionMatrix()
+	}
 
   getRenderTarget() {
     const renderTarget = new THREE.WebGLRenderTarget(
@@ -108,51 +151,31 @@ export default class ThreeClass {
     return renderTarget
   }
 
-  /* addPlane(scene) {
-    const geometry = new THREE.PlaneGeometry(1, 1)
-    const material = new THREE.ShaderMaterial({
-      uniforms: {
-      },
-      vertexShader: `
-        varying vec2 vUv;
-        void main() {
-          vUv = uv;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-        }
-      `,
-      fragmentShader: `
-        varying vec2 vUv;
-        void main() {
-          gl_FragColor = vec4(vUv, 0.0, 1.0);
-        }
-      `,
-    })
-    const plane = new THREE.Mesh(geometry, material)
-    plane.rotation.x = Math.PI / 4
-    scene.add(plane)
-  } */
-
   addParticules(scene) {
-    const material = new THREE.ShaderMaterial({
+    this.material = new THREE.ShaderMaterial({
       side: THREE.DoubleSide,
       uniforms: {
-        uPositions: { value: null },
+				uPositions: { value: null },
+        time: { value: 0 },
       },
       vertexShader: `
         uniform sampler2D uPositions;
         varying vec2 vUv;
         void main() {
           vUv = uv;
-          vec4 pos = texture2D(uPositions, uv);
-          vec4 mvPosition = modelViewMatrix * vec4( pos.xyz, 1.0 );
-          gl_PointSize = 10.0 * ( 1.0 / -mvPosition.z );
+          vec4 pos = texture2D(uPositions, vUv);
+          vec4 mvPosition = modelViewMatrix * vec4(pos.xyz, 1.0);
+          gl_PointSize = 10.0 * (1.0 / -mvPosition.z);
           gl_Position = projectionMatrix * mvPosition;
         }
       `,
       fragmentShader: `
+				uniform sampler2D uPositions;
         varying vec2 vUv;
         void main() {
-          gl_FragColor = vec4(vUv, 0.0, 1.0);
+					vec4 pos = texture2D(uPositions, vUv);
+					pos.xy += vec2(0.1); 
+          gl_FragColor = pos;
         }
       `,
     })
@@ -176,6 +199,13 @@ export default class ThreeClass {
 
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
     geometry.setAttribute('uv', new THREE.BufferAttribute(uv, 2))
+
+		this.fbo = this.getRenderTarget
+    this.fbo1 = this.getRenderTarget
+    this.fboScene = new THREE.Scene()
+    this.fboCamera = new THREE.OrthographicCamera(-1, 1, 1, -1, -1, 1)
+    this.fboCamera.position.set(0, 0, 0.5)
+    this.fboCamera.lookAt(0, 0, 0)
 
     this.data = new Float32Array(this.size * this.size * 4)
 
@@ -202,17 +232,50 @@ export default class ThreeClass {
     this.fboTexture.minFilter = THREE.NearestFilter
     this.fboTexture.needsUpdate = true
 
-    material.uniforms.uPositions.value = this.fboTexture
-    const points = new THREE.Points(geometry, material)
+    this.fboMaterial = new THREE.ShaderMaterial({
+      uniforms: {
+        uPositions: { value: this.fboTexture },
+        time: { value: 0 },
+      },
+      vertexShader: `
+ 				varying vec2 vUv;
+				void main() {
+					vUv = uv;
+					gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+				}
+			`,
+			fragmentShader: `
+				uniform sampler2D uPositions;
+				varying vec2 vUv;
+				void main() {
+					vec4 pos = texture2D(uPositions, vUv);
+					gl_FragColor = pos;
+				}
+			`,
+    })
+
+    this.material.uniforms.uPositions.value = this.fboTexture
+    const points = new THREE.Points(geometry, this.material)
     /* gsap.to(plane.rotation, {duration: 10, y: Math.PI * 2, repeat: -1, ease: "none"}); */
     scene.add(points)
   }
 
   setAnimationLoop() {
-    this.renderer.setAnimationLoop(() => {
+    this.renderer.setAnimationLoop((t) => {
+			this.material.uniforms.time.value = t
+			/* this.fboMaterial.uniforms.time.value = t */
+
+			/* this.material.uniforms.uPositions.value = this.fbo.texture
+			this.fboMaterial.uniforms.uPositions.value = this.fbo1.texture */
+
+      /* this.renderer.setRenderTarget(this.fbo) */
       this.renderer.render(this.scene, this.camera)
       /* this.renderer.setRenderTarget(null)
       this.renderer.render(this.fboScene, this.fboCamera) */
+
+			let temp = this.fbo
+			this.fbo = this.fbo1
+			this.fbo1 = temp
     })
   }
 }
