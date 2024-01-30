@@ -37,40 +37,12 @@ export default class ThreeClass {
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
 
-		this.addObjects()
 		this.setupFBO()
+		this.addObjects()
 		this.render()
 
 		this.setupResize()
   }
-
-	addObjects() {
-    const geometry = new THREE.PlaneGeometry(1, 1)
-		const material = new THREE.ShaderMaterial({
-      extensions: {
-        derivatives: '#extension GL_OES_standard_derivatives : enable',
-      },
-      side: THREE.DoubleSide,
-      uniforms: {
-			},
-			vertexShader: `
-				varying vec2 vUv;
-				void main() {
-					vUv = uv;
-					gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-				}
-			`,
-			fragmentShader: `
-				varying vec2 vUv;
-				void main() {
-					gl_FragColor = vec4(vUv, 0.0, 1.0);
-				}
-			`,
-    })
-    this.plane = new THREE.Mesh(geometry, material)
-    this.plane.rotation.x = Math.PI / 4
-    this.scene.add(this.plane)
-	}
 
   getRenderTarget() {
     const renderTarget = new THREE.WebGLRenderTarget(
@@ -138,6 +110,7 @@ export default class ThreeClass {
 				varying vec2 vUv;
 				void main() {
 					vec4 pos = texture2D(uPositions, vUv);
+					pos.xy += vec2(0.001); 
 					gl_FragColor = pos;
 				}
 			`,
@@ -145,17 +118,84 @@ export default class ThreeClass {
 
     this.fboMesh = new THREE.Mesh(geometry, this.fboMaterial)
     this.fboScene.add(this.fboMesh)
+
+		this.renderer.setRenderTarget(this.fbo)
+		this.renderer.render(this.fboScene, this.fboCamera)
+		this.renderer.setRenderTarget(this.fbo1)
+		this.renderer.render(this.fboScene, this.fboCamera)
+	}
+
+	addObjects() {
+    /* const geometry = new THREE.PlaneGeometry(1, 1) */
+    this.material = new THREE.ShaderMaterial({
+      side: THREE.DoubleSide,
+      uniforms: {
+				uPositions: { value: null },
+        time: { value: 0 },
+      },
+      vertexShader: `
+        uniform sampler2D uPositions;
+        varying vec2 vUv;
+        void main() {
+          vUv = uv;
+          vec4 pos = texture2D(uPositions, vUv);
+          vec4 mvPosition = modelViewMatrix * vec4(pos.xyz, 1.0);
+          gl_PointSize = 10.0 * (1.0 / -mvPosition.z);
+          gl_Position = projectionMatrix * mvPosition;
+        }
+      `,
+      fragmentShader: `
+				uniform sampler2D uPositions;
+        varying vec2 vUv;
+        void main() {
+					gl_FragColor = vec4(vUv, 0.0, 1.0);
+        }
+      `,
+    })
+
+    this.count = Math.pow(this.size, 2)
+
+    const geometry = new THREE.BufferGeometry()
+    const positions = new Float32Array(this.count * 3)
+    const uv = new Float32Array(this.count * 2)
+
+    for (let i = 0; i < this.size; i++) {
+      for (let j = 0; j < this.size; j++) {
+        let index = (i + j * this.size)
+        positions[index * 3 + 0] = Math.random()
+        positions[index * 3 + 1] = Math.random()
+        positions[index * 3 + 2] = 0
+        uv[index * 2 + 0] = i / this.size
+        uv[index * 2 + 1] = j / this.size
+      }
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
+    geometry.setAttribute('uv', new THREE.BufferAttribute(uv, 2))
+
+    this.material.uniforms.uPositions.value = this.fboTexture
+    const points = new THREE.Points(geometry, this.material)
+    this.scene.add(points)
 	}
 
 	render() {
 		if(!this.isPlaying) return
 		this.time += 0.05
-		/* this.material.uniforms.time.value = time */
+		this.material.uniforms.time.value = this.time
+		this.fboMaterial.uniforms.time.value = this.time
 		requestAnimationFrame(this.render.bind(this))
+
+		this.material.uniforms.uPositions.value = this.fbo.texture 
+		this.fboMaterial.uniforms.uPositions.value = this.fbo1.texture
+
+		this.renderer.setRenderTarget(this.fbo)
+		this.renderer.render(this.fboScene, this.fboCamera)
+		this.renderer.setRenderTarget(null)
 		this.renderer.render(this.scene, this.camera)
 
-		/* this.renderer.setRenderTarget(null)
-		this.renderer.render(this.fboScene, this.fboCamera) */
+		let temp = this.fbo
+		this.fbo = this.fbo1
+		this.fbo1 = temp
 	}
 
 	setupResize() {
