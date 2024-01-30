@@ -1,7 +1,7 @@
 'use client'
 
 import React, { Component, createRef, RefObject } from 'react'
-import ThreeClass from './ThreeClass'
+import ThreeClass from './ThreeClass.js'
 
 interface ThreeSceneState {
   initialized: boolean
@@ -44,7 +44,7 @@ export default class ThreeScene extends Component<{}, ThreeSceneState> {
   render() {
     return (
       <div
-        style={{ width: 600, height: 600 }}
+        style={{ width: window.innerWidth, height: window.innerHeight }}
         ref={this.canvasRef}
       ></div>
     )
