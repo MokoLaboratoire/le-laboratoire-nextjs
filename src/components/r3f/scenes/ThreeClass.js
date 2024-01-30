@@ -33,7 +33,7 @@ export default class ThreeClass {
       0.01,
       1000
     )
-		this.camera.position.set(0, 0, 2)
+		this.camera.position.set(0, 0, 4)
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
 
@@ -96,6 +96,7 @@ export default class ThreeClass {
 		this.fboMaterial = new THREE.ShaderMaterial({
       uniforms: {
         uPositions: { value: this.fboTexture },
+        uInfo: { value: null },
         time: { value: 0 },
       },
       vertexShader: `
@@ -107,22 +108,49 @@ export default class ThreeClass {
 			`,
 			fragmentShader: `
 				uniform sampler2D uPositions;
+				uniform sampler2D uInfo;
 				varying vec2 vUv;
 				void main() {
 					vec4 pos = texture2D(uPositions, vUv);
+					vec4 info = texture2D(uInfo, vUv);
 
 
-					float radius = length(pos.xy);
+					float radius = info.x;
+					/* float radius = length(pos.xy); */
 					float angle = atan(pos.y, pos.x) - 0.1;
 					vec3 targetPos = vec3(cos(angle), sin(angle), 0.0) * radius;
-					pos.xy += (targetPos.xy - pos.xy) * 0.1;
+					pos.xy += (targetPos.xy - pos.xy) * 0.01;
 
 
 					/* pos.xy += vec2(0.001); */
-					gl_FragColor = pos;
+					gl_FragColor = vec4(pos.xy, 1.0, 1.0);
 				}
 			`,
     })
+
+    this.infoarray = new Float32Array(this.size * this.size * 4)
+
+    for (let i = 0; i < this.size; i++) {
+      for (let j = 0; j < this.size; j++) {
+        let index = (i + j * this.size) * 4
+        this.infoarray[index + 0] = 0.5 + Math.random()
+        this.infoarray[index + 1] = 0.5 + Math.random()
+        this.infoarray[index + 2] = 1.0
+        this.infoarray[index + 3] = 1.0
+      }
+    }
+
+    this.info = new THREE.DataTexture(
+      this.infoarray,
+      this.size,
+      this.size,
+      THREE.RGBAFormat,
+      THREE.FloatType,
+    )
+    this.info.magFilter = THREE.NearestFilter
+    this.info.minFilter = THREE.NearestFilter
+    this.info.needsUpdate = true
+		this.fboMaterial.uniforms.uInfo.value = this.info
 
     this.fboMesh = new THREE.Mesh(geometry, this.fboMaterial)
     this.fboScene.add(this.fboMesh)
@@ -148,7 +176,7 @@ export default class ThreeClass {
           vUv = uv;
           vec4 pos = texture2D(uPositions, vUv);
           vec4 mvPosition = modelViewMatrix * vec4(pos.xyz, 1.0);
-          gl_PointSize = 10.0 * (1.0 / -mvPosition.z);
+          gl_PointSize = 5.0 * (1.0 / -mvPosition.z);
           gl_Position = projectionMatrix * mvPosition;
         }
       `,
