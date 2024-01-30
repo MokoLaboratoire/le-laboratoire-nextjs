@@ -110,7 +110,15 @@ export default class ThreeClass {
 				varying vec2 vUv;
 				void main() {
 					vec4 pos = texture2D(uPositions, vUv);
-					pos.xy += vec2(0.001); 
+
+
+					float radius = length(pos.xy);
+					float angle = atan(pos.y, pos.x) - 0.1;
+					vec3 targetPos = vec3(cos(angle), sin(angle), 0.0) * radius;
+					pos.xy += (targetPos.xy - pos.xy) * 0.1;
+
+
+					/* pos.xy += vec2(0.001); */
 					gl_FragColor = pos;
 				}
 			`,
