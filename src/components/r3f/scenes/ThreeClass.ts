@@ -17,19 +17,14 @@ export default class ThreeClass {
 
     this.scene = new THREE.Scene()
 
-    this.camera = new THREE.PerspectiveCamera(
-      75,
-      width / height,
-      0.1,
-      1000
-    )
+    this.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000)
 
     this.renderer = new THREE.WebGLRenderer({
       alpha: true,
       antialias: true,
     })
 
-    this.scene.background = new THREE.Color(0xFF0000)
+    this.scene.background = new THREE.Color(0xff0000)
     this.renderer.setSize(width, height)
     this.camera.position.z = 5
 
@@ -42,8 +37,7 @@ export default class ThreeClass {
     const geometry = new THREE.PlaneGeometry(1, 1)
     const material = new THREE.ShaderMaterial({
       side: THREE.DoubleSide,
-      uniforms: {
-      },
+      uniforms: {},
       vertexShader: `
         varying vec2 vUv;
         void main() {
@@ -59,7 +53,12 @@ export default class ThreeClass {
       `,
     })
     const plane = new THREE.Mesh(geometry, material)
-    gsap.to(plane.rotation, {duration: 10, y: Math.PI * 2, repeat: -1, ease: "none"});
+    gsap.to(plane.rotation, {
+      duration: 10,
+      y: Math.PI * 2,
+      repeat: -1,
+      ease: 'none',
+    })
     scene.add(plane)
   }
 

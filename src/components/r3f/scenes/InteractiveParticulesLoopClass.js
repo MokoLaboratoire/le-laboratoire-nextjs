@@ -2,99 +2,95 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 import gsap from 'gsap'
 
-export default class ThreeClass {
+export default class InteractiveParticulesLoopClass {
   constructor(props) {
     const { container } = props
 
-		this.isPlaying = true
-		this.time = 0
-		this.size = 256
+    this.isPlaying = true
+    this.time = 0
+    this.size = 256
 
-		this.container = container
+    this.container = container
 
     this.scene = new THREE.Scene()
 
     this.width = window.innerWidth
     this.height = window.innerHeight
-    
-		this.renderer = new THREE.WebGLRenderer({
+
+    this.renderer = new THREE.WebGLRenderer({
       alpha: true,
       antialias: true,
     })
-		this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-		this.renderer.setSize(this.width, this.height)
-		this.renderer.setClearColor(0x000000, 1)
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    this.renderer.setSize(this.width, this.height)
+    this.renderer.setClearColor(0x000000, 1)
 
-		this.raycaster = new THREE.Raycaster()
-		this.pointer = new THREE.Vector2()
+    this.raycaster = new THREE.Raycaster()
+    this.pointer = new THREE.Vector2()
 
-		this.container.appendChild(this.renderer.domElement)
+    this.container.appendChild(this.renderer.domElement)
 
     this.camera = new THREE.PerspectiveCamera(
       70,
       this.width / this.height,
       0.01,
-      1000
+      1000,
     )
-		this.camera.position.set(0, 0, 4)
+    this.camera.position.set(0, 0, 4)
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
-		
-		this.setupFBO()
-		this.setupEvents()
-		this.addObjects()
-		this.render()
 
-		this.setupResize()
+    this.setupFBO()
+    this.setupEvents()
+    this.addObjects()
+    this.render()
+
+    this.setupResize()
   }
 
-	setupEvents() {
-		this.dummy = new THREE.Mesh(
-			new THREE.PlaneGeometry(100, 100),
-			new THREE.MeshBasicMaterial()
-		)
-		this.ball = new THREE.Mesh(
-			new THREE.SphereGeometry(0.1, 32, 32),
-			new THREE.MeshBasicMaterial({ color: 0xff0000 })
-		)
-		/* this.scene.add(this.ball) */
-		document.addEventListener('pointermove', (e) => {
-			this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1
-			this.pointer.y = - (e.clientY / window.innerHeight) * 2 + 1
-			this.raycaster.setFromCamera(this.pointer, this.camera)
-			let intersects = this.raycaster.intersectObject(this.dummy)
-			if(intersects.length > 0) {
-				let {x, y} = intersects[0].point
-				this.fboMaterial.uniforms.uMouse.value = new THREE.Vector2(x, y)
-				console.log(x, y)
-				this.ball.position.set(x, y, 1)
-			}
-		})
-	}
+  setupEvents() {
+    this.dummy = new THREE.Mesh(
+      new THREE.PlaneGeometry(100, 100),
+      new THREE.MeshBasicMaterial(),
+    )
+    this.ball = new THREE.Mesh(
+      new THREE.SphereGeometry(0.1, 32, 32),
+      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
+    )
+    /* this.scene.add(this.ball) */
+    document.addEventListener('pointermove', (e) => {
+      this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1
+      this.pointer.y = -(e.clientY / window.innerHeight) * 2 + 1
+      this.raycaster.setFromCamera(this.pointer, this.camera)
+      let intersects = this.raycaster.intersectObject(this.dummy)
+      if (intersects.length > 0) {
+        let { x, y } = intersects[0].point
+        this.fboMaterial.uniforms.uMouse.value = new THREE.Vector2(x, y)
+        /* console.log(x, y) */
+        this.ball.position.set(x, y, 1)
+      }
+    })
+  }
 
   getRenderTarget() {
-    const renderTarget = new THREE.WebGLRenderTarget(
-      this.width, 
-      this.height, 
-      {
-        minFilter: THREE.NearestFilter,
-        magFilter: THREE.NearestFilter,
-        format: THREE.RGBAFormat,
-        type: THREE.FloatType,
-      }
-    )
+    const renderTarget = new THREE.WebGLRenderTarget(this.width, this.height, {
+      minFilter: THREE.NearestFilter,
+      magFilter: THREE.NearestFilter,
+      format: THREE.RGBAFormat,
+      type: THREE.FloatType,
+    })
     return renderTarget
   }
 
-	setupFBO() {
-		this.fbo = this.getRenderTarget()
+  setupFBO() {
+    this.fbo = this.getRenderTarget()
     this.fbo1 = this.getRenderTarget()
 
-		this.fboScene = new THREE.Scene()
+    this.fboScene = new THREE.Scene()
     this.fboCamera = new THREE.OrthographicCamera(-1, 1, 1, -1, -1, 1)
     this.fboCamera.position.set(0, 0, 0.5)
     this.fboCamera.lookAt(0, 0, 0)
-		let geometry = new THREE.PlaneGeometry(2, 2)
+    let geometry = new THREE.PlaneGeometry(2, 2)
 
     this.data = new Float32Array(this.size * this.size * 4)
 
@@ -121,7 +117,7 @@ export default class ThreeClass {
     this.fboTexture.minFilter = THREE.NearestFilter
     this.fboTexture.needsUpdate = true
 
-		this.fboMaterial = new THREE.ShaderMaterial({
+    this.fboMaterial = new THREE.ShaderMaterial({
       uniforms: {
         uPositions: { value: this.fboTexture },
         uInfo: { value: null },
@@ -135,7 +131,7 @@ export default class ThreeClass {
 					gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
 				}
 			`,
-			fragmentShader: `
+      fragmentShader: `
 				uniform sampler2D uPositions;
 				uniform sampler2D uInfo;
 				uniform vec2 uMouse;
@@ -250,33 +246,18 @@ export default class ThreeClass {
 				void main() {
 					vec4 pos = texture2D(uPositions, vUv);
 					vec4 info = texture2D(uInfo, vUv);
-
-					/* vec2 mouse = vec2(sin(-time), cos(-time)); */
 					vec2 mouse = uMouse;
-
-
-					/* float radius = info.x; */
-					/* float angle = atan(pos.y, pos.x) - 0.1; */
-
 					float radius = length(pos.xy);
 					float circularForce = 1.0 - smoothstep(0.3, 1.4, abs(pos.x - radius));
 					float angle = atan(pos.y, pos.x) - info.y * 0.3 * mix(0.5, 1.0, circularForce);
-
 					float targetRadius = mix(info.x, 1.8, 0.5 + 0.45 * sin(angle * 2.0 + time * 0.2));
 					radius += (targetRadius - radius) * mix(0.2, 0.5, circularForce);
-
 					vec3 targetPos = vec3(cos(angle), sin(angle), 0.0) * radius;
 					pos.xy += (targetPos.xy - pos.xy) * 0.1;
-
-
-					/* pos.xy += vec2(0.001); */
-
 					pos.xy += curl(pos.xyz * 4.0, time * 0.1, 0.1).xy * 0.006;
-
 					float dist = length(pos.xy - mouse);
 					vec2 dir = normalize(pos.xy - mouse);
 					pos.xy += dir * 0.1 * smoothstep(0.3, 0.0, dist);
-
 					gl_FragColor = vec4(pos.xy, 1.0, 1.0);
 				}
 			`,
@@ -304,24 +285,24 @@ export default class ThreeClass {
     this.info.magFilter = THREE.NearestFilter
     this.info.minFilter = THREE.NearestFilter
     this.info.needsUpdate = true
-		this.fboMaterial.uniforms.uInfo.value = this.info
+    this.fboMaterial.uniforms.uInfo.value = this.info
 
     this.fboMesh = new THREE.Mesh(geometry, this.fboMaterial)
     this.fboScene.add(this.fboMesh)
 
-		this.renderer.setRenderTarget(this.fbo)
-		this.renderer.render(this.fboScene, this.fboCamera)
-		this.renderer.setRenderTarget(this.fbo1)
-		this.renderer.render(this.fboScene, this.fboCamera)
-	}
+    this.renderer.setRenderTarget(this.fbo)
+    this.renderer.render(this.fboScene, this.fboCamera)
+    this.renderer.setRenderTarget(this.fbo1)
+    this.renderer.render(this.fboScene, this.fboCamera)
+  }
 
-	addObjects() {
+  addObjects() {
     /* const geometry = new THREE.PlaneGeometry(1, 1) */
     this.material = new THREE.ShaderMaterial({
       side: THREE.DoubleSide,
-			transparent: true,
+      transparent: true,
       uniforms: {
-				uPositions: { value: null },
+        uPositions: { value: null },
         time: { value: 0 },
       },
       vertexShader: `
@@ -332,10 +313,8 @@ export default class ThreeClass {
         void main() {
           vUv = uv;
           vec4 pos = texture2D(uPositions, vUv);
-
 					float angle = atan(pos.y, pos.x);
 					vColor = 0.8 * vec4(0.5 + 0.45 * sin(angle + time * 0.4));
-
           vec4 mvPosition = modelViewMatrix * vec4(pos.xyz, 1.0);
           gl_PointSize = 1.0 * (1.0 / -mvPosition.z);
           gl_Position = projectionMatrix * mvPosition;
@@ -360,7 +339,7 @@ export default class ThreeClass {
 
     for (let i = 0; i < this.size; i++) {
       for (let j = 0; j < this.size; j++) {
-        let index = (i + j * this.size)
+        let index = i + j * this.size
         positions[index * 3 + 0] = Math.random()
         positions[index * 3 + 1] = Math.random()
         positions[index * 3 + 2] = 0
@@ -375,37 +354,37 @@ export default class ThreeClass {
     this.material.uniforms.uPositions.value = this.fboTexture
     const points = new THREE.Points(geometry, this.material)
     this.scene.add(points)
-	}
+  }
 
-	render() {
-		if(!this.isPlaying) return
-		this.time += 0.05
-		this.material.uniforms.time.value = this.time
-		this.fboMaterial.uniforms.time.value = this.time
-		requestAnimationFrame(this.render.bind(this))
+  render() {
+    if (!this.isPlaying) return
+    this.time += 0.05
+    this.material.uniforms.time.value = this.time
+    this.fboMaterial.uniforms.time.value = this.time
+    requestAnimationFrame(this.render.bind(this))
 
-		this.material.uniforms.uPositions.value = this.fbo.texture 
-		this.fboMaterial.uniforms.uPositions.value = this.fbo1.texture
+    this.material.uniforms.uPositions.value = this.fbo.texture
+    this.fboMaterial.uniforms.uPositions.value = this.fbo1.texture
 
-		this.renderer.setRenderTarget(this.fbo)
-		this.renderer.render(this.fboScene, this.fboCamera)
-		this.renderer.setRenderTarget(null)
-		this.renderer.render(this.scene, this.camera)
+    this.renderer.setRenderTarget(this.fbo)
+    this.renderer.render(this.fboScene, this.fboCamera)
+    this.renderer.setRenderTarget(null)
+    this.renderer.render(this.scene, this.camera)
 
-		let temp = this.fbo
-		this.fbo = this.fbo1
-		this.fbo1 = temp
-	}
+    let temp = this.fbo
+    this.fbo = this.fbo1
+    this.fbo1 = temp
+  }
 
-	setupResize() {
-		window.addEventListener('resize', this.resize.bind(this))
-	}
+  setupResize() {
+    window.addEventListener('resize', this.resize.bind(this))
+  }
 
-	resize() {
-		this.width = window.innerWidth
-		this.height = window.innerHeight
-		this.renderer.setSize(this.width, this.height)
-		this.camera.aspect = this.width / this.height
-		this.camera.updateProjectionMatrix()
-	}
+  resize() {
+    this.width = window.innerWidth
+    this.height = window.innerHeight
+    this.renderer.setSize(this.width, this.height)
+    this.camera.aspect = this.width / this.height
+    this.camera.updateProjectionMatrix()
+  }
 }

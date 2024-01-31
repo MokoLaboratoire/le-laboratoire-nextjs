@@ -1,13 +1,16 @@
 'use client'
 
 import React, { Component, createRef, RefObject } from 'react'
-import ThreeClass from './ThreeClass.js'
+import InteractiveParticulesLoopClass from './InteractiveParticulesLoopClass.js'
 
-interface ThreeSceneState {
+interface InteractiveParticulesLoopSceneState {
   initialized: boolean
 }
 
-export default class ThreeScene extends Component<{}, ThreeSceneState> {
+export default class InteractiveParticulesLoopScene extends Component<
+  {},
+  InteractiveParticulesLoopSceneState
+> {
   private canvasRef: RefObject<HTMLDivElement>
 
   constructor(props: any) {
@@ -20,17 +23,13 @@ export default class ThreeScene extends Component<{}, ThreeSceneState> {
   }
 
   init = () => {
-    new ThreeClass({
+    new InteractiveParticulesLoopClass({
       // @ts-ignore
       container: this.canvasRef.current,
     })
   }
 
   render() {
-    return (
-      <div
-        ref={this.canvasRef}
-      ></div>
-    )
+    return <div ref={this.canvasRef}></div>
   }
 }

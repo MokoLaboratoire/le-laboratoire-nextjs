@@ -1,11 +1,11 @@
 import React from 'react'
 
-import ThreeScene from '@/components/r3f/scenes/ThreeScene'
+import InteractiveParticulesLoop from '@/components/r3f/scenes/InteractiveParticulesLoopScene'
 
 export default function page() {
   return (
     <div className='h-screen'>
-      <ThreeScene />
+      <InteractiveParticulesLoop />
     </div>
   )
 }
