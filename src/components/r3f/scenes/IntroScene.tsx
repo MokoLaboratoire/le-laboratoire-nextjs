@@ -3,10 +3,7 @@
 import React, { Suspense } from 'react'
 import * as THREE from 'three'
 import { Canvas } from '@react-three/fiber'
-import {
-  PerspectiveCamera,
-  Stats,
-} from '@react-three/drei'
+import { PerspectiveCamera, Stats } from '@react-three/drei'
 import { Physics } from '@react-three/rapier'
 
 import { CustomPlane } from '@/components/r3f/primitives'
@@ -35,7 +32,7 @@ export default function IntroScene() {
         onUpdate={(self) => self.updateProjectionMatrix()}
       />
 
-			<ambientLight />
+      <ambientLight />
 
       <AxeHelper size={10} />
 
@@ -44,7 +41,7 @@ export default function IntroScene() {
           <CustomPlane
             name={'default_cube'}
             rotation={new THREE.Euler(0, 0, 0)}
-						material={new DefaultShaderMaterial()}
+            material={new DefaultShaderMaterial()}
           />
         </Physics>
       </Suspense>
