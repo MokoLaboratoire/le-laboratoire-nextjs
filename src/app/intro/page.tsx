@@ -2,7 +2,8 @@ import React from 'react'
 
 /* import DefaultThreeScene from '@/components/r3f/scenes/DefaultThreeScene' */
 /* import InteractiveParticulesLoopScene from '@/components/r3f/scenes/InteractiveParticulesLoopScene' */
-import ScrollableTextGalleryScene from '@/components/r3f/scenes/ScrollableTextGalleryScene'
+/* import ScrollableTextGalleryScene from '@/components/r3f/scenes/ScrollableTextGalleryScene' */
+import ThreejsEnhancedCssSliderScene from '@/components/r3f/scenes/ThreejsEnhancedCssSliderScene'
 
 export default function page() {
   return (
@@ -16,7 +17,8 @@ export default function page() {
       >
         {/* <DefaultThreeScene /> */}
         {/* <InteractiveParticulesLoopScene /> */}
-        <ScrollableTextGalleryScene />
+        {/* <ScrollableTextGalleryScene /> */}
+        <ThreejsEnhancedCssSliderScene />
       </div>
       <div className='images' hidden>
         <img src='/img/Dash-70x50.png/' className={'js-texture'} alt='images' />
