@@ -1,7 +1,7 @@
 'use client'
 
 import React, { Component, createRef, RefObject } from 'react'
-import DefaultThreeClass from './DefaultThreeClass.js'
+import ScrollableTextGalleryClass from './ScrollableTextGalleryClass.js'
 
 interface ScrollableTextGallerySceneState {
   initialized: boolean
@@ -23,13 +23,15 @@ export default class ScrollableTextGalleryScene extends Component<
   }
 
   init = () => {
-    new DefaultThreeClass({
+    new ScrollableTextGalleryClass({
       // @ts-ignore
       container: this.canvasRef.current,
     })
   }
 
   render() {
-    return <div ref={this.canvasRef}></div>
+    return (
+      <div ref={this.canvasRef} />
+    )
   }
 }
