@@ -31,7 +31,9 @@ export default class ThreejsEnhancedCssSliderScene extends Component<
 
   render() {
     return (
-      <div ref={this.canvasRef} />
+      <>
+        <div ref={this.canvasRef} />
+      </>
     )
   }
 }

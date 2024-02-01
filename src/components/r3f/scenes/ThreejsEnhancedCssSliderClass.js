@@ -8,6 +8,10 @@ export default class ThreejsEnhancedCssSliderClass {
     this.isPlaying = true
     this.time = 0
 
+    this.scroller = [...document.querySelectorAll('.slider__scroller')]
+    console.log(this.scroller)
+    this.position = -2 * (360 + 200)
+
     this.container = container
 
     this.scene = new THREE.Scene()
@@ -21,7 +25,7 @@ export default class ThreejsEnhancedCssSliderClass {
     })
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     this.renderer.setSize(this.width, this.height)
-    this.renderer.setClearColor(0x000000, 1)
+    this.renderer.setClearColor(0x333333, 1)
 
     this.raycaster = new THREE.Raycaster()
     this.pointer = new THREE.Vector2()
@@ -36,7 +40,7 @@ export default class ThreejsEnhancedCssSliderClass {
     )
     this.camera.position.set(0, 0, 4)
 
-    this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+    /* this.controls = new OrbitControls(this.camera, this.renderer.domElement) */
 
     this.addObjects()
     this.render()
@@ -74,9 +78,16 @@ export default class ThreejsEnhancedCssSliderClass {
   render() {
     if (!this.isPlaying) return
     this.time += 0.05
+
+    this.position += 0.5
+    if (this.position > 0) this.position = -2 * (360 + 200)
+    this.scroller.forEach((scroller, index) => {
+      scroller.style.transform = `translateX(${this.position}px)`
+    })
+
     this.material.uniforms.time.value = this.time
     requestAnimationFrame(this.render.bind(this))
-		this.renderer.render(this.scene, this.camera)
+    this.renderer.render(this.scene, this.camera)
   }
 
   setupResize() {
