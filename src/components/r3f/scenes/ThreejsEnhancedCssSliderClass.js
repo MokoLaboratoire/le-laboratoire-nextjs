@@ -1,19 +1,36 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
-export default class InteractiveParticulesLoopClass {
+function generateString(length) {
+  let result = ''
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+  const charactersLength = characters.length
+  let counter = 0
+  while (counter < length) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength))
+		result += ' '
+    counter += 1
+  }
+  return result
+}
+
+export default class ThreejsEnhancedCssSliderClass {
   constructor(props) {
     const { container } = props
 
     this.isPlaying = true
     this.time = 0
 
+    this.scroller = [...document.querySelectorAll('.slider__scroller')]
+    this.encodedScroller = [...document.querySelectorAll('.encoded .slide')]
+    this.position = -2 * (360 + 200)
+
     this.container = container
 
     this.scene = new THREE.Scene()
 
     this.width = window.innerWidth
-    this.height = window.innerHeight
+    this.height = 240
 
     this.renderer = new THREE.WebGLRenderer({
       alpha: true,
@@ -21,7 +38,7 @@ export default class InteractiveParticulesLoopClass {
     })
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     this.renderer.setSize(this.width, this.height)
-    this.renderer.setClearColor(0x000000, 1)
+    /* this.renderer.setClearColor(0x333333, 1) */
 
     this.raycaster = new THREE.Raycaster()
     this.pointer = new THREE.Vector2()
@@ -36,13 +53,22 @@ export default class InteractiveParticulesLoopClass {
     )
     this.camera.position.set(0, 0, 4)
 
-    this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+    /* this.controls = new OrbitControls(this.camera, this.renderer.domElement) */
 
     this.addObjects()
     this.render()
+		this.populateEncodedSlices()
 
     this.setupResize()
   }
+
+	populateEncodedSlices() {
+		this.encodedScroller.forEach((slide, 
+			index) => {
+			let string = generateString(500)
+			slide.innerHTML = string
+		})
+	}
 
   addObjects() {
     const geometry = new THREE.PlaneGeometry(1, 1)
@@ -74,6 +100,13 @@ export default class InteractiveParticulesLoopClass {
   render() {
     if (!this.isPlaying) return
     this.time += 0.05
+
+    this.position += 0.5
+    if (this.position > 0) this.position = -2 * (360 + 200)
+    this.scroller.forEach((scroller, index) => {
+      scroller.style.transform = `translateX(${this.position}px)`
+    })
+
     this.material.uniforms.time.value = this.time
     requestAnimationFrame(this.render.bind(this))
     this.renderer.render(this.scene, this.camera)

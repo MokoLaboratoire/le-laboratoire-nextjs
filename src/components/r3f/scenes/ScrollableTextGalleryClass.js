@@ -1,7 +1,11 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
-import { MSDFTextGeometry, MSDFTextMaterial, uniforms } from 'three-msdf-text-utils'
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
+import {
+  MSDFTextGeometry,
+  MSDFTextMaterial,
+  uniforms,
+} from 'three-msdf-text-utils'
 import VirtualScroll from 'virtual-scroll'
 
 import fnt from '@/assets/fonts/msdf/Roboto-Black-msdf.json'
@@ -39,7 +43,7 @@ export default class ScrollableTextGalleryClass {
     this.scene.add(this.groupplane)
 
     this.textures = [...document.querySelectorAll('.js-texture')]
-    this.textures = this.textures.map(t => {
+    this.textures = this.textures.map((t) => {
       console.log(t)
       return new THREE.TextureLoader().load(t.src)
     })
@@ -75,11 +79,11 @@ export default class ScrollableTextGalleryClass {
     this.speed = 0
     this.scroller = new VirtualScroll()
     this.scroller.on((event) => {
-	    /* wrapper.style.transform = `translateY(${event.y}px)` */
+      /* wrapper.style.transform = `translateY(${event.y}px)` */
       this.position = event.y / 4000
       this.speed = event.deltaY / 2000
     })
- 
+
     this.addObjects()
     this.addText()
     this.render()
@@ -87,10 +91,8 @@ export default class ScrollableTextGalleryClass {
     this.setupResize()
   }
 
-	addText() {
-		Promise.all([ 
-				loadFontAtlas(atlasURL.src),
-		]).then(([atlas]) => {
+  addText() {
+    Promise.all([loadFontAtlas(atlasURL.src)]).then(([atlas]) => {
       this.material = new THREE.ShaderMaterial({
         side: THREE.DoubleSide,
         transparent: true,
@@ -255,43 +257,47 @@ export default class ScrollableTextGalleryClass {
     
                 gl_FragColor = vec4(vLayoutUv, 1.0, 1.0);              }
         `,
-      });
-      this.material.uniforms.uMap.value = atlas;
+      })
+      this.material.uniforms.uMap.value = atlas
 
       this.size = 0.2
 
       TEXTS.forEach((text, i) => {
-				const geometry = new MSDFTextGeometry({
+        const geometry = new MSDFTextGeometry({
           text: text.toUpperCase(),
           font: fnt,
-        });
-		
-				const mesh = new THREE.Mesh(geometry, this.material);
+        })
+
+        const mesh = new THREE.Mesh(geometry, this.material)
         const scale = 0.005
         mesh.scale.set(scale, -scale, scale)
         mesh.position.x = -0.9
         mesh.position.y = this.size * i
-				this.group.add(mesh)
-				this.groupCopy.add(mesh.clone())
+        this.group.add(mesh)
+        this.groupCopy.add(mesh.clone())
       })
-		});
-		
-		function loadFontAtlas(path) {
-				const promise = new Promise((resolve, reject) => {
-						const loader = new THREE.TextureLoader();
-						loader.load(path, resolve);
-				});
-		
-				return promise;
-		}
-	}
+    })
+
+    function loadFontAtlas(path) {
+      const promise = new Promise((resolve, reject) => {
+        const loader = new THREE.TextureLoader()
+        loader.load(path, resolve)
+      })
+
+      return promise
+    }
+  }
 
   addObjects() {
-    this.geometry = new THREE.PlaneGeometry(1.77 / 3, 1 / 3, 30, 30).translate(0, 0, 1)
+    this.geometry = new THREE.PlaneGeometry(1.77 / 3, 1 / 3, 30, 30).translate(
+      0,
+      0,
+      1,
+    )
     const pos = this.geometry.attributes.position.array
     const newpos = []
     let r = 1.2
-    for(let i = 0; i < pos.length; i += 3) {
+    for (let i = 0; i < pos.length; i += 3) {
       const x = pos[i]
       const y = pos[i + 1]
       const z = pos[i + 2]
@@ -303,10 +309,16 @@ export default class ScrollableTextGalleryClass {
 
     const testmesh = new THREE.Mesh(
       new THREE.SphereGeometry(r, 32, 32),
-      new THREE.MeshBasicMaterial({ wireframe: true, color: new THREE.Color(0xff0000)})
+      new THREE.MeshBasicMaterial({
+        wireframe: true,
+        color: new THREE.Color(0xff0000),
+      }),
     )
     this.scene.add(testmesh)
-    this.geometry.setAttribute('position', new THREE.Float32BufferAttribute(newpos, 3))
+    this.geometry.setAttribute(
+      'position',
+      new THREE.Float32BufferAttribute(newpos, 3),
+    )
 
     this.planematerial = new THREE.ShaderMaterial({
       side: THREE.DoubleSide,
@@ -340,7 +352,7 @@ export default class ScrollableTextGalleryClass {
     this.planematerial.uniforms.uTexture.value = this.textures[index]
 
     this.groupCopy.children.forEach((mesh, i) => {
-      if(i !== index) {
+      if (i !== index) {
         mesh.visible = false
       } else {
         mesh.visible = true
@@ -354,15 +366,15 @@ export default class ScrollableTextGalleryClass {
     this.updateTexture()
     this.speed *= 0.9
     /* this.targetSpeed += (this.speed - this.targetSpeed) * 0.1 */
-    if(this.material) this.material.uniforms.uSpeed.value = this.speed
+    if (this.material) this.material.uniforms.uSpeed.value = this.speed
     this.group.position.y = -this.position * this.size
     this.groupCopy.position.y = -this.position * this.size
     this.groupplane.rotation.y = this.position * 2 * Math.PI
     this.groupplane.rotation.z = 0.2 * Math.sin(this.position * 0.5)
     requestAnimationFrame(this.render.bind(this))
-		this.renderer.render(this.scene, this.camera)
+    this.renderer.render(this.scene, this.camera)
     this.renderer.clearDepth()
-		this.renderer.render(this.sceneCopy, this.camera)
+    this.renderer.render(this.sceneCopy, this.camera)
   }
 
   setupResize() {

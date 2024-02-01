@@ -30,8 +30,6 @@ export default class ScrollableTextGalleryScene extends Component<
   }
 
   render() {
-    return (
-      <div ref={this.canvasRef} />
-    )
+    return <div ref={this.canvasRef} />
   }
 }
