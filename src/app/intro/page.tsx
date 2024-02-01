@@ -1,5 +1,7 @@
 import React from 'react'
 
+import styles from 'styles.module.css'
+
 /* import DefaultThreeScene from '@/components/r3f/scenes/DefaultThreeScene' */
 /* import InteractiveParticulesLoopScene from '@/components/r3f/scenes/InteractiveParticulesLoopScene' */
 /* import ScrollableTextGalleryScene from '@/components/r3f/scenes/ScrollableTextGalleryScene' */
@@ -16,88 +18,6 @@ export default function page() {
           }
         }
       >
-        <div className='slider__parent'>
-          <div
-            className='slider'
-            style={{ overflow: 'hidden', width: '100%' }}
-          >
-            <div
-              className='slider__scroller'
-              style={{ display: 'flex', flexWrap: 'nowrap', gap: '200px' }}
-            >
-              <div
-                className='slide'
-                style={{ width: '360px', height: '240px', minWidth: '360px' }}
-              >
-                <img
-                  src='/img/RoseRouge-70x50.png'
-                  alt=''
-                  style={{ display: 'block', width: '100%' }}
-                />
-              </div>
-              <div
-                className='slide'
-                style={{ width: '360px', height: '240px', minWidth: '360px' }}
-              >
-                <img
-                  src='/img/RoseRouge-70x50.png'
-                  alt=''
-                  style={{ display: 'block', width: '100%' }}
-                />
-              </div>
-              <div
-                className='slide'
-                style={{ width: '360px', height: '240px', minWidth: '360px' }}
-              >
-                <img
-                  src='/img/RoseRouge-70x50.png'
-                  alt=''
-                  style={{ display: 'block', width: '100%' }}
-                />
-              </div>
-              <div
-                className='slide'
-                style={{ width: '360px', height: '240px', minWidth: '360px' }}
-              >
-                <img
-                  src='/img/RoseRouge-70x50.png'
-                  alt=''
-                  style={{ display: 'block', width: '100%' }}
-                />
-              </div>
-              <div
-                className='slide'
-                style={{ width: '360px', height: '240px', minWidth: '360px' }}
-              >
-                <img
-                  src='/img/RoseRouge-70x50.png'
-                  alt=''
-                  style={{ display: 'block', width: '100%' }}
-                />
-              </div>
-              <div
-                className='slide'
-                style={{ width: '360px', height: '240px', minWidth: '360px' }}
-              >
-                <img
-                  src='/img/RoseRouge-70x50.png'
-                  alt=''
-                  style={{ display: 'block', width: '100%' }}
-                />
-              </div>
-              <div
-                className='slide'
-                style={{ width: '360px', height: '240px', minWidth: '360px' }}
-              >
-                <img
-                  src='/img/RoseRouge-70x50.png'
-                  alt=''
-                  style={{ display: 'block', width: '100%' }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
         {/* <DefaultThreeScene /> */}
         {/* <InteractiveParticulesLoopScene /> */}
         {/* <ScrollableTextGalleryScene /> */}

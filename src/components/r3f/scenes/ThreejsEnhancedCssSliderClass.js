@@ -1,6 +1,19 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
+function generateString(length) {
+  let result = ''
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+  const charactersLength = characters.length
+  let counter = 0
+  while (counter < length) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength))
+		result += ' '
+    counter += 1
+  }
+  return result
+}
+
 export default class ThreejsEnhancedCssSliderClass {
   constructor(props) {
     const { container } = props
@@ -9,7 +22,7 @@ export default class ThreejsEnhancedCssSliderClass {
     this.time = 0
 
     this.scroller = [...document.querySelectorAll('.slider__scroller')]
-    console.log(this.scroller)
+    this.encodedScroller = [...document.querySelectorAll('.encoded .slide')]
     this.position = -2 * (360 + 200)
 
     this.container = container
@@ -17,7 +30,7 @@ export default class ThreejsEnhancedCssSliderClass {
     this.scene = new THREE.Scene()
 
     this.width = window.innerWidth
-    this.height = window.innerHeight
+    this.height = 240
 
     this.renderer = new THREE.WebGLRenderer({
       alpha: true,
@@ -25,7 +38,7 @@ export default class ThreejsEnhancedCssSliderClass {
     })
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     this.renderer.setSize(this.width, this.height)
-    this.renderer.setClearColor(0x333333, 1)
+    /* this.renderer.setClearColor(0x333333, 1) */
 
     this.raycaster = new THREE.Raycaster()
     this.pointer = new THREE.Vector2()
@@ -44,9 +57,18 @@ export default class ThreejsEnhancedCssSliderClass {
 
     this.addObjects()
     this.render()
+		this.populateEncodedSlices()
 
     this.setupResize()
   }
+
+	populateEncodedSlices() {
+		this.encodedScroller.forEach((slide, 
+			index) => {
+			let string = generateString(500)
+			slide.innerHTML = string
+		})
+	}
 
   addObjects() {
     const geometry = new THREE.PlaneGeometry(1, 1)

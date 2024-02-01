@@ -19,3 +19,12 @@
   display: block;
   width: 100%;
 }
+
+@font-face {
+  font-family: RobotoMono;
+  src: url('fonts/ttf/RobotoMono-VariableFont_wght.ttf');
+}
+
+div {
+  font-family: RobotoMono;
+}
