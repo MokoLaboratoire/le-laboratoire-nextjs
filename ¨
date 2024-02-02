@@ -1,0 +1,11 @@
+Work in fragment shder for texture -> Displacement (2:21')
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Fri Feb 2 23:33:56 2024 +0100
+#
+# On branch intro/node_based_organic_animation
+# Changes to be committed:
+#	modified:   src/components/r3f/scenes/NodeBasedOrganicAnimationClass.js
+#
