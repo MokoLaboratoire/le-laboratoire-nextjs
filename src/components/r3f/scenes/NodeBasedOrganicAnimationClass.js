@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
-export default class DefaultThreeClass {
+export default class NodeBasedOrganicAnimationClass {
   constructor(props) {
     const { container } = props
 
@@ -45,7 +45,7 @@ export default class DefaultThreeClass {
   }
 
   addObjects() {
-    const geometry = new THREE.PlaneGeometry(1, 1)
+    const geometry = new THREE.IcosahedronGeometry(1, 400)
     this.material = new THREE.ShaderMaterial({
       side: THREE.DoubleSide,
       transparent: true,
