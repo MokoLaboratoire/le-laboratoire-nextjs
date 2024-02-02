@@ -13,7 +13,7 @@ export default function page() {
   return (
     <>
       <div
-        /* className='h-screen' */
+        className='h-screen'
         style={
           {
             /* overflow: 'hidden', */
@@ -27,7 +27,7 @@ export default function page() {
         {/* <ScrollableTextGalleryScene /> */}
         {/* <ThreejsEnhancedCssSliderScene /> */}
       </div>
-      <div
+      {/* <div
         className='images'
         hidden
       >
@@ -81,7 +81,7 @@ export default function page() {
           className={'js-texture'}
           alt='images'
         />
-      </div>
+      </div> */}
     </>
   )
 }
