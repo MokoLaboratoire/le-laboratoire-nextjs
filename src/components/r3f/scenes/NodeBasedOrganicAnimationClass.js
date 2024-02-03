@@ -45,7 +45,7 @@ export default class NodeBasedOrganicAnimationClass {
   }
 
   addObjects() {
-    const geometry = new THREE.IcosahedronGeometry(1, 400)
+    const geometry = new THREE.IcosahedronGeometry(1, 100)
     this.material = new THREE.ShaderMaterial({
       side: THREE.DoubleSide,
       transparent: true,
@@ -54,17 +54,9 @@ export default class NodeBasedOrganicAnimationClass {
       },
       vertexShader: /* glsl */ `
         uniform float uTime;
+        varying float vDisplacement;
         varying vec3 vNormal;
-        varying vec2 vUv;
-        void main() {
-					vUv = uv;
-          vNormal = normal;
-					gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-      fragmentShader: /* glsl */ `
-        uniform float uTime;
-        varying vec3 vNormal;
+        varying vec3 vPosition;
         varying vec2 vUv;
 
         #define PI 3.141592653589793
@@ -157,11 +149,29 @@ export default class NodeBasedOrganicAnimationClass {
         }
 
         void main() {
-          vec3 coords = vNormal;
+          vec3 coords = normal;
           coords.y += uTime;
           vec3 noisePattern = vec3(noise(coords));
           float pattern = wave(noisePattern);
-					gl_FragColor = vec4(vec3(pattern), 1.0);
+
+          vPosition = position;
+          vNormal = normal;
+					vUv = uv;
+          vDisplacement = pattern;
+
+          float displacement = vDisplacement / 3.0;
+          vec3 newPositon = position + normal * vDisplacement;
+					gl_Position = projectionMatrix * modelViewMatrix * vec4(newPositon, 1.0);
+        }
+      `,
+      fragmentShader: /* glsl */ `
+        uniform float uTime;
+        varying vec3 vNormal;
+        varying float vDisplacement;
+        varying vec2 vUv;
+
+        void main() {
+					gl_FragColor = vec4(vec3(0.0, 0.0, 1.0), 1.0);
         }
       `, 
     })
