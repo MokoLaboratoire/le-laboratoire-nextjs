@@ -1,8 +1,17 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js'
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js'
+import { GlitchPass } from 'three/addons/postprocessing/GlitchPass.js'
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js'
 
 import vertexShader from '../shaders/node_based_organic_animation/vertexShader.glsl'
+import vertexPars from '../shaders/node_based_organic_animation/vertex_pars.glsl'
+import vertexMain from '../shaders/node_based_organic_animation/vertex_main.glsl'
 import fragmentShader from '../shaders/node_based_organic_animation/fragmentShader.glsl'
+import fragmentPars from '../shaders/node_based_organic_animation/fragment_pars.glsl'
+import fragmentMain from '../shaders/node_based_organic_animation/fragment_main.glsl'
 
 export default class NodeBasedOrganicAnimationClass {
   constructor(props) {
@@ -41,6 +50,25 @@ export default class NodeBasedOrganicAnimationClass {
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
 
+    this.dirLight = new THREE.DirectionalLight('#526cff', 0.6)
+    this.dirLight.position.set(2, 2, 2)
+    this.ambientLight = new THREE.AmbientLight('#4255ff', 0.5)
+    this.scene.add(this.dirLight, this.ambientLight)
+
+    this.renderPass = new RenderPass(this.scene, this.camera)
+
+    this.bloomPass = new UnrealBloomPass(new THREE.Vector2(this.width, this.height), 1.5, 0.4, 0.85)
+    this.bloomPass.threshold = 0
+    this.bloomPass.strength = 1
+    this.bloomPass.radius = 0
+
+    this.outputPass = new OutputPass()
+
+    this.composer = new EffectComposer(this.renderer)
+    this.composer.addPass(this.renderPass)
+    this.composer.addPass(this.bloomPass)
+    this.composer.addPass(this.outputPass)
+
     this.addObjects()
     this.render()
 
@@ -48,8 +76,8 @@ export default class NodeBasedOrganicAnimationClass {
   }
 
   addObjects() {
-    const geometry = new THREE.IcosahedronGeometry(1, 100)
-    this.material = new THREE.ShaderMaterial({
+    const geometry = new THREE.IcosahedronGeometry(1, 300)
+    /* this.material = new THREE.ShaderMaterial({
       side: THREE.DoubleSide,
       transparent: true,
       uniforms: {
@@ -57,6 +85,39 @@ export default class NodeBasedOrganicAnimationClass {
       },
       vertexShader: vertexShader,
       fragmentShader: fragmentShader, 
+    }) */
+    this.material = new THREE.MeshStandardMaterial({
+      onBeforeCompile: (shader) => {
+        this.material.userData.shader = shader
+
+        shader.uniforms.uTime = { value: 0 }
+        
+        const parsVertexString = /* glsl */ `#include <displacementmap_pars_vertex>`
+        shader.vertexShader = shader.vertexShader.replace(
+          parsVertexString,
+          parsVertexString + vertexPars
+        )
+
+        const mainVertexString = /* glsl */ `#include <displacementmap_vertex>`
+        shader.vertexShader = shader.vertexShader.replace(
+          mainVertexString,
+          mainVertexString + vertexMain
+        )
+
+        const parsFragmentString = /* glsl */ `#include <bumpmap_pars_fragment>`
+        shader.fragmentShader = shader.fragmentShader.replace(
+          parsFragmentString,
+          parsFragmentString + fragmentPars
+        )
+
+        const mainFragmentString = /* glsl */ `#include <normal_fragment_maps>`
+        shader.fragmentShader = shader.fragmentShader.replace(
+          mainFragmentString,
+          mainFragmentString + fragmentMain
+        )
+        
+        console.log(shader.fragmentShader)
+      }
     })
 
     const plane = new THREE.Mesh(geometry, this.material)
@@ -66,9 +127,10 @@ export default class NodeBasedOrganicAnimationClass {
   render() {
     if (!this.isPlaying) return
     this.time += 0.05
-    if(this.material) this.material.uniforms.uTime.value = this.time / 50
+    if(this.material.userData.shader) this.material.userData.shader.uniforms.uTime.value = this.time / 50
     requestAnimationFrame(this.render.bind(this))
-    this.renderer.render(this.scene, this.camera)
+    /* this.renderer.render(this.scene, this.camera) */
+    this.composer.render()
   }
 
   setupResize() {
