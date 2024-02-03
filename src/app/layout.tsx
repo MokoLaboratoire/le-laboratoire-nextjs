@@ -20,7 +20,7 @@ export default function RootLayout({
       <body
         className='relative'
         style={{
-          background: '#333',
+          /* background: '#333', */
         }}
       >
         {/* <Header /> */}

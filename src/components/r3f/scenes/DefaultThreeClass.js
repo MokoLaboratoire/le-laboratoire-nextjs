@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
-export default class InteractiveParticulesLoopClass {
+export default class DefaultThreeClass {
   constructor(props) {
     const { container } = props
 

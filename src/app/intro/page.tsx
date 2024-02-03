@@ -3,16 +3,17 @@ import React from 'react'
 import styles from 'styles.module.css'
 
 /* import DefaultThreeScene from '@/components/r3f/scenes/DefaultThreeScene' */
-import GlassEffectWithThreejsScene from '@/components/r3f/scenes/GlassEffectWithThreejsScene'
+/* import GlassEffectWithThreejsScene from '@/components/r3f/scenes/GlassEffectWithThreejsScene' */
 /* import InteractiveParticulesLoopScene from '@/components/r3f/scenes/InteractiveParticulesLoopScene' */
+import NodeBasedOrganicAnimationScene from '@/components/r3f/scenes/NodeBasedOrganicAnimationScene'
 /* import ScrollableTextGalleryScene from '@/components/r3f/scenes/ScrollableTextGalleryScene' */
-import ThreejsEnhancedCssSliderScene from '@/components/r3f/scenes/ThreejsEnhancedCssSliderScene'
+/* import ThreejsEnhancedCssSliderScene from '@/components/r3f/scenes/ThreejsEnhancedCssSliderScene' */
 
 export default function page() {
   return (
     <>
       <div
-        /* className='h-screen' */
+        className='h-screen'
         style={
           {
             /* overflow: 'hidden', */
@@ -20,12 +21,13 @@ export default function page() {
         }
       >
         {/* <DefaultThreeScene /> */}
-        <GlassEffectWithThreejsScene />
+        {/* <GlassEffectWithThreejsScene /> */}
         {/* <InteractiveParticulesLoopScene /> */}
+        <NodeBasedOrganicAnimationScene />
         {/* <ScrollableTextGalleryScene /> */}
         {/* <ThreejsEnhancedCssSliderScene /> */}
       </div>
-      <div
+      {/* <div
         className='images'
         hidden
       >
@@ -79,7 +81,7 @@ export default function page() {
           className={'js-texture'}
           alt='images'
         />
-      </div>
+      </div> */}
     </>
   )
 }
