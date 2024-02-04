@@ -1,8 +1,9 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
-import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js'
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js'
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
 import { GlitchPass } from 'three/addons/postprocessing/GlitchPass.js'
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js'
 
@@ -33,7 +34,7 @@ export default class NodeBasedOrganicAnimationClass {
     })
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     this.renderer.setSize(this.width, this.height)
-    this.renderer.setClearColor(0x000000, 1)
+    this.renderer.setClearColor(0xFFFFFF, 1)
 
     this.raycaster = new THREE.Raycaster()
     this.pointer = new THREE.Vector2()
@@ -55,37 +56,6 @@ export default class NodeBasedOrganicAnimationClass {
     this.ambientLight = new THREE.AmbientLight('#4255ff', 0.5)
     this.scene.add(this.dirLight, this.ambientLight)
 
-    this.renderPass = new RenderPass(this.scene, this.camera)
-
-    this.bloomPass = new UnrealBloomPass(new THREE.Vector2(this.width, this.height), 1.5, 0.4, 0.85)
-    this.bloomPass.threshold = 0
-    this.bloomPass.strength = 1
-    this.bloomPass.radius = 0
-
-    this.outputPass = new OutputPass()
-
-    this.composer = new EffectComposer(this.renderer)
-    this.composer.addPass(this.renderPass)
-    this.composer.addPass(this.bloomPass)
-    this.composer.addPass(this.outputPass)
-
-    this.addObjects()
-    this.render()
-
-    this.setupResize()
-  }
-
-  addObjects() {
-    const geometry = new THREE.IcosahedronGeometry(1, 300)
-    /* this.material = new THREE.ShaderMaterial({
-      side: THREE.DoubleSide,
-      transparent: true,
-      uniforms: {
-        uTime: { value: 0 },
-      },
-      vertexShader: vertexShader,
-      fragmentShader: fragmentShader, 
-    }) */
     this.material = new THREE.MeshStandardMaterial({
       onBeforeCompile: (shader) => {
         this.material.userData.shader = shader
@@ -120,8 +90,48 @@ export default class NodeBasedOrganicAnimationClass {
       }
     })
 
+    this.loader = new GLTFLoader()
+		this.loader.load('/gltf/appartement_haussmannien/couloir/CouloirTest.gltf', (gltf) => {
+      this.model = gltf.scene.getObjectByName('CouloirTest')
+      console.log('model', this.model)
+      this.model.material = this.material
+      this.scene.add(this.model)
+    })
+
+    this.renderPass = new RenderPass(this.scene, this.camera)
+
+    this.bloomPass = new UnrealBloomPass(new THREE.Vector2(this.width, this.height), 1.5, 0.4, 0.85)
+    this.bloomPass.threshold = 0
+    this.bloomPass.strength = 1
+    this.bloomPass.radius = 0
+
+    this.outputPass = new OutputPass()
+
+    this.composer = new EffectComposer(this.renderer)
+    this.composer.addPass(this.renderPass)
+    this.composer.addPass(this.bloomPass)
+    this.composer.addPass(this.outputPass)
+
+    this.addObjects()
+    this.render()
+
+    this.setupResize()
+  }
+
+  addObjects() {
+    const geometry = new THREE.IcosahedronGeometry(1, 300)
+    /* this.material = new THREE.ShaderMaterial({
+      side: THREE.DoubleSide,
+      transparent: true,
+      uniforms: {
+        uTime: { value: 0 },
+      },
+      vertexShader: vertexShader,
+      fragmentShader: fragmentShader, 
+    }) */
+
     const plane = new THREE.Mesh(geometry, this.material)
-    this.scene.add(plane)
+    /* this.scene.add(plane) */
   }
 
   render() {
@@ -129,8 +139,8 @@ export default class NodeBasedOrganicAnimationClass {
     this.time += 0.05
     if(this.material.userData.shader) this.material.userData.shader.uniforms.uTime.value = this.time / 50
     requestAnimationFrame(this.render.bind(this))
-    /* this.renderer.render(this.scene, this.camera) */
-    this.composer.render()
+    this.renderer.render(this.scene, this.camera)
+    /* this.composer.render() */
   }
 
   setupResize() {
