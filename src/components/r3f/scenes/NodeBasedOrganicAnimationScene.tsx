@@ -1,6 +1,7 @@
 'use client'
 
 import React, { Component, createRef, RefObject } from 'react'
+
 import NodeBasedOrganicAnimationClass from './NodeBasedOrganicAnimationClass.js'
 
 interface NodeBasedOrganicAnimationSceneState {
