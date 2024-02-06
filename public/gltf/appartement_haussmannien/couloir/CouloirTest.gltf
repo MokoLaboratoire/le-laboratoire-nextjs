@@ -1,104 +1,94 @@
 {
-	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.0.44",
-		"version":"2.0"
-	},
-	"scene":0,
-	"scenes":[
-		{
-			"name":"Scene",
-			"nodes":[
-				0
-			]
-		}
-	],
-	"nodes":[
-		{
-			"mesh":0,
-			"name":"CouloirTest"
-		}
-	],
-	"meshes":[
-		{
-			"name":"CouloirTest",
-			"primitives":[
-				{
-					"attributes":{
-						"POSITION":0,
-						"NORMAL":1,
-						"TEXCOORD_0":2
-					},
-					"indices":3
-				}
-			]
-		}
-	],
-	"accessors":[
-		{
-			"bufferView":0,
-			"componentType":5126,
-			"count":8112,
-			"max":[
-				3.999897003173828,
-				5.200000762939453,
-				1.2069587707519531
-			],
-			"min":[
-				-3.999897003173828,
-				0,
-				-1.2069587707519531
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":1,
-			"componentType":5126,
-			"count":8112,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":2,
-			"componentType":5126,
-			"count":8112,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":3,
-			"componentType":5123,
-			"count":46818,
-			"type":"SCALAR"
-		}
-	],
-	"bufferViews":[
-		{
-			"buffer":0,
-			"byteLength":97344,
-			"byteOffset":0,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":97344,
-			"byteOffset":97344,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":64896,
-			"byteOffset":194688,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":93636,
-			"byteOffset":259584,
-			"target":34963
-		}
-	],
-	"buffers":[
-		{
-			"byteLength":353220,
-			"uri":"CouloirTest.bin"
-		}
-	]
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v4.0.44",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [0]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "CouloirTest"
+    }
+  ],
+  "meshes": [
+    {
+      "name": "CouloirTest",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3
+        }
+      ]
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 8112,
+      "max": [3.999897003173828, 5.200000762939453, 1.2069587707519531],
+      "min": [-3.999897003173828, 0, -1.2069587707519531],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 8112,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 8112,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 46818,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 97344,
+      "byteOffset": 0,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 97344,
+      "byteOffset": 97344,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 64896,
+      "byteOffset": 194688,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 93636,
+      "byteOffset": 259584,
+      "target": 34963
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 353220,
+      "uri": "CouloirTest.bin"
+    }
+  ]
 }

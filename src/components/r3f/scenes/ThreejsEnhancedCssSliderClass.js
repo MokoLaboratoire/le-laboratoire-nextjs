@@ -8,7 +8,7 @@ function generateString(length) {
   let counter = 0
   while (counter < length) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength))
-		result += ' '
+    result += ' '
     counter += 1
   }
   return result
@@ -57,18 +57,17 @@ export default class ThreejsEnhancedCssSliderClass {
 
     this.addObjects()
     this.render()
-		this.populateEncodedSlices()
+    this.populateEncodedSlices()
 
     this.setupResize()
   }
 
-	populateEncodedSlices() {
-		this.encodedScroller.forEach((slide, 
-			index) => {
-			let string = generateString(500)
-			slide.innerHTML = string
-		})
-	}
+  populateEncodedSlices() {
+    this.encodedScroller.forEach((slide, index) => {
+      let string = generateString(500)
+      slide.innerHTML = string
+    })
+  }
 
   addObjects() {
     const geometry = new THREE.PlaneGeometry(1, 1)

@@ -4,7 +4,7 @@ const nextConfig = {
   webpack: (config, options) => {
     config.module.rules.push({
       test: /\.glsl/,
-      type: "asset/source",
+      type: 'asset/source',
     })
     return config
   },

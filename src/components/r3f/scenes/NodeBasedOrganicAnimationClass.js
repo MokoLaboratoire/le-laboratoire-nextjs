@@ -34,7 +34,7 @@ export default class NodeBasedOrganicAnimationClass {
     })
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     this.renderer.setSize(this.width, this.height)
-    this.renderer.setClearColor(0xFFFFFF, 1)
+    this.renderer.setClearColor(0xffffff, 1)
 
     this.raycaster = new THREE.Raycaster()
     this.pointer = new THREE.Vector2()
@@ -61,46 +61,54 @@ export default class NodeBasedOrganicAnimationClass {
         this.material.userData.shader = shader
 
         shader.uniforms.uTime = { value: 0 }
-        
+
         const parsVertexString = /* glsl */ `#include <displacementmap_pars_vertex>`
         shader.vertexShader = shader.vertexShader.replace(
           parsVertexString,
-          parsVertexString + vertexPars
+          parsVertexString + vertexPars,
         )
 
         const mainVertexString = /* glsl */ `#include <displacementmap_vertex>`
         shader.vertexShader = shader.vertexShader.replace(
           mainVertexString,
-          mainVertexString + vertexMain
+          mainVertexString + vertexMain,
         )
 
         const parsFragmentString = /* glsl */ `#include <bumpmap_pars_fragment>`
         shader.fragmentShader = shader.fragmentShader.replace(
           parsFragmentString,
-          parsFragmentString + fragmentPars
+          parsFragmentString + fragmentPars,
         )
 
         const mainFragmentString = /* glsl */ `#include <normal_fragment_maps>`
         shader.fragmentShader = shader.fragmentShader.replace(
           mainFragmentString,
-          mainFragmentString + fragmentMain
+          mainFragmentString + fragmentMain,
         )
-        
+
         console.log(shader.fragmentShader)
-      }
+      },
     })
 
     this.loader = new GLTFLoader()
-		this.loader.load('/gltf/appartement_haussmannien/couloir/CouloirTest.gltf', (gltf) => {
-      this.model = gltf.scene.getObjectByName('CouloirTest')
-      console.log('model', this.model)
-      this.model.material = this.material
-      this.scene.add(this.model)
-    })
+    this.loader.load(
+      '/gltf/appartement_haussmannien/couloir/CouloirTest.gltf',
+      (gltf) => {
+        this.model = gltf.scene.getObjectByName('CouloirTest')
+        console.log('model', this.model)
+        this.model.material = this.material
+        this.scene.add(this.model)
+      },
+    )
 
     this.renderPass = new RenderPass(this.scene, this.camera)
 
-    this.bloomPass = new UnrealBloomPass(new THREE.Vector2(this.width, this.height), 1.5, 0.4, 0.85)
+    this.bloomPass = new UnrealBloomPass(
+      new THREE.Vector2(this.width, this.height),
+      1.5,
+      0.4,
+      0.85,
+    )
     this.bloomPass.threshold = 0
     this.bloomPass.strength = 1
     this.bloomPass.radius = 0
@@ -137,7 +145,8 @@ export default class NodeBasedOrganicAnimationClass {
   render() {
     if (!this.isPlaying) return
     this.time += 0.05
-    if(this.material.userData.shader) this.material.userData.shader.uniforms.uTime.value = this.time / 50
+    if (this.material.userData.shader)
+      this.material.userData.shader.uniforms.uTime.value = this.time / 50
     requestAnimationFrame(this.render.bind(this))
     this.renderer.render(this.scene, this.camera)
     /* this.composer.render() */
