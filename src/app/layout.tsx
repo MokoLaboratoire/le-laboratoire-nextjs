@@ -19,9 +19,11 @@ export default function RootLayout({
     <html lang='en'>
       <body
         className='relative'
-        style={{
-          /* background: '#333', */
-        }}
+        style={
+          {
+            /* background: '#333', */
+          }
+        }
       >
         {/* <Header /> */}
         <ReduxProvider>{children}</ReduxProvider>
