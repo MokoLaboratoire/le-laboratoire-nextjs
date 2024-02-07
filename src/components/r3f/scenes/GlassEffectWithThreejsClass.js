@@ -1,6 +1,9 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
+import vertexShader from '../shaders/glass_effect_with_threejs/vertexShader.glsl'
+import fragmentShader from '../shaders/glass_effect_with_threejs/fragmentShader.glsl'
+
 export default class GlassEffectWithThreejsClass {
   constructor(props) {
     const { container } = props
@@ -34,7 +37,7 @@ export default class GlassEffectWithThreejsClass {
       0.01,
       1000,
     )
-    this.camera.position.set(0, 0, 4)
+    this.camera.position.set(0, 0, 2)
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
 
@@ -52,19 +55,8 @@ export default class GlassEffectWithThreejsClass {
       uniforms: {
         time: { value: 0 },
       },
-      vertexShader: `
-        varying vec2 vUv;
-        void main() {
-					vUv = uv;
-					gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-        }
-      `,
-      fragmentShader: `
-        varying vec2 vUv;
-        void main() {
-					gl_FragColor = vec4(vUv, 0.0, 1.0);
-        }
-      `,
+      vertexShader: vertexShader,
+      fragmentShader: fragmentShader,
     })
 
     const plane = new THREE.Mesh(geometry, this.material)
