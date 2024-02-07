@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 
 import vertexShader from '../shaders/glass_effect_with_threejs/vertexShader.glsl'
 import fragmentShader from '../shaders/glass_effect_with_threejs/fragmentShader.glsl'
@@ -41,6 +42,8 @@ export default class GlassEffectWithThreejsClass {
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
 
+    this.loader = new GLTFLoader()
+
     this.addObjects()
     this.render()
 
@@ -48,7 +51,6 @@ export default class GlassEffectWithThreejsClass {
   }
 
   addObjects() {
-    const geometry = new THREE.PlaneGeometry(1, 1)
     this.material = new THREE.ShaderMaterial({
       side: THREE.DoubleSide,
       transparent: true,
@@ -59,8 +61,15 @@ export default class GlassEffectWithThreejsClass {
       fragmentShader: fragmentShader,
     })
 
-    const plane = new THREE.Mesh(geometry, this.material)
-    this.scene.add(plane)
+    this.loader.load(
+	    '/gltf/suzanne/Suzanne.gltf',
+	    (gltf) => {
+        this.model = gltf.scene.getObjectByName('Suzanne')
+        console.log(this.model)
+        this.model.material = this.material
+        this.scene.add(this.model)
+    	}
+    )
   }
 
   render() {
