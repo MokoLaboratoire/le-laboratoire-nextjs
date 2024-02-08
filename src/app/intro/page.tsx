@@ -5,10 +5,10 @@ import React from 'react'
 import styles from 'styles.module.css'
 
 /* import DefaultThreeScene from '@/components/r3f/scenes/DefaultThreeScene' */
-/* import GlassEffectWithThreejsScene from '@/components/r3f/scenes/GlassEffectWithThreejsScene' */
+import GlassEffectWithThreejsScene from '@/components/r3f/scenes/GlassEffectWithThreejsScene'
 /* import InteractiveParticulesLoopScene from '@/components/r3f/scenes/InteractiveParticulesLoopScene' */
 /* import NodeBasedOrganicAnimationScene from '@/components/r3f/scenes/NodeBasedOrganicAnimationScene' */
-import Recreating3DWithImageSequencesScene from '@/components/r3f/scenes/Recreating3DWithImageSequencesScene'
+/* import Recreating3DWithImageSequencesScene from '@/components/r3f/scenes/Recreating3DWithImageSequencesScene' */
 /* import ScrollableTextGalleryScene from '@/components/r3f/scenes/ScrollableTextGalleryScene' */
 /* import ThreejsEnhancedCssSliderScene from '@/components/r3f/scenes/ThreejsEnhancedCssSliderScene' */
 
@@ -24,10 +24,10 @@ export default function page() {
         }
       >
         {/* <DefaultThreeScene /> */}
-        {/* <GlassEffectWithThreejsScene /> */}
+        <GlassEffectWithThreejsScene />
         {/* <InteractiveParticulesLoopScene /> */}
         {/* <NodeBasedOrganicAnimationScene /> */}
-        <Recreating3DWithImageSequencesScene />
+        {/* <Recreating3DWithImageSequencesScene /> */}
         {/* <ScrollableTextGalleryScene /> */}
         {/* <ThreejsEnhancedCssSliderScene /> */}
       </div>

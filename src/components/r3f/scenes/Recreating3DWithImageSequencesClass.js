@@ -119,6 +119,8 @@ export default class Recreating3DWithImageSequencesClass {
     this.material.uniforms.time.value = this.time
     requestAnimationFrame(this.render.bind(this))
     this.renderer.render(this.scene, this.camera)
+
+    this.stats.update()
   }
 
   setupResize() {
@@ -147,7 +149,5 @@ export default class Recreating3DWithImageSequencesClass {
     this.renderer.setSize(this.width, this.height)
     this.camera.aspect = this.width / this.height
     this.camera.updateProjectionMatrix()
-
-    stats.update()
   }
 }
