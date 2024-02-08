@@ -41,7 +41,7 @@ export default class DrawingPhotosWithLinesIn3DClass {
       0.01,
       1000,
     )
-    this.camera.position.set(0, 0, 4)
+    this.camera.position.set(0, 0, 200)
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
 
@@ -75,7 +75,22 @@ export default class DrawingPhotosWithLinesIn3DClass {
     this.setupResize()
   }
 
-  addObjects() {
+  updateLines(time) {
+    let vector, line
+
+    for(let i = 0; i < this.lines; i++) {
+        line = this.group.children[i]
+
+        /* console.log(line.geometry.attributes.position.array) */
+        for(let j = 0; j < 150; j++) {
+            line.geometry.attributes.position.array[j] = Math.sin(j / 5 + time / 1000) * 20
+            /* console.log(vector) */
+        }
+        line.geometry.attributes.position.needsUpdate = true
+    }
+  }
+
+  /* addObjects() {
     const geometry = new THREE.PlaneGeometry(1, 1)
     this.material = new THREE.ShaderMaterial({
       side: THREE.DoubleSide,
@@ -89,11 +104,12 @@ export default class DrawingPhotosWithLinesIn3DClass {
 
     const plane = new THREE.Mesh(geometry, this.material)
     this.scene.add(plane)
-  }
+  } */
 
   render() {
     if (!this.isPlaying) return
-    /* this.time += 0.05 */
+    this.time += 0.05
+    this.updateLines(this.time)
     /* this.material.uniforms.time.value = this.time */
     requestAnimationFrame(this.render.bind(this))
     this.renderer.render(this.scene, this.camera)
