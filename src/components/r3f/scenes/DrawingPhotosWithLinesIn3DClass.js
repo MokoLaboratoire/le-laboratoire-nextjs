@@ -4,7 +4,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 import vertexShader from '../shaders/default_shaders/vertexShader.glsl'
 import fragmentShader from '../shaders/default_shaders/fragmentShader.glsl'
 
-export default class DefaultThreeClass {
+export default class DrawingPhotosWithLinesIn3DClass {
   constructor(props) {
     const { container } = props
 
