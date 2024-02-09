@@ -34,7 +34,7 @@ const BrainMaterial = shaderMaterial(
         if(dist < maxDist) {
             vec3 dir = normalize(mouse - p);
             dir *= (1.0 - dist / maxDist);
-            p -= dir * 0.01;
+            p -= dir * 0.03;
         }
 
 
