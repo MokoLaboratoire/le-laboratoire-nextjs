@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react'
 import * as THREE from 'three'
-import ReactThreeFiber, { extend, useFrame } from '@react-three/fiber'
+import ReactThreeFiber, { extend, useFrame, useThree } from '@react-three/fiber'
 import { shaderMaterial } from '@react-three/drei'
 
 declare global {
@@ -15,17 +15,30 @@ declare global {
 
 const BrainMaterial = shaderMaterial(
     { 
-        time: 0, 
+        time: 0,
+        mouse: new THREE.Vector3(0, 0, 0),
         color: new THREE.Color(0.1, 0.3, 0.6) 
     },
     /*glsl*/`
       uniform float time;
+      uniform vec3 mouse;
       varying vec2 vUv;
       varying float vProgress;
       void main() {
         vUv = uv;
         vProgress = smoothstep(-1.0, 1.0, sin(vUv.x * 8.0 + time * 3.0));
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+
+        vec3 p = position;
+        float maxDist = 0.5;
+        float dist = length(mouse -p);
+        if(dist < maxDist) {
+            vec3 dir = normalize(mouse - p);
+            dir *= (1.0 - dist / maxDist);
+            p -= dir * 0.01;
+        }
+
+
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
       }
     `,
     /*glsl*/`
@@ -49,10 +62,21 @@ interface TubeInterface {
 
 function Tube({ curve }: TubeInterface) {
     const brainMatRef = useRef(null)
-    useFrame(({ clock }) => {
+
+    let { viewport } = useThree()
+
+    useFrame(({ clock, pointer }) => {
         // @ts-ignore
         brainMatRef.current.uniforms.time.value = clock.getElapsedTime();
+        
+        // @ts-ignore
+        brainMatRef.current.uniforms.mouse.value = new THREE.Vector3(
+            pointer.x * viewport.width / 2,
+            pointer.y * viewport.height / 2,
+            0,
+        )
     })
+
     return (
         <mesh>
             <tubeGeometry args={[curve, 64, 0.001, 2, false]} />
