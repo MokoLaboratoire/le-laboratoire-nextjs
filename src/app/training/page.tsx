@@ -4,8 +4,9 @@ import React from 'react'
 
 import styles from 'styles.module.css'
 
+import BrainAnimationWithThreejsR3fScene from '@/components/r3f/scenes/BrainAnimationWithThreejsR3fScene'
 /* import DefaultThreeScene from '@/components/r3f/scenes/DefaultThreeScene' */
-import DrawingPhotosWithLinesIn3DScene from '@/components/r3f/scenes/DrawingPhotosWithLinesIn3DScene'
+/* import DrawingPhotosWithLinesIn3DScene from '@/components/r3f/scenes/DrawingPhotosWithLinesIn3DScene' */
 /* import GlassEffectWithThreejsScene from '@/components/r3f/scenes/GlassEffectWithThreejsScene' */
 /* import InteractiveParticulesLoopScene from '@/components/r3f/scenes/InteractiveParticulesLoopScene' */
 /* import NodeBasedOrganicAnimationScene from '@/components/r3f/scenes/NodeBasedOrganicAnimationScene' */
@@ -24,8 +25,9 @@ export default function page() {
           }
         }
       >
+        <BrainAnimationWithThreejsR3fScene />
         {/* <DefaultThreeScene /> */}
-        <DrawingPhotosWithLinesIn3DScene />
+        {/* <DrawingPhotosWithLinesIn3DScene /> */}
         {/* <GlassEffectWithThreejsScene /> */}
         {/* <InteractiveParticulesLoopScene /> */}
         {/* <NodeBasedOrganicAnimationScene /> */}
