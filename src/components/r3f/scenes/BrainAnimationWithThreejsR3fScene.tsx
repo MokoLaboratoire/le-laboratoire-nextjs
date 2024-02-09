@@ -7,8 +7,6 @@ import { OrbitControls, shaderMaterial } from '@react-three/drei'
 
 import { data } from './data/brainAnimationWithThreejsR3f'
 
-const PATH = data.economics[0].paths
-
 const randonRange = (min: number, max: number) => Math.random() * (max - min) + min
 
 /* const Tube = () => {
@@ -47,7 +45,7 @@ declare global {
 const BrainMaterial = shaderMaterial(
     { 
         time: 0, 
-        color: new THREE.Color(0.2, 0.4, 0.1) 
+        color: new THREE.Color(0.1, 0.3, 0.6) 
     },
     /*glsl*/`
       uniform float time;
@@ -55,7 +53,7 @@ const BrainMaterial = shaderMaterial(
       varying float vProgress;
       void main() {
         vUv = uv;
-        vProgress = smoothstep(-1.0, 1.0, sin(vUv.x * 8.0 + time));
+        vProgress = smoothstep(-1.0, 1.0, sin(vUv.x * 8.0 + time * 3.0));
         gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
       }
     `,
@@ -65,10 +63,10 @@ const BrainMaterial = shaderMaterial(
       varying vec2 vUv;
       varying float vProgress;
       void main() {
-        vec3 color1 = vec3(1.0, 0.0, 0.0);
-        vec3 color2 = vec3(1.0, 1.0, 0.0);
-        vec3 finalColor = mix(color1, color2, vProgress);
-        gl_FragColor.rgba = vec4(finalColor, 1.0);
+        vec3 finalColor = mix(color, color * 0.25, vProgress);
+        float hideCorners = smoothstep(1.0, 0.9, vUv.x);
+        float hideCorners1 = smoothstep(0.0, 0.1, vUv.x);
+        gl_FragColor.rgba = vec4(finalColor, hideCorners * hideCorners1);
       }
     `
 )
@@ -82,14 +80,22 @@ function Tube({ curve }: CurveInterface) {
     })
     return (
         <mesh>
-            <tubeGeometry args={[curve, 64, 0.01, 3, false]} />
-            <brainMaterial ref={brainMatRef} side={THREE.DoubleSide} />
+            <tubeGeometry args={[curve, 64, 0.001, 2, false]} />
+            <brainMaterial
+                ref={brainMatRef}
+                side={THREE.DoubleSide}
+                transparent={true}
+                depthTest={false}
+                depthWrite={false}
+                blending={THREE.AdditiveBlending}
+                /* wireframe={true} */
+            />
         </mesh>
     )
 }
 
 function Tubes() {
-    const curves: THREE.CatmullRomCurve3[] = []
+    /* const curves: THREE.CatmullRomCurve3[] = []
     for(let i = 0; i < 100; i++) {
         const points = []
         const length = randonRange(0.1, 1)
@@ -104,10 +110,24 @@ function Tubes() {
         }
         const tempcurve = new THREE.CatmullRomCurve3(points)
         curves.push(tempcurve)
-    }
+    } */
+    const PATHS = data.economics[0].paths
+    const brainCurves: THREE.CatmullRomCurve3[] = []
+    PATHS.forEach((path) => {
+        let points = []
+        for(let i = 0; i < PATHS.length; i += 3) {
+            points.push(new THREE.Vector3(
+                path[i],
+                path[i + 1],
+                path[i + 2]
+            ))
+        }
+        let tempcurve = new THREE.CatmullRomCurve3(points)
+        brainCurves.push(tempcurve)
+    })
     return (
         <>
-            {curves.map((curve, index) => (
+            {brainCurves.map((curve, index) => (
                 <Tube key={`curve_${index}`} curve={curve} />
             ))}
         </>
@@ -127,7 +147,8 @@ export default function BrainAnimationWithThreejsR3fScene() {
             powerPreference: 'high-performance',
             shadowMapEnabled: true
         }}
-        camera={{ fov: 75, near: 0.1, far: 5000, position: [0, 0, 2] }}
+        camera={{ fov: 75, near: 0.001, far: 1000, position: [0, 0, 0.3
+        ] }}
     >
         <color attach='background' args={['black']} />
         <ambientLight />
