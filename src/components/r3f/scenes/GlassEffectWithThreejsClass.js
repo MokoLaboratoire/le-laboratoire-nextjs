@@ -34,7 +34,7 @@ export default class GlassEffectWithThreejsClass {
     })
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     this.renderer.setSize(this.width, this.height)
-    this.renderer.setClearColor(0xFFFFFF, 1)
+    this.renderer.setClearColor(0xffffff, 1)
 
     this.raycaster = new THREE.Raycaster()
     this.pointer = new THREE.Vector2()
@@ -53,7 +53,9 @@ export default class GlassEffectWithThreejsClass {
 
     this.loader = new GLTFLoader()
     this.dracoLoader = new DRACOLoader()
-    this.dracoLoader.setDecoderPath('https://raw.githubusercontent.com/mrdoob/three.js/r147/examples/js/libs/draco/')
+    this.dracoLoader.setDecoderPath(
+      'https://raw.githubusercontent.com/mrdoob/three.js/r147/examples/js/libs/draco/',
+    )
     this.loader.setDRACOLoader(this.dracoLoader)
 
     this.event = createInputEvents(window)
@@ -62,7 +64,7 @@ export default class GlassEffectWithThreejsClass {
 
     this.initFinalScene()
     this.mouseEvents()
-    
+
     this.addObjects()
     this.initPostProcessing()
     this.render()
@@ -72,8 +74,15 @@ export default class GlassEffectWithThreejsClass {
 
   initFinalScene() {
     this.finalScene = new THREE.Scene()
-    this.finalCamera = new THREE.OrthographicCamera(-1 * this.camera.aspect, 1 * this.camera.aspect, 1, -1, -100, 100)
-    
+    this.finalCamera = new THREE.OrthographicCamera(
+      -1 * this.camera.aspect,
+      1 * this.camera.aspect,
+      1,
+      -1,
+      -100,
+      100,
+    )
+
     this.materialQuad = new THREE.ShaderMaterial({
       side: THREE.DoubleSide,
       transparent: true,
@@ -89,13 +98,13 @@ export default class GlassEffectWithThreejsClass {
     this.dummy = new THREE.Mesh(
       new THREE.PlaneGeometry(1, 1),
       /* new THREE.MeshBasicMaterial({ color: 0xFF0000 }) */
-      this.materialQuad
+      this.materialQuad,
     )
     this.finalScene.add(this.dummy)
 
     this.bleckBackground = new THREE.Mesh(
       new THREE.PlaneGeometry(10, 10),
-      new THREE.MeshBasicMaterial({ color: 0x000000 })
+      new THREE.MeshBasicMaterial({ color: 0x000000 }),
     )
     this.bleckBackground.position.z = -1
     this.finalScene.add(this.bleckBackground)
@@ -105,7 +114,7 @@ export default class GlassEffectWithThreejsClass {
       this.finalScene.position.y = event.y / 4000
     }) */
   }
- 
+
   mouseEvents() {
     this.event.on('move', ({ uv }) => {
       console.log('uv', uv)
@@ -123,16 +132,18 @@ export default class GlassEffectWithThreejsClass {
       uniforms: {
         time: { value: 0 },
         /* uTexture: { value: new THREE.TextureLoader().load('/img/uv/checker_map.png')}, */
-        uTexture: { value: new THREE.TextureLoader().load('/img/webp/texture.webp')},
+        uTexture: {
+          value: new THREE.TextureLoader().load('/img/webp/texture.webp'),
+        },
       },
       vertexShader: vertexShader,
       fragmentShader: fragmentShader,
     })
 
     this.loader.load(
-	    /* '/glb/gdn.glb', */
+      /* '/glb/gdn.glb', */
       'gltf/Suzanne/Suzanne.gltf',
-	    (gltf) => {
+      (gltf) => {
         /* this.mesh = gltf.scene.getObjectByName('rabbit_v3_rm_20211118') */
         this.mesh = gltf.scene.getObjectByName('Suzanne')
         /* console.log(this.mesh.geometry.attributes.uv.array) */
@@ -142,7 +153,7 @@ export default class GlassEffectWithThreejsClass {
 
         const uv = this.mesh.geometry.attributes.uv.array
 
-        for(let i = 0; i < uv.length; i += 4) {
+        for (let i = 0; i < uv.length; i += 4) {
           uv[i] = 0
           uv[i + 1] = 0
           uv[i + 2] = 1
@@ -152,7 +163,7 @@ export default class GlassEffectWithThreejsClass {
         this.mesh.geometry.attributes.uv.needsUpdate = true
 
         this.scene.add(this.mesh)
-    	}
+      },
     )
   }
 

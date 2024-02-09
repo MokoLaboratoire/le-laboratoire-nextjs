@@ -48,25 +48,24 @@ export default class DrawingPhotosWithLinesIn3DClass {
     this.group = new THREE.Group()
     this.scene.add(this.group)
 
-
     this.material = new THREE.LineBasicMaterial({
-        color: 0xFF00FF
+      color: 0xff00ff,
     })
 
-    for(let i = 0; i < this.lines; i++) {
-        this.points = []
+    for (let i = 0; i < this.lines; i++) {
+      this.points = []
 
-        for(let j = 0; j < this.lines; j++) {
-            let coord = (j / this.dots) * this.radius * 2 - this.radius
-            this.points.push(new THREE.Vector3(coord, Math.random() * 30, 0))
-        }
-        
-        this.geometry = new THREE.BufferGeometry().setFromPoints(this.points)
-        this.line = new THREE.Line(this.geometry, this.material)
-        this.line.rotation.x = Math.random() * Math.PI
-        this.line.rotation.y = Math.random() * Math.PI
-        this.line.rotation.z = Math.random() * Math.PI
-        this.group.add(this.line)
+      for (let j = 0; j < this.lines; j++) {
+        let coord = (j / this.dots) * this.radius * 2 - this.radius
+        this.points.push(new THREE.Vector3(coord, Math.random() * 30, 0))
+      }
+
+      this.geometry = new THREE.BufferGeometry().setFromPoints(this.points)
+      this.line = new THREE.Line(this.geometry, this.material)
+      this.line.rotation.x = Math.random() * Math.PI
+      this.line.rotation.y = Math.random() * Math.PI
+      this.line.rotation.z = Math.random() * Math.PI
+      this.group.add(this.line)
     }
 
     /* this.addObjects() */
@@ -78,15 +77,16 @@ export default class DrawingPhotosWithLinesIn3DClass {
   updateLines(time) {
     let vector, line
 
-    for(let i = 0; i < this.lines; i++) {
-        line = this.group.children[i]
+    for (let i = 0; i < this.lines; i++) {
+      line = this.group.children[i]
 
-        /* console.log(line.geometry.attributes.position.array) */
-        for(let j = 0; j < 150; j++) {
-            line.geometry.attributes.position.array[j] = Math.sin(j / 5 + time / 1000) * 20
-            /* console.log(vector) */
-        }
-        line.geometry.attributes.position.needsUpdate = true
+      /* console.log(line.geometry.attributes.position.array) */
+      for (let j = 0; j < 150; j++) {
+        line.geometry.attributes.position.array[j] =
+          Math.sin(j / 5 + time / 1000) * 20
+        /* console.log(vector) */
+      }
+      line.geometry.attributes.position.needsUpdate = true
     }
   }
 

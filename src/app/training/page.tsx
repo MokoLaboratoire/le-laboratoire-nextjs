@@ -4,7 +4,7 @@ import React from 'react'
 
 import styles from 'styles.module.css'
 
-import BrainAnimationWithThreejsR3fScene from '@/components/r3f/scenes/BrainAnimationWithThreejsR3fScene'
+/* import BrainAnimationWithThreejsR3fScene from '@/components/r3f/scenes/BrainAnimationWithThreejsR3fScene' */
 /* import DefaultThreeScene from '@/components/r3f/scenes/DefaultThreeScene' */
 /* import DrawingPhotosWithLinesIn3DScene from '@/components/r3f/scenes/DrawingPhotosWithLinesIn3DScene' */
 /* import GlassEffectWithThreejsScene from '@/components/r3f/scenes/GlassEffectWithThreejsScene' */
@@ -13,6 +13,7 @@ import BrainAnimationWithThreejsR3fScene from '@/components/r3f/scenes/BrainAnim
 /* import Recreating3DWithImageSequencesScene from '@/components/r3f/scenes/Recreating3DWithImageSequencesScene' */
 /* import ScrollableTextGalleryScene from '@/components/r3f/scenes/ScrollableTextGalleryScene' */
 /* import ThreejsEnhancedCssSliderScene from '@/components/r3f/scenes/ThreejsEnhancedCssSliderScene' */
+import TransitionEffectWithThreejsPostprocessingScene from '@/components/r3f/scenes/TransitionEffectWithThreejsPostprocessingScene'
 
 export default function page() {
   return (
@@ -25,7 +26,7 @@ export default function page() {
           }
         }
       >
-        <BrainAnimationWithThreejsR3fScene />
+        {/* <BrainAnimationWithThreejsR3fScene /> */}
         {/* <DefaultThreeScene /> */}
         {/* <DrawingPhotosWithLinesIn3DScene /> */}
         {/* <GlassEffectWithThreejsScene /> */}
@@ -34,6 +35,7 @@ export default function page() {
         {/* <Recreating3DWithImageSequencesScene /> */}
         {/* <ScrollableTextGalleryScene /> */}
         {/* <ThreejsEnhancedCssSliderScene /> */}
+        <TransitionEffectWithThreejsPostprocessingScene />
       </div>
       {/* <img
         src='/img/ktx2/gameboy_diffuse-high.png.ktx2'

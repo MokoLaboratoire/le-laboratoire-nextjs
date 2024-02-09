@@ -27,7 +27,7 @@ export default class Recreating3DWithImageSequencesClass {
     })
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     this.renderer.setSize(this.width, this.height)
-    this.renderer.setClearColor(0xFFFFFF, 1)
+    this.renderer.setClearColor(0xffffff, 1)
 
     this.raycaster = new THREE.Raycaster()
     this.pointer = new THREE.Vector2()
@@ -87,24 +87,24 @@ export default class Recreating3DWithImageSequencesClass {
     })
 
     this.ktx2Loader.load('img/ktx2/gameboy_data-high.png.ktx2', (texture) => {
-      texture.colorSpace = THREE.LinearSRGBColorSpace 
+      texture.colorSpace = THREE.LinearSRGBColorSpace
       this.material.uniforms.uData.value = texture
     })
     this.ktx2Loader.load(
       'img/ktx2/gameboy_diffuse-high.png.ktx2',
       (texture) => {
-        texture.colorSpace = THREE.LinearSRGBColorSpace 
+        texture.colorSpace = THREE.LinearSRGBColorSpace
         this.material.uniforms.uDiffuse.value = texture
       },
     )
     this.ktx2Loader.load('img/ktx2/gameboy_mv-high.png.ktx2', (texture) => {
-      texture.colorSpace = THREE.LinearSRGBColorSpace 
+      texture.colorSpace = THREE.LinearSRGBColorSpace
       this.material.uniforms.uMotion.value = texture
     })
     this.ktx2Loader.load(
       'img/ktx2/gameboy_position-high.png.ktx2',
       (texture) => {
-        texture.colorSpace = THREE.LinearSRGBColorSpace 
+        texture.colorSpace = THREE.LinearSRGBColorSpace
         this.material.uniforms.uPosition.value = texture
       },
     )
