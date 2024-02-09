@@ -5,10 +5,6 @@ import * as THREE from 'three'
 import ReactThreeFiber, { extend, useFrame } from '@react-three/fiber'
 import { shaderMaterial } from '@react-three/drei'
 
-import { data } from './data/brainAnimationWithThreejsR3f'
-
-const randonRange = (min: number, max: number) => Math.random() * (max - min) + min
-
 declare global {
     namespace JSX {
         interface IntrinsicElements {
@@ -47,11 +43,11 @@ const BrainMaterial = shaderMaterial(
 )
 extend({ BrainMaterial })
 
-interface CurveInterface {
+interface TubeInterface {
     curve: THREE.CatmullRomCurve3
 }
 
-function Tube({ curve }: CurveInterface) {
+function Tube({ curve }: TubeInterface) {
     const brainMatRef = useRef(null)
     useFrame(({ clock }) => {
         // @ts-ignore
@@ -73,21 +69,11 @@ function Tube({ curve }: CurveInterface) {
     )
 }
 
-export default function BrainTubes() {
-    const PATHS = data.economics[0].paths
-    const brainCurves: THREE.CatmullRomCurve3[] = []
-    PATHS.forEach((path) => {
-        let points = []
-        for(let i = 0; i < PATHS.length; i += 3) {
-            points.push(new THREE.Vector3(
-                path[i],
-                path[i + 1],
-                path[i + 2]
-            ))
-        }
-        let tempcurve = new THREE.CatmullRomCurve3(points)
-        brainCurves.push(tempcurve)
-    })
+interface BrainTubesInterface {
+    brainCurves: THREE.CatmullRomCurve3[]
+}
+
+export default function BrainTubes({ brainCurves }: BrainTubesInterface) {
     return (
         <>
             {brainCurves.map((curve, index) => (
