@@ -66,8 +66,8 @@ export default class TransitionEffectWithThreejsPostprocessingClass {
     const geometry = new THREE.PlaneGeometry(1920, 1080, 1, 1)
 
     this.textures = [
+    '/img/RoseRouge-70x50.png',
       '/img/VerbalShoota-70x50.png',
-      '/img/RoseRouge-70x50.png',
       '/img/Dash-70x50.png',
     ]
     this.textures = this.textures.map((t) => new THREE.TextureLoader().load(t))
@@ -77,25 +77,35 @@ export default class TransitionEffectWithThreejsPostprocessingClass {
         map: this.textures[1]
     }) */
 
-    this.group = new THREE.Group()
+    this.groups = []
 
-    for (let i = 0; i < 3; i++) {
-      let material = new THREE.MeshBasicMaterial({
-        map: this.textures[2],
-      })
-      if (i > 0) {
-        material = new THREE.MeshBasicMaterial({
-          map: this.textures[2],
-          alphaMap: this.maskTexture,
-          transparent: true,
-        })
-      }
-      const mesh = new THREE.Mesh(geometry, material)
-      mesh.position.z = (i + 1) * 100
-      this.group.add(mesh)
-    }
+    this.textures.forEach((t, j) => {
+        const group = new THREE.Group()
+        this.scene.add(group)
+        this.groups.push(group)
+        for (let i = 0; i < 3; i++) {
+            let material = new THREE.MeshBasicMaterial({
+            map: this.textures[j],
+            })
+            if (i > 0) {
+            material = new THREE.MeshBasicMaterial({
+                map: this.textures[j],
+                alphaMap: this.maskTexture,
+                transparent: true,
+            })
+            }
+            const mesh = new THREE.Mesh(geometry, material)
+            mesh.position.z = (i + 1) * 100
+            group.add(mesh)
+            group.position.x = j * 2500
+        }
+    })
 
-    this.scene.add(this.group)
+
+
+
+
+
 
     /* const plane = new THREE.Mesh(geometry, this.material)
     this.scene.add(plane) */
@@ -107,8 +117,10 @@ export default class TransitionEffectWithThreejsPostprocessingClass {
 
     this.mouseTarget.lerp(this.mouse, 0.1)
 
-    this.group.rotation.x = -this.mouseTarget.y * 0.2
-    this.group.rotation.y = -this.mouseTarget.x * 0.2
+    this.groups.forEach(g => {
+        g.rotation.x = -this.mouseTarget.y * 0.2
+        g.rotation.y = -this.mouseTarget.x * 0.2
+    })
 
     requestAnimationFrame(this.render.bind(this))
     this.renderer.render(this.scene, this.camera)
