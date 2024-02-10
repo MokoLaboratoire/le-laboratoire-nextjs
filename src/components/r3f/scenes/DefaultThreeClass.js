@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
+import { GUI } from 'dat.gui'
 
 import vertexShader from '../shaders/default_shaders/vertexShader.glsl'
 import fragmentShader from '../shaders/default_shaders/fragmentShader.glsl'
@@ -45,11 +46,15 @@ export default class DefaultThreeClass {
     this.render()
 
     this.setupResize()
+    /* this.setUpSettings() */
   }
 
   addObjects() {
     const geometry = new THREE.PlaneGeometry(1, 1)
     this.material = new THREE.ShaderMaterial({
+      extensions: {
+        derivates: 'extensions GL_OES_derivates: enable'
+      },
       side: THREE.DoubleSide,
       transparent: true,
       uniforms: {
@@ -81,5 +86,15 @@ export default class DefaultThreeClass {
     this.renderer.setSize(this.width, this.height)
     this.camera.aspect = this.width / this.height
     this.camera.updateProjectionMatrix()
+  }
+
+  setUpSettings() {
+    this.settings = {
+      progress: 0,
+    }
+    this.gui = new GUI()
+    this.gui.add(this.settings, 'progress', 0, 1, 0.01).onChange((value) => {
+      this.material.uniforms.progress.value = value
+    })
   }
 }

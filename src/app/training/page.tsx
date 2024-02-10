@@ -9,11 +9,12 @@ import styles from 'styles.module.css'
 /* import DrawingPhotosWithLinesIn3DScene from '@/components/r3f/scenes/DrawingPhotosWithLinesIn3DScene' */
 /* import GlassEffectWithThreejsScene from '@/components/r3f/scenes/GlassEffectWithThreejsScene' */
 /* import InteractiveParticulesLoopScene from '@/components/r3f/scenes/InteractiveParticulesLoopScene' */
+import MappingTextureTo3dFaceWithThreejsScene from '@/components/r3f/scenes/MappingTextureTo3dFaceWithThreejsScene'
 /* import NodeBasedOrganicAnimationScene from '@/components/r3f/scenes/NodeBasedOrganicAnimationScene' */
 /* import Recreating3DWithImageSequencesScene from '@/components/r3f/scenes/Recreating3DWithImageSequencesScene' */
 /* import ScrollableTextGalleryScene from '@/components/r3f/scenes/ScrollableTextGalleryScene' */
 /* import ThreejsEnhancedCssSliderScene from '@/components/r3f/scenes/ThreejsEnhancedCssSliderScene' */
-import TransitionEffectWithThreejsPostprocessingScene from '@/components/r3f/scenes/TransitionEffectWithThreejsPostprocessingScene'
+/* import TransitionEffectWithThreejsPostprocessingScene from '@/components/r3f/scenes/TransitionEffectWithThreejsPostprocessingScene' */
 
 export default function page() {
   return (
@@ -31,11 +32,12 @@ export default function page() {
         {/* <DrawingPhotosWithLinesIn3DScene /> */}
         {/* <GlassEffectWithThreejsScene /> */}
         {/* <InteractiveParticulesLoopScene /> */}
+        <MappingTextureTo3dFaceWithThreejsScene />
         {/* <NodeBasedOrganicAnimationScene /> */}
         {/* <Recreating3DWithImageSequencesScene /> */}
         {/* <ScrollableTextGalleryScene /> */}
         {/* <ThreejsEnhancedCssSliderScene /> */}
-        <TransitionEffectWithThreejsPostprocessingScene />
+        {/* <TransitionEffectWithThreejsPostprocessingScene /> */}
       </div>
       {/* <img
         src='/img/ktx2/gameboy_diffuse-high.png.ktx2'
