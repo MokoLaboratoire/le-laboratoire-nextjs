@@ -1,9 +1,10 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 import { GUI } from 'dat.gui'
 
-import vertexShader from '../shaders/default_shaders/vertexShader.glsl'
-import fragmentShader from '../shaders/default_shaders/fragmentShader.glsl'
+import vertexShader from '../shaders/volumetric_light_ray_with_threejs/vertexShader.glsl'
+import fragmentShader from '../shaders/volumetric_light_ray_with_threejs/fragmentShader.glsl'
 
 export default class VolumetricLightRayWithThreejsClass {
   constructor(props) {
@@ -42,6 +43,10 @@ export default class VolumetricLightRayWithThreejsClass {
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
 
+    this.directionnal = new THREE.DirectionalLight(0xFFFFFF, 0.75)
+    this.directionnal.position.set(0, 2, 2)
+    this.scene.add(this.directionnal)
+
     this.addObjects()
     this.render()
 
@@ -50,22 +55,40 @@ export default class VolumetricLightRayWithThreejsClass {
   }
 
   addObjects() {
-    const geometry = new THREE.PlaneGeometry(1, 1)
+    const geometry = new THREE.SphereGeometry(1, 30, 30)
+    this.moonMaterial = new THREE.MeshStandardMaterial({
+        map: new THREE.TextureLoader().load('img/jpg/2k_moon.jpg'),
+        roughness: 0.5
+    })
+    const sphere = new THREE.Mesh(geometry, this.moonMaterial)
+
     this.material = new THREE.ShaderMaterial({
       extensions: {
         derivates: 'extensions GL_OES_derivates: enable'
       },
       side: THREE.DoubleSide,
       transparent: true,
+      blending: THREE.CustomBlending,
+      blendEquation: THREE.MaxEquation,
       uniforms: {
         time: { value: 0 },
+        resolution: { value: new THREE.Vector4() },
       },
       vertexShader: vertexShader,
       fragmentShader: fragmentShader,
     })
+    const loader = new GLTFLoader()
+    loader.load('/gltf/Rays.gltf', (gltf) => {
+      this.model = gltf.scene
+      this.model.traverse(mesh => {
+        if(mesh.isMesh) {
+            mesh.material = this.material
+        }
+      })
+      this.scene.add(this.model)
+    })
 
-    const plane = new THREE.Mesh(geometry, this.material)
-    this.scene.add(plane)
+    this.scene.add(sphere)
   }
 
   render() {

@@ -15,7 +15,8 @@ import styles from 'styles.module.css'
 /* import ScrollableTextGalleryScene from '@/components/r3f/scenes/ScrollableTextGalleryScene' */
 /* import ThreejsEnhancedCssSliderScene from '@/components/r3f/scenes/ThreejsEnhancedCssSliderScene' */
 /* import TransitionEffectWithThreejsPostprocessingScene from '@/components/r3f/scenes/TransitionEffectWithThreejsPostprocessingScene' */
-import VolumetricLightRayWithThreejsScene from '@/components/r3f/scenes/VolumetricLightRayWithThreejsScene'
+/* import VolumetricLightRayWithThreejsScene from '@/components/r3f/scenes/VolumetricLightRayWithThreejsScene' */
+import VolumetricLightRayWithThreejsV2Scene from '@/components/r3f/scenes/VolumetricLightRayWithThreejsV2Scene'
 
 export default function page() {
   return (
@@ -39,7 +40,8 @@ export default function page() {
         {/* <ScrollableTextGalleryScene /> */}
         {/* <ThreejsEnhancedCssSliderScene /> */}
         {/* <TransitionEffectWithThreejsPostprocessingScene /> */}
-        <VolumetricLightRayWithThreejsScene />
+        {/* <VolumetricLightRayWithThreejsScene /> */}
+        <VolumetricLightRayWithThreejsV2Scene />
       </div>
       {/* <img
         src='/img/ktx2/gameboy_diffuse-high.png.ktx2'

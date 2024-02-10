@@ -6,7 +6,7 @@ import { GUI } from 'dat.gui'
 import vertexShader from '../shaders/default_shaders/vertexShader.glsl'
 import fragmentShader from '../shaders/default_shaders/fragmentShader.glsl'
 
-export default class DefaultThreeClass {
+export default class VolumetricLightRayWithThreejsV2Class {
   constructor(props) {
     const { container } = props
 
