@@ -3,8 +3,9 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 /* import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js' */
 import { GUI } from 'dat.gui'
 
-import vertexShader from '../shaders/default_shaders/vertexShader.glsl'
-import fragmentShader from '../shaders/default_shaders/fragmentShader.glsl'
+import vertexShader from '../shaders/volumetric_light_ray_with_threejs_v2/vertexShader.glsl'
+import fragmentShader from '../shaders/volumetric_light_ray_with_threejs_v2/fragmentShader.glsl'
+import fragmentShaderPost from '../shaders/volumetric_light_ray_with_threejs_v2/fragmentShaderPost.glsl'
 
 export default class VolumetricLightRayWithThreejsV2Class {
   constructor(props) {
@@ -39,7 +40,11 @@ export default class VolumetricLightRayWithThreejsV2Class {
       0.01,
       1000,
     )
-    this.camera.position.set(0, 0, 4)
+    this.camera.position.set(0, 0, 2.5)
+
+    const frustrumSize = 1;
+    const aspect = 1;
+    this.cameraPost = new THREE.OrthographicCamera(frustrumSize * aspect / -2, frustrumSize * aspect / 2, frustrumSize / 2, frustrumSize / -2, -1000, 1000)
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
     
@@ -51,6 +56,7 @@ export default class VolumetricLightRayWithThreejsV2Class {
 
     this.addObjects()
     this.addLights()
+    this.initPost()
     this.render()
 
     this.setupResize()
@@ -58,7 +64,7 @@ export default class VolumetricLightRayWithThreejsV2Class {
   }
 
   addObjects() {
-    const geometry = new THREE.PlaneGeometry(1, 1)
+    const geometry = new THREE.SphereGeometry(1, 30, 30)
     this.material = new THREE.ShaderMaterial({
       extensions: {
         derivates: 'extensions GL_OES_derivates: enable'
@@ -67,13 +73,14 @@ export default class VolumetricLightRayWithThreejsV2Class {
       transparent: true,
       uniforms: {
         time: { value: 0 },
+        uMap: { value: new THREE.TextureLoader().load('/img/webp/dft-une-seule-ligne-dessin-2.webp') },
       },
       vertexShader: vertexShader,
       fragmentShader: fragmentShader,
     })
 
-    const plane = new THREE.Mesh(geometry, this.material)
-    this.scene.add(plane)
+    this.sphere = new THREE.Mesh(geometry, this.material)
+    this.scene.add(this.sphere)
   }
 
   addLights() {
@@ -84,12 +91,48 @@ export default class VolumetricLightRayWithThreejsV2Class {
     this.scene.add(this.directionnal)
   }
 
+  initPost() {
+    this.baseTexture = new THREE.WebGLRenderTarget(this.width, this.height, {
+      minFilter: THREE.LinearFilter,
+      magFilter: THREE.LinearFilter,
+      format: THREE.RGBAFormat
+    })
+
+    this.materialOrtho = new THREE.ShaderMaterial({
+      extensions: {
+        derivates: 'extensions GL_OES_derivates: enable'
+      },
+      side: THREE.DoubleSide,
+      transparent: true,
+      uniforms: {
+        time: { value: 0 },
+        uMap: { value: null },
+      },
+      vertexShader: vertexShader,
+      fragmentShader: fragmentShaderPost,
+    })
+
+    const mesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), this.materialOrtho)
+
+    this.scenePost = new THREE.Scene()
+
+    this.scenePost.add(mesh)
+  }
+
   render() {
     if (!this.isPlaying) return
     this.time += 0.05
     this.material.uniforms.time.value = this.time
+    this.sphere.rotation.y = -this.time / 20
     requestAnimationFrame(this.render.bind(this))
+
+    this.renderer.setRenderTarget(this.baseTexture)
     this.renderer.render(this.scene, this.camera)
+
+    this.materialOrtho.uniforms.uMap.value = this.baseTexture.texture
+    
+    this.renderer.setRenderTarget(null)
+    this.renderer.render(this.scenePost, this.cameraPost)
   }
 
   setupResize() {
